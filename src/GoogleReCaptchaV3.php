@@ -17,8 +17,8 @@ class GoogleReCaptchaV3
     private $config;
     private $requestClient;
     private $action;
-    private $defaultFieldView = 'GoogleReCaptchaV3::googlerecaptcha.field';
-    private $defaultHeaderView = 'GoogleReCaptchaV3::googlerecaptcha.header';
+    private $defaultFieldView = 'GoogleReCaptchaV3::googlerecaptchav3.field';
+    private $defaultHeaderView = 'GoogleReCaptchaV3::googlerecaptchav3.header';
     private $request;
 
     public function __construct(ReCaptchaConfigV3Interface $config, RequestClientInterface $requestClient)
