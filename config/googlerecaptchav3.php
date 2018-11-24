@@ -19,6 +19,7 @@ return [
     | Host Name
     |--------------------------------------------------------------------------
     | Type: string
+    | Default will be empty, assign value only if you want domain check with Google response
     | Google reCAPTCHA host name, https://www.google.com/recaptcha/admin
     |
     */
@@ -73,7 +74,6 @@ return [
     'setting' => [
         [
             'action' => 'contact_us',
-            'id' => 'contact_us_id',
             'threshold' => 0,
             'is_enabled' => false
         ]
@@ -82,12 +82,11 @@ return [
     |--------------------------------------------------------------------------
     | Options
     |--------------------------------------------------------------------------
-    | Used for request
+    | Custom option field for your request setting, which will be used for RequestClientInterface
     |
     */
     'options' => [
-        'curl_timeout' => 1,
-        'curl_verify' => 1,
+
     ],
     /*
     |--------------------------------------------------------------------------

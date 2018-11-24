@@ -31,7 +31,7 @@ class GoogleReCaptchaV3Response
         $this->hostname = isset($data['hostname']) ? $data['hostname'] : '';
         $this->errorCodes = isset($data['error-codes']) ? $data['error-codes'] : [];
         $this->ip = $ip;
-        $this->message = $this->errorCodes ? $this->errorCodes[0] : '';
+        $this->message = $this->errorCodes ? $this->errorCodes[0] : $message;
     }
 
     /**

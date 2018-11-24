@@ -4,13 +4,13 @@ namespace RyanDeng\GoogleReCaptcha\Providers;
 
 
 use RyanDeng\GoogleReCaptcha\Configurations\ReCaptchaConfigV3;
-use RyanDeng\GoogleReCaptcha\Core\CurlRequestClient;
+use RyanDeng\GoogleReCaptcha\Core\GuzzleRequestClient;
 use RyanDeng\GoogleReCaptcha\GoogleReCaptchaV3;
 use RyanDeng\GoogleReCaptcha\Interfaces\ReCaptchaConfigV3Interface;
 use RyanDeng\GoogleReCaptcha\Interfaces\RequestClientInterface;
 use Illuminate\Support\ServiceProvider;
-
-
+use \RyanDeng\GoogleReCaptcha\Facades\GoogleReCaptchaV3 as GoogleReCaptchaV3Facade;
+use Illuminate\Support\Facades\Blade;
 class GoogleReCaptchaV3ServiceProvider extends ServiceProvider
 {
 
@@ -30,6 +30,11 @@ class GoogleReCaptchaV3ServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->bootForConsole();
         }
+
+        Blade::directive('recaptchav3', function ($expression) {
+            return GoogleReCaptchaV3Facade::render($expression);
+        });
+
     }
 
 
@@ -47,10 +52,10 @@ class GoogleReCaptchaV3ServiceProvider extends ServiceProvider
             ReCaptchaConfigV3Interface::class,
             ReCaptchaConfigV3::class
         );
-        
+
         $this->app->bind(
             RequestClientInterface::class,
-            CurlRequestClient::class
+            GuzzleRequestClient::class
         );
 
         $this->app->bind('GoogleReCaptchaV3', function () {

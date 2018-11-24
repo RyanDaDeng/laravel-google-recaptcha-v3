@@ -48,22 +48,6 @@ class ReCaptchaConfigV3 implements ReCaptchaConfigV3Interface
     }
 
     /**
-     * @return int
-     */
-    public function getCurlTimeout()
-    {
-        return config('googlerecaptchav3.options.curl_timeout');
-    }
-
-    /**
-     * @return bool
-     */
-    public function getCurlVerify()
-    {
-        return config('googlerecaptchav3.options.curl_verify');
-    }
-
-    /**
      * @return string
      */
     public function getTemplate()
@@ -93,7 +77,7 @@ class ReCaptchaConfigV3 implements ReCaptchaConfigV3Interface
     /**
      * @return array
      */
-    public function getScoreSetting()
+    public function getSetting()
     {
         return config('googlerecaptchav3.setting');
     }

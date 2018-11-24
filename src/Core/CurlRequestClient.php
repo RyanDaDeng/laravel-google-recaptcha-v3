@@ -20,13 +20,8 @@ class CurlRequestClient implements RequestClientInterface
         curl_setopt($curl, CURLOPT_HEADER, false);
         curl_setopt($curl, CURLOPT_POST, true);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($curl, CURLOPT_TIMEOUT, $options['curl_timeout']);
         curl_setopt($curl, CURLOPT_POSTFIELDS,
             http_build_query($body));
-
-        if ($options['curl_verify'] === false) {
-            curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
-        }
 
         $response = curl_exec($curl);
 

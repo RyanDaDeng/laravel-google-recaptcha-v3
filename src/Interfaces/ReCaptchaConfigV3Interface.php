@@ -28,16 +28,6 @@ interface ReCaptchaConfigV3Interface
     public function getSecretKey();
 
     /**
-     * @return int
-     */
-    public function getCurlTimeout();
-
-    /**
-     * @return bool
-     */
-    public function getCurlVerify();
-
-    /**
      * @return string
      */
     public function getTemplate();
@@ -55,7 +45,7 @@ interface ReCaptchaConfigV3Interface
     /**
      * @return array
      */
-    public function getScoreSetting();
+    public function getSetting();
 
     /**
      * @return string

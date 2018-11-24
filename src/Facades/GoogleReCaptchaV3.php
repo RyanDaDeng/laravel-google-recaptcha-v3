@@ -8,7 +8,7 @@ use RyanDeng\GoogleReCaptcha\Core\GoogleReCaptchaV3Response;
 /**
  * @method static GoogleReCaptchaV3Response verifyResponse(array $data)
  * @method static \RyanDeng\GoogleReCaptcha\GoogleReCaptchaV3 setAction(string $value)
- * @method static render(...$names)
+ * @method static render($action)
  * @see ReCaptcha
  */
 class GoogleReCaptchaV3 extends Facade

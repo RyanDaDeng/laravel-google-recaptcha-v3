@@ -17,37 +17,42 @@ class GoogleReCaptchaV3
     private $config;
     private $requestClient;
     private $action;
-    private $defaultView = 'GoogleReCaptchaV3::googlerecaptcha.googlerecaptchav3';
+    private $defaultFieldView = 'GoogleReCaptchaV3::googlerecaptcha.field';
+    private $defaultHeaderView = 'GoogleReCaptchaV3::googlerecaptcha.header';
+    private $request;
 
     public function __construct(ReCaptchaConfigV3Interface $config, RequestClientInterface $requestClient)
     {
         $this->config = $config;
         $this->requestClient = $requestClient;
+        $this->request = app('request');
     }
 
-    /**
-     * @param mixed ...$actions
-     * @return mixed
-     */
-    public function render(...$actions)
+
+    public function render($action, $name = 'g-recaptcha-response')
     {
         if ($this->config->isServiceEnabled() === false) {
             return null;
         }
 
-        $mapping = collect($this->config->getScoreSetting())
-            ->whereIn('action', $actions)
-            ->pluck('id', 'action')
-            ->toArray();
-
         $data = [
             'publicKey' => value($this->config->getSiteKey()),
-            'rows' => $mapping
+            'action' => $action,
+            'name' => $name,
+            'id' => uniqid($name . '-', false)
         ];
 
         $view = $this->getView();
 
         return app('view')->make($view, $data);
+    }
+
+    public function init()
+    {
+        return app('view')->make(
+            $this->defaultHeaderView,
+            ['publicKey' => $this->getConfig()->getSiteKey()]
+        );
     }
 
     /**
@@ -58,19 +63,19 @@ class GoogleReCaptchaV3
         $configTemplate = $this->config->getTemplate();
 
         if (!empty($configTemplate)) {
-            $this->defaultView = $configTemplate;
+            $this->defaultFieldView = $configTemplate;
         }
-        return $this->defaultView;
+        return $this->defaultFieldView;
     }
 
     /**
      * @param $response
-     * @param null $ip
      * @return GoogleReCaptchaV3Response
      */
-    public function verifyResponse($response, $ip = null)
+    public function verifyResponse($response)
     {
 
+        $ip = $this->request->getClientIp();
         if (!$this->config->isServiceEnabled()) {
             $res = new GoogleReCaptchaV3Response([], $ip);
             $res->setSuccess(true);
@@ -78,7 +83,9 @@ class GoogleReCaptchaV3
         }
 
         if (empty($response)) {
-            return new GoogleReCaptchaV3Response([], $ip, 'Missing input response.');
+            $res = new GoogleReCaptchaV3Response([], $ip, 'Missing input response.');
+            $res->setSuccess(false);
+            return $res;
         }
 
         $verifiedResponse = $this->requestClient->post(
@@ -88,10 +95,7 @@ class GoogleReCaptchaV3
                 'remoteip' => $ip,
                 'response' => $response,
             ],
-            [
-                'curl_timeout' => $this->config->getCurlTimeout(),
-                'curl_verify' => $this->config->getCurlVerify(),
-            ]
+            $this->config->getOptions()
         );
 
         if (is_null($verifiedResponse) || empty($verifiedResponse)) {
@@ -105,7 +109,7 @@ class GoogleReCaptchaV3
             return $rawResponse;
         }
 
-        if (strcasecmp($this->config->getHostName(), $rawResponse->getHostname()) !== 0) {
+        if (!empty($this->config->getHostName()) && strcasecmp($this->config->getHostName(), $rawResponse->getHostname()) !== 0) {
             $rawResponse->setMessage('Hostname does not match.');
             $rawResponse->setSuccess(false);
             return $rawResponse;
@@ -118,7 +122,7 @@ class GoogleReCaptchaV3
         }
 
         if ($this->getConfig()->isScoreEnabled()) {
-            $count = collect($this->getConfig()->getScoreSetting())
+            $count = collect($this->getConfig()->getSetting())
                 ->where('action', '=', $rawResponse->getAction())
                 ->where('is_enabled', '=', true)
                 ->where('threshold', '>', $rawResponse->getScore())
