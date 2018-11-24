@@ -65,7 +65,12 @@ Note: if you want to enable Score Comparision, you also need to enable is_score_
 
 Remember to turn on the service by enable is_service_enabled to be true.
 
-For more details please check comments in config file. 
+For more details please check comments in config file.
+
+#### Rendering View
+- Pass your action name in render(...) function
+- Each action should have its own mapped id which you have specified in setting file.
+
 ``` html  
 {!!  \RyanDeng\GoogleReCaptcha\Facades\GoogleReCaptchaV3::render($action1,$action2) !!}
 
