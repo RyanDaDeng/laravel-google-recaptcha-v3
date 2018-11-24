@@ -72,8 +72,9 @@ Specify your Score threshold and action in 'setting', e.g.
         ]
 ```        
 Note: if you want to enable Score Comparision, you also need to enable is_score_enabled to be true.
-
-Remember to turn on the service by enable is_service_enabled to be true.
+``` php
+'is_score_enabled' = true
+```   
 
 For more details please check comments in config file.
 
