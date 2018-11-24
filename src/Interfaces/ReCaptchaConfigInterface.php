@@ -12,7 +12,11 @@ namespace RyanDeng\GoogleReCaptcha\Interfaces;
 interface ReCaptchaConfigInterface
 {
 
+    /**
+     * @return bool
+     */
     public function isServiceEnabled();
+
     /**
      * @return bool
      */
@@ -42,7 +46,6 @@ interface ReCaptchaConfigInterface
      * @return string
      */
     public function getSiteKey();
-
 
     /**
      * @return array

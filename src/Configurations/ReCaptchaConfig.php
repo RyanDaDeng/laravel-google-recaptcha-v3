@@ -7,21 +7,33 @@ use RyanDeng\GoogleReCaptcha\Interfaces\ReCaptchaConfigInterface;
 
 class ReCaptchaConfig implements ReCaptchaConfigInterface
 {
+    /**
+     * @return string
+     */
     public function isServiceEnabled()
     {
         return config('googlerecaptcha.site_key');
     }
 
+    /**
+     * @return string
+     */
     public function getSiteVerifyUrl()
     {
         return config('googlerecaptcha.site_verify_url');
     }
 
+    /**
+     * @return string
+     */
     public function getHostName()
     {
         return config('googlerecaptcha.host_name');
     }
 
+    /**
+     * @return bool
+     */
     public function isScoreEnabled()
     {
         return config('googlerecaptcha.is_score_enabled');

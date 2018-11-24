@@ -26,19 +26,19 @@ This package requires the following dependencies:
 
 Via Composer
 
-``` bash
+``` sh
 $ composer require ryandeng/googlerecaptcha
 ```
 
 If your Laravel framework version <= 5.4, please register the service provider in your config file: /config/app.php, otherwise please go to step 3.
 
-```sh
+```
 Ryandadeng\Securepayframe\SecurePayFrameServiceProvider::class
 ```
 
 If your Laravel framework version is >= 5.5, just run the following command to publish views and config.
 ```sh 
-php artisan vendor:publish --provider="RyanDeng\GoogleReCaptcha\GoogleReCaptchaServiceProvider"
+$ php artisan vendor:publish --provider="RyanDeng\GoogleReCaptcha\GoogleReCaptchaServiceProvider"
 ```
 
 After installation, you should see a googlerecaptcha/googlerecaptcha.blade file in your views folder and googlerecaptchav3.php in your app/config folder.
@@ -47,7 +47,7 @@ If you want to change the default template, please check Advanced Usage.
 
 
 ## Basic Usage
-#### Setting up your Google reCAPTCHA details
+#### Setting up your Google reCAPTCHA details in config file
 
 Please register all details on host_name, site_key, secret_key and site_verify_url.
 
@@ -70,14 +70,14 @@ For more details please check comments in config file.
    
    You can use provided Validation object to verify your reCAPTCHA.
       
-``` php
+```
    use RyanDeng\GoogleReCaptcha\Validations\GoogleReCaptchaValidationRule
    $rule = [
             'g-recaptcha-response' => [new GoogleReCaptchaValidationRule('action_name',$ip)]
         ];
 ```
 
-   'g-recaptcha-response' is the name of your <input> field, which is currently hard-coded.
+   'g-recaptcha-response' is the name of your input field, which is currently hard-coded.
    
    GoogleReCaptchaValidationRule($actionName, $ip) which accepts two optional parameters:
    -  $actionName: if its NULL, the package won't verify action with google response.
@@ -87,14 +87,17 @@ For more details please check comments in config file.
 
 #### Facade Class
 
+
+```
+GoogleReCaptcha::setAction($action)->verifyResponse($response, $ip);
+```
+
 $action: Google reCAPTCHA definition
 
 $response: which is a value comes from g-recaptcha-response
 
 $ip: optional
 
-GoogleReCaptcha::setAction($action)->verifyResponse($response, $ip);
-    
 ## Advanced Usage
 
 #### Custom implementation on Config

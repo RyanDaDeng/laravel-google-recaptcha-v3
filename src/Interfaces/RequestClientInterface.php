@@ -12,7 +12,12 @@ namespace RyanDeng\GoogleReCaptcha\Interfaces;
 interface RequestClientInterface
 {
 
-
+    /**
+     * @param $url
+     * @param $body
+     * @param array $options
+     * @return mixed
+     */
     public function post($url, $body, $options = []);
 
 }
