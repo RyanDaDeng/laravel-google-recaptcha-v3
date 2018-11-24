@@ -66,21 +66,21 @@ Note: if you want to enable Score Comparision, you also need to enable is_score_
 Remember to turn on the service by enable is_service_enabled to be true.
 
 For more details please check comments in config file. 
-        
-        {!!  \RyanDeng\GoogleReCaptcha\Facades\GoogleReCaptchaV3::render($action1,$action2) !!}
-        
-        <form method="POST" action="/verify1">
+``` html  
+{!!  \RyanDeng\GoogleReCaptcha\Facades\GoogleReCaptchaV3::render($action1,$action2) !!}
+
+<form method="POST" action="/verify1">
+    @csrf
+    <input type="hidden" id="your_id_1" name="g-recaptcha-response">
+    <input type="submit" class="g-recaptcha" value="submit">
+</form>
+
+<form method="POST" action="/verify2">
             @csrf
-            <input type="hidden" id="your_id_1" name="g-recaptcha-response">
+            <input type="hidden" id="your_id_2" name="g-recaptcha-response">
             <input type="submit" class="g-recaptcha" value="submit">
-        </form>
-        
-        <form method="POST" action="/verify2">
-                    @csrf
-                    <input type="hidden" id="your_id_2" name="g-recaptcha-response">
-                    <input type="submit" class="g-recaptcha" value="submit">
-        </form>
-                
+</form>
+```
 -   You can pass multiple $action in render(...)     
 -   Please specify your id for the input below:
 
