@@ -117,7 +117,7 @@ Example Usage
 Note: all values should be registered in googlerecaptchav3 config file in 'setting' section. 
 
    
-#### Validation Class
+#### Validation Class (Only support Laravel >= 5.5)
    
    You can use provided Validation object to verify your reCAPTCHA.
       
