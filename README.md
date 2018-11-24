@@ -31,11 +31,24 @@ Via Composer
 $ composer require ryandeng/googlerecaptcha "^0.1.3"
 ```
 
-If your Laravel framework version <= 5.4, please register the service provider in your config file: /config/app.php, otherwise please go to step 3.
+If your Laravel framework version <= 5.4, please register the service provider in your config file: /config/app.php, otherwise please skip it.
 
+
+``` php
+'providers'=[
+    ....,
+    RyanDeng\GoogleReCaptcha\Providers\GoogleReCaptchaV3ServiceProvider::class
+]
 ```
-RyanDeng\GoogleReCaptcha\Providers\GoogleReCaptchaV3ServiceProvider::class
+
+And also
+``` php
+'aliases'=[
+     ....,
+     'GoogleReCaptchaV3'=>\RyanDeng\GoogleReCaptcha\Facades\GoogleReCaptchaV3::class
+ ]
 ```
+
 
 If your Laravel framework version is >= 5.5, just run the following command to publish views and config.
 ```sh 
