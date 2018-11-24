@@ -64,7 +64,7 @@ Please register all details on host_name, site_key, secret_key and site_verify_u
 
 Specify your Score threshold and action in 'setting', e.g.
 ``` php
-        [
+      'setting' =  [
             'action' => 'contact_us', // Google reCAPTCHA required paramater
             'id' => 'contactus_id', // your HTML input field id
             'threshold' => 0.2, // score threshold
