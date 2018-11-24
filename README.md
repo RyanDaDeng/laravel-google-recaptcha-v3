@@ -34,7 +34,7 @@ $ composer require ryandeng/googlerecaptcha
 If your Laravel framework version <= 5.4, please register the service provider in your config file: /config/app.php, otherwise please go to step 3.
 
 ```
-Ryandadeng\Securepayframe\SecurePayFrameServiceProvider::class
+RyanDeng\GoogleReCaptcha\Providers\GoogleReCaptchaV3ServiceProvider::class
 ```
 
 If your Laravel framework version is >= 5.5, just run the following command to publish views and config.
@@ -106,14 +106,14 @@ $ip: optional
 For some users, they might store the config details in their own storage e.g database. You can create your own class and implement:
 
 ```
-RyanDeng\GoogleReCaptcha\Interfaces\ReCaptchaConfigInterface
+RyanDeng\GoogleReCaptcha\Interfaces\ReCaptchaConfigV3Interface
 ```
 
 Remember to register your implementation, e.g.
 
 ``` php
      $this->app->bind(
-                ReCaptchaConfigInterface::class,
+                ReCaptchaConfigV3Interface::class,
                 YourOwnCustomImplementation::class
             );
 ```
