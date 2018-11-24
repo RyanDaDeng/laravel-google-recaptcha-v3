@@ -160,10 +160,6 @@ Remember to register your implementation.
                 YourOwnCustomImplementation::class
             );
 ```
-## Testing
-
-This test file will be added in the next release.
-
 
 ## Security
 
