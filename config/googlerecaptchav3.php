@@ -61,16 +61,16 @@ return [
     'is_score_enabled' => true,
     /*
     |--------------------------------------------------------------------------
-    | Score Setting
+    | Setting
     |--------------------------------------------------------------------------
     | Type: array
-    | Define your score threshold
+    | Define your score threshold, define your action
     | action: Google reCAPTCHA required paramater
     | id: <input> id
     | threshold: score threshold
     | is_enabled: true/false, if this is true, the system will do score comparsion against your threshold for the action
     */
-    'score_setting' => [
+    'setting' => [
         [
             'action' => 'contact_us',
             'id' => 'contact_us_id',

@@ -95,6 +95,6 @@ class ReCaptchaConfigV3 implements ReCaptchaConfigV3Interface
      */
     public function getScoreSetting()
     {
-        return config('googlerecaptchav3.score_setting');
+        return config('googlerecaptchav3.setting');
     }
 }

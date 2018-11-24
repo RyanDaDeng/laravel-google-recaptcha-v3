@@ -28,7 +28,7 @@ This package requires the following dependencies:
 Via Composer
 
 ``` sh
-$ composer require ryandeng/googlerecaptcha
+$ composer require ryandeng/googlerecaptcha "^0.1.2"
 ```
 
 If your Laravel framework version <= 5.4, please register the service provider in your config file: /config/app.php, otherwise please go to step 3.
@@ -52,7 +52,7 @@ If you want to change the default template, please check Advanced Usage.
 
 Please register all details on host_name, site_key, secret_key and site_verify_url.
 
-Specify your Score threshold in score_setting, e.g.
+Specify your Score threshold and action in 'setting', e.g.
 
         [
             'action' => 'contact_us', // Google reCAPTCHA required paramater
@@ -67,6 +67,29 @@ Remember to turn on the service by enable is_service_enabled to be true.
 
 For more details please check comments in config file. 
         
+        {!!  \RyanDeng\GoogleReCaptcha\Facades\GoogleReCaptchaV3::render($action1,$action2) !!}
+        
+        <form method="POST" action="/verify1">
+            @csrf
+            <input type="hidden" id="your_id_1" name="g-recaptcha-response">
+            <input type="submit" class="g-recaptcha" value="submit">
+        </form>
+        
+        <form method="POST" action="/verify2">
+                    @csrf
+                    <input type="hidden" id="your_id_2" name="g-recaptcha-response">
+                    <input type="submit" class="g-recaptcha" value="submit">
+        </form>
+                
+-   You can pass multiple $action in render(...)     
+-   Please specify your id for the input below:
+
+``` html
+    <input type="hidden" id="your_id" name="g-recaptcha-response">
+```
+Note: all values should be registered in googlerecaptchav3 config file in 'setting' section
+
+   
 #### Validation Class
    
    You can use provided Validation object to verify your reCAPTCHA.
