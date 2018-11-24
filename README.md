@@ -100,7 +100,6 @@ Example Usage
 
 <form method="POST" action="/verify">
     @csrf
-    <input type="hidden" id="contactus_id" name="g-recaptcha-response">
     {!!  GoogleReCaptchaV3::render('contact_us') !!}
 
     <input type="submit" class="g-recaptcha" value="submit">
