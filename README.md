@@ -9,7 +9,6 @@ Google reCAPTCHA v3 is a new mechanism to verify whether the user is bot or not.
 ## Features
 
 - Score Comparision
-- Support multiple input field for different form tag on a single HTML page
 - Support custom implementation on config interface
 - Support custom implementation on request method interface 
 
@@ -31,7 +30,7 @@ This package requires the following dependencies:
 Via Composer
 
 ``` sh
-$ composer require ryandeng/googlerecaptcha "^0.1.3"
+$ composer require ryandeng/googlerecaptcha "^0.2.0"
 ```
 
 If your Laravel framework version <= 5.4, please register the service provider in your config file: /config/app.php, otherwise please skip it.
@@ -101,7 +100,6 @@ Example Usage
 
 <form method="POST" action="/verify">
     @csrf
-    <input type="hidden" id="contactus_id" name="g-recaptcha-response">
     {!!  GoogleReCaptchaV3::render('contact_us') !!}
 
     <input type="submit" class="g-recaptcha" value="submit">
@@ -109,7 +107,7 @@ Example Usage
 
 ```
 
-Note: all actions should be registered in googlerecaptchav3 config file in 'setting' section. 
+Note: For score comparision, all actions should be registered in googlerecaptchav3 config file under 'setting' section. 
 
 You can also customise your own template under googlerecaptchav3 folder.
    
@@ -124,9 +122,6 @@ You can also customise your own template under googlerecaptchav3 folder.
         ];
 ```
 
-   'g-recaptcha-response' is the name of your input field, which is currently hard-coded.
-   
-   GoogleReCaptchaValidationRule($actionName, $ip) which accepts two optional parameters:
    -  $actionName: if its NULL, the package won't verify action with google response.
    
 #### Facade Class
@@ -140,7 +135,6 @@ $action: Google reCAPTCHA definition
 
 $response: which is a value comes from g-recaptcha-response
 
-$ip: optional
 
 ## Advanced Usage
 
