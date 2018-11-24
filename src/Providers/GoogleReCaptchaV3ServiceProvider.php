@@ -30,11 +30,6 @@ class GoogleReCaptchaV3ServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->bootForConsole();
         }
-
-        Blade::directive('recaptchav3', function ($expression) {
-            return GoogleReCaptchaV3Facade::render($expression);
-        });
-
     }
 
 
