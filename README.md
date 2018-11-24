@@ -80,12 +80,24 @@ Remember to turn on the service by enable is_service_enabled to be true.
 
 For more details please check comments in config file.
 
-#### Rendering View
+#### Display reCAPTCHA v3
+
 - Pass your action name in render(...) function
 - Each action should have its own mapped id which you have specified in setting file.
 
 ``` html  
-{!!  \RyanDeng\GoogleReCaptcha\Facades\GoogleReCaptchaV3::render($action1,$action2) !!}
+{!! app('captcha')->display($attributes) !!}
+```
+
+Or use Facade
+``` html  
+{!!  GoogleReCaptchaV3::render($action1,$action2) !!}
+```
+
+Example Usage
+
+``` html  
+{!!  GoogleReCaptchaV3::render($action1,$action2) !!}
 
 <form method="POST" action="/verify1">
     @csrf
@@ -99,6 +111,8 @@ For more details please check comments in config file.
             <input type="submit" class="g-recaptcha" value="submit">
 </form>
 ```
+
+
 -   You can pass multiple $action in render(...)     
 -   Please specify your id for the input below:
 
