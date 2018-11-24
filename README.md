@@ -107,7 +107,7 @@ Example Usage
 
 ```
 
-Note: all actions should be registered in googlerecaptchav3 config file in 'setting' section. 
+Note: For score comparision, all actions should be registered in googlerecaptchav3 config file under 'setting' section. 
 
 You can also customise your own template under googlerecaptchav3 folder.
    
@@ -122,9 +122,6 @@ You can also customise your own template under googlerecaptchav3 folder.
         ];
 ```
 
-   'g-recaptcha-response' is the name of your input field, which is currently hard-coded.
-   
-   GoogleReCaptchaValidationRule($actionName, $ip) which accepts two optional parameters:
    -  $actionName: if its NULL, the package won't verify action with google response.
    
 #### Facade Class
@@ -138,7 +135,6 @@ $action: Google reCAPTCHA definition
 
 $response: which is a value comes from g-recaptcha-response
 
-$ip: optional
 
 ## Advanced Usage
 
