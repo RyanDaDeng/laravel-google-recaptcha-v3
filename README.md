@@ -80,11 +80,8 @@ For more details please check comments in config file.
 
 #### Display reCAPTCHA v3
 
-- Pass your action name in render(...) function
-- Each action should have its own mapped id which you have specified in setting file.
-
 ``` html  
-{!! app('captcha')->display($attributes) !!}
+{!! app('captcha')->render($$action1,$action2...) !!}
 ```
 
 Or use Facade
@@ -110,14 +107,14 @@ Example Usage
 </form>
 ```
 
-
--   You can pass multiple $action in render(...)     
+-   You can pass multiple $action in render(...)function  
+-   Each action should have its own mapped id which you have specified in setting file.
 -   Please specify your id for the input below:
 
 ``` html
     <input type="hidden" id="your_id" name="g-recaptcha-response">
 ```
-Note: all values should be registered in googlerecaptchav3 config file in 'setting' section
+Note: all values should be registered in googlerecaptchav3 config file in 'setting' section. 
 
    
 #### Validation Class
