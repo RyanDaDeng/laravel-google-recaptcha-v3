@@ -9,10 +9,9 @@
 namespace RyanDeng\GoogleReCaptcha\Validations;
 
 
-use RyanDeng\GoogleReCaptcha\GoogleReCaptcha;
 use Illuminate\Contracts\Validation\ImplicitRule;
 
-
+use \RyanDeng\GoogleReCaptcha\Facades\GoogleReCaptcha;
 class GoogleReCaptchaValidationRule implements ImplicitRule
 {
     protected $action;

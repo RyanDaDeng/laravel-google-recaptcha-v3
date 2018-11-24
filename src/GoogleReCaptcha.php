@@ -72,7 +72,7 @@ class GoogleReCaptcha
     public function verifyResponse($response, $ip = null)
     {
 
-        if ($this->config->isServiceEnabled()) {
+        if (!$this->config->isServiceEnabled()) {
             $res = new ReCaptchaResponse([], $ip);
             $res->setSuccess(true);
             return $res;
@@ -101,6 +101,10 @@ class GoogleReCaptcha
 
         $decodedResponse = json_decode($verifiedResponse, true);
         $rawResponse = new ReCaptchaResponse($decodedResponse, $ip);
+
+        if ($rawResponse->isSuccess() === false) {
+            return $rawResponse;
+        }
 
         if (strcasecmp($this->config->getHostName(), $rawResponse->getHostname()) !== 0) {
             $rawResponse->setMessage('Hostname does not match.');
