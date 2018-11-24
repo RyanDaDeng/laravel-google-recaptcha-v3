@@ -188,6 +188,9 @@ Remember to register your implementation.
             );
 ```
 
+## Limitations
+One action can only map to one input field id, so you cannot declare multiple id to the same action.
+ 
 ## Security
 
 If you discover any security related issues, please email ryandadeng@gmail.com instead of using the issue tracker.
