@@ -57,9 +57,6 @@ $ php artisan vendor:publish --provider="RyanDeng\GoogleReCaptcha\Providers\Goog
 
 After installation, you should see a googlerecaptcha/googlerecaptchav3.blade file in your views folder and googlerecaptchav3.php in your app/config folder.
 
-If you want to change the default template, please check Advanced Usage.
-
-
 ## Basic Usage
 #### Setting up your Google reCAPTCHA details in config file
 
