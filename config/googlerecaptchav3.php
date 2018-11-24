@@ -57,7 +57,7 @@ return [
     | Score Comparision
     |--------------------------------------------------------------------------
     | Type: bool
-    | If you enable it, the package will do score comparision from your score_setting
+    | If you enable it, the package will do score comparision from your setting
     */
     'is_score_enabled' => true,
     /*
@@ -66,16 +66,16 @@ return [
     |--------------------------------------------------------------------------
     | Type: array
     | Define your score threshold, define your action
-    | action: Google reCAPTCHA required paramater
+    | action: Google reCAPTCHA required parameter
     | id: <input> id
     | threshold: score threshold
-    | is_enabled: true/false, if this is true, the system will do score comparsion against your threshold for the action
+    | score_comparision: true/false, if this is true, the system will do score comparsion against your threshold for the action
     */
     'setting' => [
         [
             'action' => 'contact_us',
             'threshold' => 0,
-            'is_enabled' => false
+            'score_comparision' => false
         ]
     ],
     /*

@@ -28,7 +28,11 @@ class GoogleReCaptchaV3
         $this->request = app('request');
     }
 
-
+    /**
+     * @param $action
+     * @param string $name
+     * @return mixed|null
+     */
     public function render($action, $name = 'g-recaptcha-response')
     {
         if ($this->config->isServiceEnabled() === false) {
@@ -124,11 +128,9 @@ class GoogleReCaptchaV3
         if ($this->getConfig()->isScoreEnabled()) {
             $count = collect($this->getConfig()->getSetting())
                 ->where('action', '=', $rawResponse->getAction())
-                ->where('is_enabled', '=', true)
+                ->where('score_comparision', '=', true)
                 ->where('threshold', '>', $rawResponse->getScore())
                 ->count();
-
-
             if ($count > 0) {
                 $rawResponse->setSuccess(false);
                 $rawResponse->setMessage('Score does not meet threshold.');
@@ -140,7 +142,9 @@ class GoogleReCaptchaV3
         return $rawResponse;
     }
 
-
+    /**
+     * @return ReCaptchaConfigV3Interface
+     */
     public function getConfig()
     {
         return $this->config;
