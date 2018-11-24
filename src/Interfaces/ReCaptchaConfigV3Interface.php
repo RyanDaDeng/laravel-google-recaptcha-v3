@@ -9,7 +9,7 @@
 namespace RyanDeng\GoogleReCaptcha\Interfaces;
 
 
-interface ReCaptchaConfigInterface
+interface ReCaptchaConfigV3Interface
 {
 
     /**

@@ -3,15 +3,15 @@
 namespace RyanDeng\GoogleReCaptcha\Facades;
 
 use Illuminate\Support\Facades\Facade;
-use RyanDeng\GoogleReCaptcha\Core\ReCaptchaResponse;
+use RyanDeng\GoogleReCaptcha\Core\GoogleReCaptchaV3Response;
 
 /**
- * @method static ReCaptchaResponse verifyResponse(array $data)
- * @method static \RyanDeng\GoogleReCaptcha\GoogleReCaptcha setAction(string $value)
+ * @method static GoogleReCaptchaV3Response verifyResponse(array $data)
+ * @method static \RyanDeng\GoogleReCaptcha\GoogleReCaptchaV3 setAction(string $value)
  * @method static render(...$names)
  * @see ReCaptcha
  */
-class GoogleReCaptcha extends Facade
+class GoogleReCaptchaV3 extends Facade
 {
     /**
      * Get the registered name of the component.
@@ -20,6 +20,6 @@ class GoogleReCaptcha extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return 'GoogleReCaptcha';
+        return 'GoogleReCaptchaV3';
     }
 }

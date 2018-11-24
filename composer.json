@@ -39,10 +39,10 @@
   "extra": {
     "laravel": {
       "providers": [
-        "RyanDeng\\GoogleReCaptcha\\Providers\\GoogleReCaptchaServiceProvider"
+        "RyanDeng\\GoogleReCaptcha\\Providers\\GoogleReCaptchaV3ServiceProvider"
       ],
       "aliases": {
-        "GoogleReCaptcha": "RyanDeng\\GoogleReCaptcha\\Facades\\GoogleReCaptcha"
+        "GoogleReCaptchaV3": "RyanDeng\\GoogleReCaptcha\\Facades\\GoogleReCaptchaV3"
       }
     }
   }

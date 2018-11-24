@@ -3,15 +3,15 @@
 namespace RyanDeng\GoogleReCaptcha\Providers;
 
 
-use RyanDeng\GoogleReCaptcha\Configurations\ReCaptchaConfig;
+use RyanDeng\GoogleReCaptcha\Configurations\ReCaptchaConfigV3;
 use RyanDeng\GoogleReCaptcha\Core\CurlRequestClient;
-use RyanDeng\GoogleReCaptcha\Interfaces\ReCaptchaConfigInterface;
+use RyanDeng\GoogleReCaptcha\GoogleReCaptchaV3;
+use RyanDeng\GoogleReCaptcha\Interfaces\ReCaptchaConfigV3Interface;
 use RyanDeng\GoogleReCaptcha\Interfaces\RequestClientInterface;
-use RyanDeng\GoogleReCaptcha\GoogleReCaptcha;
 use Illuminate\Support\ServiceProvider;
 
 
-class GoogleReCaptchaServiceProvider extends ServiceProvider
+class GoogleReCaptchaV3ServiceProvider extends ServiceProvider
 {
 
     // never defer the class, by default is false, but put here as an notice
@@ -25,7 +25,7 @@ class GoogleReCaptchaServiceProvider extends ServiceProvider
     public function boot()
     {
 
-        $this->loadViewsFrom(__DIR__ . '/../../resources/views', 'GoogleReCaptcha');
+        $this->loadViewsFrom(__DIR__ . '/../../resources/views', 'GoogleReCaptchaV3');
 
         if ($this->app->runningInConsole()) {
             $this->bootForConsole();
@@ -41,11 +41,11 @@ class GoogleReCaptchaServiceProvider extends ServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(
-            __DIR__ . '/../../config/googlerecaptcha.php', 'googlerecaptcha'
+            __DIR__ . '/../../config/googlerecaptchav3.php', 'googlerecaptchav3'
         );
         $this->app->bind(
-            ReCaptchaConfigInterface::class,
-            ReCaptchaConfig::class
+            ReCaptchaConfigV3Interface::class,
+            ReCaptchaConfigV3::class
         );
         
         $this->app->bind(
@@ -53,8 +53,8 @@ class GoogleReCaptchaServiceProvider extends ServiceProvider
             CurlRequestClient::class
         );
 
-        $this->app->bind('GoogleReCaptcha', function () {
-            return new GoogleReCaptcha(app(ReCaptchaConfigInterface::class), app(RequestClientInterface::class));
+        $this->app->bind('GoogleReCaptchaV3', function () {
+            return new GoogleReCaptchaV3(app(ReCaptchaConfigV3Interface::class), app(RequestClientInterface::class));
         });
     }
 
@@ -67,13 +67,13 @@ class GoogleReCaptchaServiceProvider extends ServiceProvider
     {
         // Publishing the configuration file.
         $this->publishes([
-            __DIR__ . '/../../config/googlerecaptcha.php' => config_path('googlerecaptcha.php'),
-        ], 'googlerecaptcha.config');
+            __DIR__ . '/../../config/googlerecaptchav3.php' => config_path('googlerecaptchav3.php'),
+        ], 'googlerecaptchav3.config');
 
         // Publishing the views.
         $this->publishes([
             __DIR__ . '/../../resources/views' => base_path('resources/views'),
-        ], 'googlerecaptcha.views');
+        ], 'googlerecaptchav3.views');
     }
 
     /**
@@ -85,7 +85,7 @@ class GoogleReCaptchaServiceProvider extends ServiceProvider
     {
         // define a list of provider names
         return [
-            'GoogleReCaptcha',
+            'GoogleReCaptchaV3',
         ];
     }
 }

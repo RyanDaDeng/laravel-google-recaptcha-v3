@@ -11,7 +11,7 @@ namespace RyanDeng\GoogleReCaptcha\Validations;
 
 use Illuminate\Contracts\Validation\ImplicitRule;
 
-use \RyanDeng\GoogleReCaptcha\Facades\GoogleReCaptcha;
+use \RyanDeng\GoogleReCaptcha\Facades\GoogleReCaptchaV3;
 class GoogleReCaptchaValidationRule implements ImplicitRule
 {
     protected $action;
@@ -30,7 +30,7 @@ class GoogleReCaptchaValidationRule implements ImplicitRule
      */
     public function passes($attribute, $value)
     {
-        $response = GoogleReCaptcha::setAction($this->action)->verifyResponse($value, $this->ip);
+        $response = GoogleReCaptchaV3::setAction($this->action)->verifyResponse($value, $this->ip);
         $this->message = $response->getMessage();
         return $response->isSuccess();
     }

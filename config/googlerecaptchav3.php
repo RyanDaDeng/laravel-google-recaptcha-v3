@@ -22,7 +22,7 @@ return [
     | Google reCAPTCHA host name, https://www.google.com/recaptcha/admin
     |
     */
-    'host_name' => 'ryandeng.test',
+    'host_name' => '',
     /*
     |--------------------------------------------------------------------------
     | Secret Key
@@ -50,7 +50,7 @@ return [
     | your value should be template.test
     |
     */
-    'template' => 'googlerecaptcha.googlerecaptcha',
+    'template' => '',
     /*
     |--------------------------------------------------------------------------
     | Score Comparision

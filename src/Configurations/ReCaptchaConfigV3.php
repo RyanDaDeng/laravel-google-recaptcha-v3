@@ -3,16 +3,16 @@
 namespace RyanDeng\GoogleReCaptcha\Configurations;
 
 
-use RyanDeng\GoogleReCaptcha\Interfaces\ReCaptchaConfigInterface;
+use RyanDeng\GoogleReCaptcha\Interfaces\ReCaptchaConfigV3Interface;
 
-class ReCaptchaConfig implements ReCaptchaConfigInterface
+class ReCaptchaConfigV3 implements ReCaptchaConfigV3Interface
 {
     /**
      * @return string
      */
     public function isServiceEnabled()
     {
-        return config('googlerecaptcha.site_key');
+        return config('googlerecaptchav3.site_key');
     }
 
     /**
@@ -20,7 +20,7 @@ class ReCaptchaConfig implements ReCaptchaConfigInterface
      */
     public function getSiteVerifyUrl()
     {
-        return config('googlerecaptcha.site_verify_url');
+        return config('googlerecaptchav3.site_verify_url');
     }
 
     /**
@@ -28,7 +28,7 @@ class ReCaptchaConfig implements ReCaptchaConfigInterface
      */
     public function getHostName()
     {
-        return config('googlerecaptcha.host_name');
+        return config('googlerecaptchav3.host_name');
     }
 
     /**
@@ -36,7 +36,7 @@ class ReCaptchaConfig implements ReCaptchaConfigInterface
      */
     public function isScoreEnabled()
     {
-        return config('googlerecaptcha.is_score_enabled');
+        return config('googlerecaptchav3.is_score_enabled');
     }
 
     /**
@@ -44,7 +44,7 @@ class ReCaptchaConfig implements ReCaptchaConfigInterface
      */
     public function getSecretKey()
     {
-        return config('googlerecaptcha.secret_key');
+        return config('googlerecaptchav3.secret_key');
     }
 
     /**
@@ -52,7 +52,7 @@ class ReCaptchaConfig implements ReCaptchaConfigInterface
      */
     public function getCurlTimeout()
     {
-        return config('googlerecaptcha.options.curl_timeout');
+        return config('googlerecaptchav3.options.curl_timeout');
     }
 
     /**
@@ -60,7 +60,7 @@ class ReCaptchaConfig implements ReCaptchaConfigInterface
      */
     public function getCurlVerify()
     {
-        return config('googlerecaptcha.options.curl_verify');
+        return config('googlerecaptchav3.options.curl_verify');
     }
 
     /**
@@ -68,7 +68,7 @@ class ReCaptchaConfig implements ReCaptchaConfigInterface
      */
     public function getTemplate()
     {
-        return config('googlerecaptcha.template');
+        return config('googlerecaptchav3.template');
     }
 
     /**
@@ -76,7 +76,7 @@ class ReCaptchaConfig implements ReCaptchaConfigInterface
      */
     public function getSiteKey()
     {
-        return config('googlerecaptcha.site_key');
+        return config('googlerecaptchav3.site_key');
     }
 
 
@@ -86,7 +86,7 @@ class ReCaptchaConfig implements ReCaptchaConfigInterface
     public function getOptions()
     {
 
-        return config('googlerecaptcha.options');
+        return config('googlerecaptchav3.options');
     }
 
 
@@ -95,6 +95,6 @@ class ReCaptchaConfig implements ReCaptchaConfigInterface
      */
     public function getScoreSetting()
     {
-        return config('googlerecaptcha.score_setting');
+        return config('googlerecaptchav3.score_setting');
     }
 }

@@ -39,10 +39,10 @@ Ryandadeng\Securepayframe\SecurePayFrameServiceProvider::class
 
 If your Laravel framework version is >= 5.5, just run the following command to publish views and config.
 ```sh 
-$ php artisan vendor:publish --provider="RyanDeng\GoogleReCaptcha\GoogleReCaptchaServiceProvider"
+$ php artisan vendor:publish --provider="RyanDeng\GoogleReCaptcha\Providers\GoogleReCaptchaV3ServiceProvider"
 ```
 
-After installation, you should see a googlerecaptcha/googlerecaptcha.blade file in your views folder and googlerecaptchav3.php in your app/config folder.
+After installation, you should see a googlerecaptcha/googlerecaptchav3.blade file in your views folder and googlerecaptchav3.php in your app/config folder.
 
 If you want to change the default template, please check Advanced Usage.
 
@@ -90,7 +90,7 @@ For more details please check comments in config file.
 
 
 ```
-GoogleReCaptcha::setAction($action)->verifyResponse($response, $ip);
+GoogleReCaptchaV3::setAction($action)->verifyResponse($response, $ip);
 ```
 
 $action: Google reCAPTCHA definition

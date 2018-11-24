@@ -11,7 +11,7 @@ namespace RyanDeng\GoogleReCaptcha\Core;
 
 use Carbon\Carbon;
 
-class ReCaptchaResponse
+class GoogleReCaptchaV3Response
 {
     protected $success;
     protected $score;
