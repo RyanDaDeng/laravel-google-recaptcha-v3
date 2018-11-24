@@ -8,7 +8,7 @@ Google reCAPTCHA v3 is a new mechanism to verify whether the user is bot or not.
 ## Features
 
 - Score Comparision
-- Support multiple input field for different <form> tag
+- Support multiple input field for different form tag on a single HTML page
 - Support custom implementation on config interface
 - Support custom implementation on request method interface 
 
