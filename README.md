@@ -8,7 +8,7 @@ Google reCAPTCHA v3 is a new mechanism to verify whether the user is bot or not.
 ## Features
 
 - Score Comparision
-- Support multiple input field for different <form> tag
+- Support multiple input field for different form tag on a single HTML page
 - Support custom implementation on config interface
 - Support custom implementation on request method interface 
 
@@ -57,9 +57,6 @@ $ php artisan vendor:publish --provider="RyanDeng\GoogleReCaptcha\Providers\Goog
 
 After installation, you should see a googlerecaptcha/googlerecaptchav3.blade file in your views folder and googlerecaptchav3.php in your app/config folder.
 
-If you want to change the default template, please check Advanced Usage.
-
-
 ## Basic Usage
 #### Setting up your Google reCAPTCHA details in config file
 
@@ -67,7 +64,7 @@ Please register all details on host_name, site_key, secret_key and site_verify_u
 
 Specify your Score threshold and action in 'setting', e.g.
 ``` php
-        [
+      'setting' =  [
             'action' => 'contact_us', // Google reCAPTCHA required paramater
             'id' => 'contactus_id', // your HTML input field id
             'threshold' => 0.2, // score threshold
@@ -75,18 +72,16 @@ Specify your Score threshold and action in 'setting', e.g.
         ]
 ```        
 Note: if you want to enable Score Comparision, you also need to enable is_score_enabled to be true.
-
-Remember to turn on the service by enable is_service_enabled to be true.
+``` php
+'is_score_enabled' = true
+```   
 
 For more details please check comments in config file.
 
 #### Display reCAPTCHA v3
 
-- Pass your action name in render(...) function
-- Each action should have its own mapped id which you have specified in setting file.
-
 ``` html  
-{!! app('captcha')->display($attributes) !!}
+{!! app('captcha')->render($$action1,$action2...) !!}
 ```
 
 Or use Facade
@@ -112,17 +107,17 @@ Example Usage
 </form>
 ```
 
-
--   You can pass multiple $action in render(...)     
+-   You can pass multiple $action in render(...)function  
+-   Each action should have its own mapped id which you have specified in setting file.
 -   Please specify your id for the input below:
 
 ``` html
     <input type="hidden" id="your_id" name="g-recaptcha-response">
 ```
-Note: all values should be registered in googlerecaptchav3 config file in 'setting' section
+Note: all values should be registered in googlerecaptchav3 config file in 'setting' section. 
 
    
-#### Validation Class
+#### Validation Class (Only support Laravel >= 5.5)
    
    You can use provided Validation object to verify your reCAPTCHA.
       
