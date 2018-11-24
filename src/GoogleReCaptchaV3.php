@@ -47,7 +47,7 @@ class GoogleReCaptchaV3
         return app('view')->make($view, $data);
     }
 
-    public function init()
+    public function requireJs()
     {
         return app('view')->make(
             $this->defaultHeaderView,

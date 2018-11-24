@@ -18,7 +18,7 @@ class GoogleReCaptchaValidationRule implements ImplicitRule
     protected $ip;
     protected $message;
 
-    public function __construct($action = null, $ip = null)
+    public function __construct($action = null)
     {
         $this->action = $action;
     }
@@ -30,7 +30,7 @@ class GoogleReCaptchaValidationRule implements ImplicitRule
      */
     public function passes($attribute, $value)
     {
-        $response = GoogleReCaptchaV3::setAction($this->action)->verifyResponse($value, $this->ip);
+        $response = GoogleReCaptchaV3::setAction($this->action)->verifyResponse($value);
         $this->message = $response->getMessage();
         return $response->isSuccess();
     }

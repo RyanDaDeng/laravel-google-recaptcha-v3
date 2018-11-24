@@ -3,8 +3,6 @@
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Total Downloads][ico-downloads]][link-downloads]
 
-STILL UNDER IMPLEMENTATION !!!
-
 
 Google reCAPTCHA v3 is a new mechanism to verify whether the user is bot or not.
 
@@ -58,7 +56,7 @@ If your Laravel framework version is >= 5.5, just run the following command to p
 $ php artisan vendor:publish --provider="RyanDeng\GoogleReCaptcha\Providers\GoogleReCaptchaV3ServiceProvider"
 ```
 
-After installation, you should see a googlerecaptcha/googlerecaptchav3.blade file in your views folder and googlerecaptchav3.php in your app/config folder.
+After installation, you should see a googlerecaptchav3/field.blade and header.blade file in your views folder and googlerecaptchav3.php in your app/config folder.
 
 ## Basic Usage
 #### Setting up your Google reCAPTCHA details in config file
@@ -69,7 +67,6 @@ Specify your Score threshold and action in 'setting', e.g.
 ``` php
       'setting' =  [
             'action' => 'contact_us', // Google reCAPTCHA required paramater
-            'id' => 'contactus_id', // your HTML input field id
             'threshold' => 0.2, // score threshold
             'is_enabled' => false // if this is true, the system will do score comparsion against your threshold for the action
         ]
@@ -83,41 +80,34 @@ For more details please check comments in config file.
 
 #### Display reCAPTCHA v3
 
+Include Google API in header
+
 ``` html  
-{!! app('captcha')->render($$action1,$action2...) !!}
+{!!  GoogleReCaptchaV3::requireJs() !!}
 ```
 
-Or use Facade
+Include input field
+
 ``` html  
-{!!  GoogleReCaptchaV3::render($action1,$action2) !!}
+ {!!  GoogleReCaptchaV3::render('contact_us') !!}
 ```
 
 Example Usage
 
 ``` html  
-{!!  GoogleReCaptchaV3::render($action1,$action2) !!}
+{!!  GoogleReCaptchaV3::requireJs() !!}
 
-<form method="POST" action="/verify1">
+<form method="POST" action="/verify">
     @csrf
-    <input type="hidden" id="your_id_1" name="g-recaptcha-response">
+    <input type="hidden" id="contactus_id" name="g-recaptcha-response">
+    {!!  GoogleReCaptchaV3::render('contact_us') !!}
+
     <input type="submit" class="g-recaptcha" value="submit">
 </form>
 
-<form method="POST" action="/verify2">
-            @csrf
-            <input type="hidden" id="your_id_2" name="g-recaptcha-response">
-            <input type="submit" class="g-recaptcha" value="submit">
-</form>
 ```
 
--   You can pass multiple $action in render(...)function  
--   Each action should have its own mapped id which you have specified in setting file.
--   Please specify your id for the input below:
-
-``` html
-    <input type="hidden" id="your_id" name="g-recaptcha-response">
-```
-Note: all values should be registered in googlerecaptchav3 config file in 'setting' section. 
+Note: all actions should be registered in googlerecaptchav3 config file in 'setting' section. 
 
    
 #### Validation Class (Only support Laravel >= 5.5)
@@ -127,7 +117,7 @@ Note: all values should be registered in googlerecaptchav3 config file in 'setti
 ``` php
    use RyanDeng\GoogleReCaptcha\Validations\GoogleReCaptchaValidationRule
    $rule = [
-            'g-recaptcha-response' => [new GoogleReCaptchaValidationRule('action_name',$ip)]
+            'g-recaptcha-response' => [new GoogleReCaptchaValidationRule('action_name')]
         ];
 ```
 
@@ -136,14 +126,11 @@ Note: all values should be registered in googlerecaptchav3 config file in 'setti
    GoogleReCaptchaValidationRule($actionName, $ip) which accepts two optional parameters:
    -  $actionName: if its NULL, the package won't verify action with google response.
    
-   -  $ip: request remote ip, this is Google reCAPTCHA parameter.
-   
-
 #### Facade Class
 
 
 ``` php
-GoogleReCaptchaV3::setAction($action)->verifyResponse($response, $ip);
+GoogleReCaptchaV3::setAction($action)->verifyResponse($response);
 ```
 
 $action: Google reCAPTCHA definition
@@ -173,7 +160,7 @@ Remember to register your implementation, e.g.
 
 #### Custom implementation on Request method
 
-The package uses Curl to verify, if you want to use your own request method, You can create your own class and implement 
+The package uses Guzzle\Http to verify, if you want to use your own request method, You can create your own class and implement 
 ```
 RyanDeng\GoogleReCaptcha\Interfaces\RequestClientInterface
 ```
@@ -186,9 +173,6 @@ Remember to register your implementation.
             );
 ```
 
-## Limitations
-One action can only map to one input field id, so you cannot declare multiple id to the same action.
- 
 ## Security
 
 If you discover any security related issues, please email ryandadeng@gmail.com instead of using the issue tracker.
