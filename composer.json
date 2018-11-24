@@ -1,0 +1,49 @@
+{
+  "name": "ryandeng/googlerecaptcha",
+  "description": "Laravel 5.x library for reCAPTCHA v3",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Ryan Deng",
+      "email": "ryandadeng@gmail.com",
+      "homepage": "https://ryandeng.com"
+    }
+  ],
+  "homepage": "https://github.com/RyanDaDeng/laravel-google-recaptcha-v3",
+  "keywords": [
+    "Laravel",
+    "GoogleReCaptcha",
+    "reCAPTCHA v3",
+    "Laravel reCAPTCHA"
+  ],
+  "require": {
+    "php": ">=5.5",
+    "illuminate/support": "~5"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~7.0",
+    "mockery/mockery": "^1.1",
+    "orchestra/testbench": "~3.0",
+    "sempro/phpunit-pretty-print": "^1.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "RyanDeng\\GoogleReCaptcha\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "RyanDeng\\GoogleReCaptcha\\Tests\\": "tests"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "RyanDeng\\GoogleReCaptcha\\Providers\\GoogleReCaptchaServiceProvider"
+      ],
+      "aliases": {
+        "GoogleReCaptcha": "RyanDeng\\GoogleReCaptcha\\Facades\\GoogleReCaptcha"
+      }
+    }
+  }
+}
