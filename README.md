@@ -28,7 +28,7 @@ This package requires the following dependencies:
 Via Composer
 
 ``` sh
-$ composer require ryandeng/googlerecaptcha "^0.1.2"
+$ composer require ryandeng/googlerecaptcha "^0.1.3"
 ```
 
 If your Laravel framework version <= 5.4, please register the service provider in your config file: /config/app.php, otherwise please go to step 3.
