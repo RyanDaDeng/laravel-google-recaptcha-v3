@@ -17,7 +17,9 @@ Google reCAPTCHA v3 is a new mechanism to verify whether the user is bot or not.
 
 This package requires the following dependencies:
 
-- Laravel 5.x
+- Laravel 5.x 
+
+- If you want to use Validation Class your Laravel version needs to be >= 5.5
 
 - php > 5
 
@@ -88,8 +90,8 @@ Include Google API in header
 
 Include input field
 
-``` html  
- {!!  GoogleReCaptchaV3::render('contact_us') !!}
+``` PHP  
+ {!!  GoogleReCaptchaV3::render($actionName, $fieldName) !!} // $actionName is your google action, $fieldName is optional for input field name
 ```
 
 Example Usage
@@ -109,6 +111,7 @@ Example Usage
 
 Note: all actions should be registered in googlerecaptchav3 config file in 'setting' section. 
 
+You can also customise your own template under googlerecaptchav3 folder.
    
 #### Validation Class (Only support Laravel >= 5.5)
    
