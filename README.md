@@ -54,7 +54,7 @@ And also
 
 If your Laravel framework version is >= 5.5, just run the following command to publish views and config.
 ```sh 
-$ php artisan vendor:publish --provider="RyanDeng\GoogleReCaptcha\Providers\GoogleReCaptchaV3ServiceProvider"
+$ php artisan vendor:publish --provider="TimeHunter\LaravelGoogleCaptchaV3\Providers\GoogleReCaptchaV3ServiceProvider"
 ```
 
 After installation, you should see a googlerecaptchav3/field.blade and header.blade file in your views folder and googlerecaptchav3.php in your app/config folder.
