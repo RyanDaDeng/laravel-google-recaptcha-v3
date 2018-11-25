@@ -67,9 +67,11 @@ Please register all details on host_name, site_key, secret_key and site_verify_u
 Specify your Score threshold and action in 'setting', e.g.
 ``` php
       'setting' =  [
+          [
             'action' => 'contact_us', // Google reCAPTCHA required paramater
             'threshold' => 0.2, // score threshold
             'is_enabled' => false // if this is true, the system will do score comparsion against your threshold for the action
+            ]
         ]
 ```        
 Note: if you want to enable Score Comparision, you also need to enable is_score_enabled to be true.
@@ -102,7 +104,7 @@ Example Usage
     @csrf
     {!!  GoogleReCaptchaV3::render('contact_us') !!}
 
-    <input type="submit" class="g-recaptcha" value="submit">
+    <input type="submit" value="submit">
 </form>
 
 ```
@@ -123,17 +125,25 @@ You can also customise your own template under googlerecaptchav3 folder.
 ```
 
    -  $actionName: if its NULL, the package won't verify action with google response.
-   
-#### Facade Class
+  
+#### Facade Usage
 
+You can also directly use registered service by calling the following method.
+- setAction() is optional only if you want to verify if the action is matched.
+- verifyResponse() which accepts the token value from your form. This return Google reCAPTCHA Response object.
 
 ``` php
-GoogleReCaptchaV3::setAction($action)->verifyResponse($response);
+   GoogleReCaptchaV3::setAction($action)->verifyResponse($value);
 ```
 
-$action: Google reCAPTCHA definition
+Example Usage
 
-$response: which is a value comes from g-recaptcha-response
+``` php
+   GoogleReCaptchaV3::verifyResponse($value)->getMessage();
+   GoogleReCaptchaV3::verifyResponse($value)->isSuccess();
+   GoogleReCaptchaV3::verifyResponse($value)->toArray();
+   GoogleReCaptchaV3::setAction($action)->verifyResponse($value)->isSuccess);
+```
 
 
 ## Advanced Usage
