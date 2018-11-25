@@ -67,9 +67,11 @@ Please register all details on host_name, site_key, secret_key and site_verify_u
 Specify your Score threshold and action in 'setting', e.g.
 ``` php
       'setting' =  [
+          [
             'action' => 'contact_us', // Google reCAPTCHA required paramater
             'threshold' => 0.2, // score threshold
             'is_enabled' => false // if this is true, the system will do score comparsion against your threshold for the action
+            ]
         ]
 ```        
 Note: if you want to enable Score Comparision, you also need to enable is_score_enabled to be true.
