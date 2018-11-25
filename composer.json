@@ -11,16 +11,18 @@
   ],
   "homepage": "https://github.com/RyanDaDeng/laravel-google-recaptcha-v3",
   "keywords": [
-    "Laravel",
-    "GoogleReCaptcha",
-    "Google reCAPTCHA",
+    "laravel recaptcha",
+    "googlerecaptcha",
+    "google recaptcha",
     "google recaptcha v3",
-    "reCAPTCHA v3",
-    "Laravel reCAPTCHA"
+    "recaptcha v3",
+    "laravel google recaptcha v3",
+    "laravel google recaptcha",
+    "recaptcha"
   ],
   "require": {
     "php": ">=5.5",
-    "illuminate/support": "~5"
+    "guzzlehttp/guzzle": "^6.2"
   },
   "require-dev": {
     "phpunit/phpunit": "~7.0",
