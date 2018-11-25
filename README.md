@@ -3,6 +3,12 @@
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Total Downloads][ico-downloads]][link-downloads]
 
+# Importance
+
+If you have any issues or questions on using the package, please use issue tracker to create ticket. I will be working on it within 24 hours for sure.
+
+
+## Description
 
 Google reCAPTCHA v3 is a new mechanism to verify whether the user is bot or not.
 
