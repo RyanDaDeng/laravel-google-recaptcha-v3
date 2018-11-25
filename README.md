@@ -104,7 +104,7 @@ Example Usage
     @csrf
     {!!  GoogleReCaptchaV3::render('contact_us') !!}
 
-    <input type="submit" class="g-recaptcha" value="submit">
+    <input type="submit" value="submit">
 </form>
 
 ```
