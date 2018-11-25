@@ -133,7 +133,7 @@ You can also directly use registered service by calling the following method.
 - verifyResponse() which accepts the token value from your form. This return Google reCAPTCHA Response object.
 
 ``` php
-   GoogleReCaptchaV3::setAction($action)->verifyResponse($value)
+   GoogleReCaptchaV3::setAction($action)->verifyResponse($value);
 ```
 
 Example Usage
@@ -144,17 +144,6 @@ Example Usage
    GoogleReCaptchaV3::verifyResponse($value)->toArray();
    GoogleReCaptchaV3::setAction($action)->verifyResponse($value)->isSuccess);
 ```
-
-#### Facade Class
-
-
-``` php
-GoogleReCaptchaV3::setAction($action)->verifyResponse($response);
-```
-
-$action: Google reCAPTCHA definition
-
-$response: which is a value comes from g-recaptcha-response
 
 
 ## Advanced Usage
