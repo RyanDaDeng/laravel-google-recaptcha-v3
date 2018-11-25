@@ -30,7 +30,7 @@ This package requires the following dependencies:
 Via Composer
 
 ``` sh
-        $ composer require ryandeng/googlerecaptcha "^1.0.0"
+        $ composer require timehunter/laravel-google-recaptcha-v3 "^1.0.0"
 ```
 
 If your Laravel framework version <= 5.4, please register the service provider in your config file: /config/app.php, otherwise please skip it.
@@ -39,7 +39,7 @@ If your Laravel framework version <= 5.4, please register the service provider i
 ``` php
 'providers'=[
     ....,
-    RyanDeng\GoogleReCaptcha\Providers\GoogleReCaptchaV3ServiceProvider::class
+    TimeHunter\LaravelGoogleCaptchaV3\Providers\GoogleReCaptchaV3ServiceProvider::class
 ]
 ```
 
@@ -47,7 +47,7 @@ And also
 ``` php
 'aliases'=[
      ....,
-     'GoogleReCaptchaV3'=>\RyanDeng\GoogleReCaptcha\Facades\GoogleReCaptchaV3::class
+     'GoogleReCaptchaV3'=> TimeHunter\LaravelGoogleCaptchaV3\Facades\GoogleReCaptchaV3::class
  ]
 ```
 
@@ -118,7 +118,7 @@ You can also customise your own template under googlerecaptchav3 folder.
    You can use provided Validation object to verify your reCAPTCHA.
       
 ``` php
-   use RyanDeng\GoogleReCaptcha\Validations\GoogleReCaptchaValidationRule
+   use TimeHunter\LaravelGoogleCaptchaV3\Validations\GoogleReCaptchaValidationRule
    $rule = [
             'g-recaptcha-response' => [new GoogleReCaptchaValidationRule('action_name')]
         ];
@@ -153,7 +153,7 @@ Example Usage
 For some users, they might store the config details in their own storage e.g database. You can create your own class and implement:
 
 ```
-RyanDeng\GoogleReCaptcha\Interfaces\ReCaptchaConfigV3Interface
+TimeHunter\LaravelGoogleCaptchaV3\Interfaces\ReCaptchaConfigV3Interface
 ```
 
 Remember to register your implementation, e.g.
@@ -169,7 +169,7 @@ Remember to register your implementation, e.g.
 
 The package uses Guzzle\Http to verify, if you want to use your own request method, You can create your own class and implement 
 ```
-RyanDeng\GoogleReCaptcha\Interfaces\RequestClientInterface
+TimeHunter\LaravelGoogleCaptchaV3\Interfaces\RequestClientInterface
 ```
 
 Remember to register your implementation.
@@ -189,10 +189,8 @@ If you discover any security related issues, please email ryandadeng@gmail.com i
 
 MIT. Please see the [license file](license.md) for more information.
 
-[ico-version]: https://img.shields.io/packagist/v/ryandeng/googlerecaptcha.svg?style=flat-square
-[ico-downloads]: https://img.shields.io/packagist/dt/ryandeng/googlerecaptcha.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/ryandeng/googlerecaptcha/master.svg?style=flat-square
-[ico-styleci]: https://styleci.io/repos/12345678/shield
+[ico-version]: https://img.shields.io/packagist/v/timehunter/laravel-google-recaptcha-v3.svg?style=flat-square
+[ico-downloads]: https://img.shields.io/packagist/dt/timehunter/laravel-google-recaptcha-v3.svg?style=flat-square
 
 [link-packagist]: https://packagist.org/packages/ryandeng/googlerecaptcha
 [link-downloads]: https://packagist.org/packages/ryandeng/googlerecaptcha
