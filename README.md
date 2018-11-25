@@ -192,6 +192,6 @@ MIT. Please see the [license file](license.md) for more information.
 [ico-version]: https://img.shields.io/packagist/v/timehunter/laravel-google-recaptcha-v3.svg?style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/timehunter/laravel-google-recaptcha-v3.svg?style=flat-square
 
-[link-packagist]: https://packagist.org/packages/ryandeng/googlerecaptcha
-[link-downloads]: https://packagist.org/packages/ryandeng/googlerecaptcha
+[link-packagist]: https://packagist.org/packages/timehunter/laravel-google-recaptcha-v3
+[link-downloads]: https://packagist.org/packages/timehunter/laravel-google-recaptcha-v3
 [link-author]: https://github.com/ryandadeng
