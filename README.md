@@ -125,7 +125,26 @@ You can also customise your own template under googlerecaptchav3 folder.
 ```
 
    -  $actionName: if its NULL, the package won't verify action with google response.
-   
+  
+#### Facade Usage
+
+You can also directly use registered service by calling the following method.
+- setAction() is optional only if you want to verify if the action is matched.
+- verifyResponse() which accepts the token value from your form. This return Google reCAPTCHA Response object.
+
+``` php
+   GoogleReCaptchaV3::setAction($action)->verifyResponse($value)
+```
+
+Example Usage
+
+``` php
+   GoogleReCaptchaV3::verifyResponse($value)->getMessage();
+   GoogleReCaptchaV3::verifyResponse($value)->isSuccess();
+   GoogleReCaptchaV3::verifyResponse($value)->toArray();
+   GoogleReCaptchaV3::setAction($action)->verifyResponse($value)->isSuccess);
+```
+
 #### Facade Class
 
 
