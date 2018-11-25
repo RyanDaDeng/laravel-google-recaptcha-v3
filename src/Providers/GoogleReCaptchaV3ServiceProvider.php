@@ -1,16 +1,15 @@
 <?php
 
-namespace RyanDeng\GoogleReCaptcha\Providers;
+namespace TimeHunter\LaravelGoogleCaptchaV3\Providers;
 
 
-use RyanDeng\GoogleReCaptcha\Configurations\ReCaptchaConfigV3;
-use RyanDeng\GoogleReCaptcha\Core\GuzzleRequestClient;
-use RyanDeng\GoogleReCaptcha\GoogleReCaptchaV3;
-use RyanDeng\GoogleReCaptcha\Interfaces\ReCaptchaConfigV3Interface;
-use RyanDeng\GoogleReCaptcha\Interfaces\RequestClientInterface;
+use TimeHunter\LaravelGoogleCaptchaV3\Configurations\ReCaptchaConfigV3;
+use TimeHunter\LaravelGoogleCaptchaV3\Core\GuzzleRequestClient;
+use TimeHunter\LaravelGoogleCaptchaV3\GoogleReCaptchaV3;
+use TimeHunter\LaravelGoogleCaptchaV3\Interfaces\ReCaptchaConfigV3Interface;
+use TimeHunter\LaravelGoogleCaptchaV3\Interfaces\RequestClientInterface;
 use Illuminate\Support\ServiceProvider;
-use \RyanDeng\GoogleReCaptcha\Facades\GoogleReCaptchaV3 as GoogleReCaptchaV3Facade;
-use Illuminate\Support\Facades\Blade;
+
 class GoogleReCaptchaV3ServiceProvider extends ServiceProvider
 {
 

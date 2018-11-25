@@ -6,7 +6,7 @@
  * Time: 下午11:46
  */
 
-namespace RyanDeng\GoogleReCaptcha\Core;
+namespace TimeHunter\LaravelGoogleCaptchaV3\Core;
 
 
 use Carbon\Carbon;

@@ -6,11 +6,11 @@
  * Time: 5:29 PM
  */
 
-namespace RyanDeng\GoogleReCaptcha;
+namespace TimeHunter\LaravelGoogleCaptchaV3;
 
-use RyanDeng\GoogleReCaptcha\Interfaces\ReCaptchaConfigV3Interface;
-use RyanDeng\GoogleReCaptcha\Interfaces\RequestClientInterface;
-use RyanDeng\GoogleReCaptcha\Core\GoogleReCaptchaV3Response;
+use TimeHunter\LaravelGoogleCaptchaV3\Interfaces\ReCaptchaConfigV3Interface;
+use TimeHunter\LaravelGoogleCaptchaV3\Interfaces\RequestClientInterface;
+use TimeHunter\LaravelGoogleCaptchaV3\Core\GoogleReCaptchaV3Response;
 
 class GoogleReCaptchaV3
 {

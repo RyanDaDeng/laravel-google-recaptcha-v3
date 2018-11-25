@@ -6,11 +6,11 @@
  * Time: 下午7:24
  */
 
-namespace RyanDeng\GoogleReCaptcha\Core;
+namespace TimeHunter\LaravelGoogleCaptchaV3\Core;
 
 
 use GuzzleHttp\Exception\ClientException;
-use RyanDeng\GoogleReCaptcha\Interfaces\RequestClientInterface;
+use TimeHunter\LaravelGoogleCaptchaV3\Interfaces\RequestClientInterface;
 use GuzzleHttp\Client;
 
 

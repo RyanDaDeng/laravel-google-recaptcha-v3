@@ -1,9 +1,9 @@
 <?php
 
-namespace RyanDeng\GoogleReCaptcha\Configurations;
+namespace TimeHunter\LaravelGoogleCaptchaV3\Configurations;
 
 
-use RyanDeng\GoogleReCaptcha\Interfaces\ReCaptchaConfigV3Interface;
+use TimeHunter\LaravelGoogleCaptchaV3\Interfaces\ReCaptchaConfigV3Interface;
 
 class ReCaptchaConfigV3 implements ReCaptchaConfigV3Interface
 {

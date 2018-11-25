@@ -1,5 +1,5 @@
 {
-  "name": "ryandeng/googlerecaptcha",
+  "name": "timehunter/laravel-google-recaptcha-v3",
   "description": "Laravel 5.x library for reCAPTCHA v3",
   "license": "MIT",
   "authors": [
@@ -13,15 +13,14 @@
   "keywords": [
     "Laravel",
     "GoogleReCaptcha",
+    "Google reCAPTCHA",
+    "google recaptcha v3",
     "reCAPTCHA v3",
     "Laravel reCAPTCHA"
   ],
   "require": {
-    "php" : ">=7.1.0",
-    "illuminate/container": "~5.7.0",
-    "illuminate/support": "~5.7.0",
-    "illuminate/http": "~5.7.0",
-    "guzzlehttp/guzzle": "^6.2"
+    "php": ">=5.5",
+    "illuminate/support": "~5"
   },
   "require-dev": {
     "phpunit/phpunit": "~7.0",
@@ -31,21 +30,21 @@
   },
   "autoload": {
     "psr-4": {
-      "RyanDeng\\GoogleReCaptcha\\": "src/"
+      "TimeHunter\\LaravelGoogleCaptchaV3\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "RyanDeng\\GoogleReCaptcha\\Tests\\": "tests"
+      "TimeHunter\\LaravelGoogleCaptchaV3\\Tests\\": "tests"
     }
   },
   "extra": {
     "laravel": {
       "providers": [
-        "RyanDeng\\GoogleReCaptcha\\Providers\\GoogleReCaptchaV3ServiceProvider"
+        "TimeHunter\\LaravelGoogleCaptchaV3\\Providers\\GoogleReCaptchaV3ServiceProvider"
       ],
       "aliases": {
-        "GoogleReCaptchaV3": "RyanDeng\\GoogleReCaptcha\\Facades\\GoogleReCaptchaV3"
+        "GoogleReCaptchaV3": "TimeHunter\\LaravelGoogleCaptchaV3\\Facades\\GoogleReCaptchaV3"
       }
     }
   }
