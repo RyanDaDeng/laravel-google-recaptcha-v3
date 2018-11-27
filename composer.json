@@ -20,7 +20,8 @@
     "laravel google recaptcha",
     "recaptcha",
     "recaptcha v3 laravel",
-    "laravel recaptcha v3"
+    "laravel recaptcha v3",
+    "laravel"
   ],
   "require": {
     "php": ">=5.5",
