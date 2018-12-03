@@ -151,6 +151,9 @@ Example Usage
    GoogleReCaptchaV3::setAction($action)->verifyResponse($value)->isSuccess();
 ```
 
+``` php
+   GoogleReCaptchaV3::verifyResponse($request->input('g-recaptcha-response'))->getMessage()
+```
 
 ## Advanced Usage
 
@@ -185,6 +188,8 @@ Remember to register your implementation.
                 YourOwnCustomImplementation::class
             );
 ```
+
+Next version will support driver switch in config file.
 
 ## Security
 
