@@ -7,6 +7,13 @@
 
 If you have any issues or questions on using the package, please use issue tracker to create ticket. I will be working on it within 24 hours for sure.
 
+In the future release, I am planning to add the following features:
+
+- Tests will be covered in future release.
+- Request client driver will be configurable.
+- Field name will be supported in config file
+- Error message will be structured.
+- Combine reCAPTCHA v3 with v2, if v3 fails then pop-up v2 challenge to do second verification.
 
 ## Description
 
