@@ -155,6 +155,51 @@ Example Usage
    GoogleReCaptchaV3::verifyResponse($request->input('g-recaptcha-response'))->getMessage()
 ```
 
+## Sample Usage
+
+Register your action in config:
+``` php
+    'setting' => [
+        [
+            'action' => 'contact_us',
+            'threshold' => 2,
+            'score_comparision' => true
+        ]
+    ]
+```
+
+Register two routes in web.php
+``` php
+Route::get('/send', 'ReCaptchaController@index');
+Route::post('/verify', 'ReCaptchaController@verify');
+```
+
+Create two functions in controller:
+``` php
+    public function verify(Request $request)
+    {
+        dd(GoogleReCaptchaV3::verifyResponse($request->input('g-recaptcha-response'))->getMessage());
+    }
+    public function send(Request $request)
+    {
+        return view('index');    
+   }
+```
+
+Create your form:
+``` php
+{!!  GoogleReCaptchaV3::requireJs() !!}
+
+<form method="POST" action="/verify">
+   @csrf
+   {!!  GoogleReCaptchaV3::render('contact_us') !!}
+
+   <input type="submit" value="submit">
+</form>
+```
+
+Submit the form and you should see an error message that Score does not meet the treshhold as we set the threshold >2. You can play around the controller to see all outcomes. Importantly, you need to wait the script to load and render the input before clicking the submit button.
+
 ## Advanced Usage
 
 #### Custom implementation on Config
