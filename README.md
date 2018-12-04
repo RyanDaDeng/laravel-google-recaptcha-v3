@@ -186,7 +186,7 @@ Create two functions in controller:
    }
 ```
 
-Create your form:
+Create your form in index.blade.php:
 ``` php
 {!!  GoogleReCaptchaV3::requireJs() !!}
 
@@ -198,7 +198,7 @@ Create your form:
 </form>
 ```
 
-Go to /index and click submit button and you should see an error message that Score does not meet the treshhold as we set the threshold >2. You can play around the controller to see all outcomes. Importantly, you need to wait the script to load and render the input before clicking the submit button.
+Go to /index and click submit button and you should see an error message that 'Score does not meet the treshhold' because the threshold >2. You can play around the controller to see all outcomes. Importantly, you need to wait the script to load and render the token before clicking the submit button.
 
 ## Advanced Usage
 
