@@ -155,7 +155,7 @@ Example Usage
    GoogleReCaptchaV3::verifyResponse($request->input('g-recaptcha-response'))->getMessage()
 ```
 
-## Sample Usage
+## Sample Use Case
 
 Register your action in config:
 ``` php
