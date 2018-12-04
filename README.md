@@ -1,3 +1,9 @@
+<!--
+  Title: Laravel Recaptcha v3
+  Description: Laravel package for recaptcha v3.
+  Author: ryandeng
+  -->
+
 # Laravel Package for Google reCAPTCHA V3
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
