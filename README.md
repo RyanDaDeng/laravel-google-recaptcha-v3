@@ -157,7 +157,7 @@ Example Usage
 
 ## Sample Use Case
 
-Register your action in config:
+Register your action in config, also enable score and set up your own site key and secret key:
 ``` php
     'setting' => [
         [
@@ -170,7 +170,7 @@ Register your action in config:
 
 Register two routes in web.php
 ``` php
-Route::get('/send', 'ReCaptchaController@index');
+Route::get('/index', 'ReCaptchaController@index');
 Route::post('/verify', 'ReCaptchaController@verify');
 ```
 
@@ -180,7 +180,7 @@ Create two functions in controller:
     {
         dd(GoogleReCaptchaV3::verifyResponse($request->input('g-recaptcha-response'))->getMessage());
     }
-    public function send(Request $request)
+    public function index(Request $request)
     {
         return view('index');    
    }
@@ -198,7 +198,7 @@ Create your form:
 </form>
 ```
 
-Submit the form and you should see an error message that Score does not meet the treshhold as we set the threshold >2. You can play around the controller to see all outcomes. Importantly, you need to wait the script to load and render the input before clicking the submit button.
+Go to /index and click submit button and you should see an error message that Score does not meet the treshhold as we set the threshold >2. You can play around the controller to see all outcomes. Importantly, you need to wait the script to load and render the input before clicking the submit button.
 
 ## Advanced Usage
 
