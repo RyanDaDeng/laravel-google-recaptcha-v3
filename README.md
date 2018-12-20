@@ -13,7 +13,7 @@
 
 # Importance
 
-If you have any issues or questions on using the package, please use issue tracker to create ticket. I will be working on it within 24 hours for sure.
+If you have any issues or questions on using the package, please use issue tracker to create ticket.
 
 In the future release, I am planning to add the following features:
 
