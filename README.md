@@ -253,7 +253,7 @@ Create two functions in controller:
 ```
 
 Create your form in index.blade.php:
-``` php
+``` html
 <form method="POST" action="/verify">
     @csrf
     <div id="contact_us_id"></div>
