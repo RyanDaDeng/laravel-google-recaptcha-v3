@@ -275,7 +275,7 @@ Create your form in index.blade.php:
 {!!  GoogleReCaptchaV3::render(['contact_us_id'=>'contact_us', 'signup_id'=>'signup']) !!}
 ```
 
-Go to /index and click submit button and you should see an error message that 'Score does not meet the treshhold' because the threshold >2. You can play around the controller to see all outcomes. Importantly, you need to wait the script to load and render the token before clicking the submit button.
+Go to /index and click submit button on contact us form and you should see an error message that 'Score does not meet the treshhold' because the threshold >2. You can play around the controller to see all outcomes. Importantly, you need to wait the script to load and render the token before clicking the submit button.
 
 ## Advanced Usage
 
