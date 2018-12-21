@@ -30,9 +30,12 @@ Please check Google site: https://developers.google.com/recaptcha/docs/faq
 ## Features
 
 - Score Comparision
+- Support invisible, global and inline badge style
+- Support multiple reCAPTCHA the same page for different forms
+- Support multiple actions to be placed on the same page
 - Support custom implementation on config interface
 - Support custom implementation on request method interface 
-- Support invisible, global and inline badge style
+
 
 ## Requirement
 
