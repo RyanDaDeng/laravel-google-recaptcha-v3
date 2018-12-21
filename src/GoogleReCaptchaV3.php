@@ -17,8 +17,7 @@ class GoogleReCaptchaV3
     private $config;
     private $requestClient;
     private $action;
-    private $defaultFieldView = 'GoogleReCaptchaV3::googlerecaptchav3.field';
-    private $defaultHeaderView = 'GoogleReCaptchaV3::googlerecaptchav3.header';
+    private $defaultTemplate = 'GoogleReCaptchaV3::googlerecaptchav3.template';
     private $request;
 
     public function __construct(ReCaptchaConfigV3Interface $config, RequestClientInterface $requestClient)
@@ -26,36 +25,28 @@ class GoogleReCaptchaV3
         $this->config = $config;
         $this->requestClient = $requestClient;
         $this->request = app('request');
+
     }
+
 
     /**
-     * @param $action
-     * @param string $name
-     * @return mixed|null
+     * @param $mappers
+     * @return mixed
      */
-    public function render($action, $name = 'g-recaptcha-response')
+    public function render($mappers)
     {
-        if ($this->config->isServiceEnabled() === false) {
-            return null;
+        $prepareData = [];
+        foreach ($mappers as $id => $action) {
+            $prepareData[$action][] = $id;
         }
 
-        $data = [
-            'publicKey' => value($this->config->getSiteKey()),
-            'action' => $action,
-            'name' => $name,
-            'id' => uniqid($name . '-', false)
-        ];
-
-        $view = $this->getView();
-
-        return app('view')->make($view, $data);
-    }
-
-    public function requireJs()
-    {
         return app('view')->make(
-            $this->defaultHeaderView,
-            ['publicKey' => $this->getConfig()->getSiteKey()]
+            $this->getView(),
+            [
+                'publicKey' => $this->getConfig()->getSiteKey(),
+                'mappers' => $prepareData,
+                'inline' => $this->config->isInline()
+            ]
         );
     }
 
@@ -64,12 +55,7 @@ class GoogleReCaptchaV3
      */
     protected function getView()
     {
-        $configTemplate = $this->config->getTemplate();
-
-        if (!empty($configTemplate)) {
-            $this->defaultFieldView = $configTemplate;
-        }
-        return $this->defaultFieldView;
+        return $this->defaultTemplate;
     }
 
     /**

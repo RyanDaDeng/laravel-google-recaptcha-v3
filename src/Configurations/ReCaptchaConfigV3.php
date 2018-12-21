@@ -50,14 +50,6 @@ class ReCaptchaConfigV3 implements ReCaptchaConfigV3Interface
     /**
      * @return string
      */
-    public function getTemplate()
-    {
-        return config('googlerecaptchav3.template');
-    }
-
-    /**
-     * @return string
-     */
     public function getSiteKey()
     {
         return config('googlerecaptchav3.site_key');
@@ -80,5 +72,13 @@ class ReCaptchaConfigV3 implements ReCaptchaConfigV3Interface
     public function getSetting()
     {
         return config('googlerecaptchav3.setting');
+    }
+
+    /**
+     * @return bool
+     */
+    public function isInline()
+    {
+        return config('googlerecaptchav3.inline');
     }
 }

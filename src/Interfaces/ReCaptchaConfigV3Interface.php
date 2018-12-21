@@ -30,11 +30,6 @@ interface ReCaptchaConfigV3Interface
     /**
      * @return string
      */
-    public function getTemplate();
-
-    /**
-     * @return string
-     */
     public function getSiteKey();
 
     /**
@@ -56,4 +51,9 @@ interface ReCaptchaConfigV3Interface
      * @return string
      */
     public function getHostName();
+
+    /**
+     * @return boolean
+     */
+    public function isInline();
 }

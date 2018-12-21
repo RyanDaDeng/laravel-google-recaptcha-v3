@@ -42,16 +42,19 @@ return [
     |
     */
     'site_key' => '',
+
     /*
     |--------------------------------------------------------------------------
-    | Template
+    | Badge Style
     |--------------------------------------------------------------------------
     | Type: string
-    | Template path, if your template locate at resources/views/template/test.blade.php
-    | your value should be template.test
+    | Support:
+    |  -  true: the badge will be shown inline with the form, also you can customise your style
+    |  -  false: the badge will be shown at the corner of the page
     |
     */
-    'template' => '',
+    'inline' => true,
+
     /*
     |--------------------------------------------------------------------------
     | Score Comparision
@@ -95,4 +98,14 @@ return [
     | Google reCAPTCHA API
     */
     'site_verify_url' => 'https://www.google.com/recaptcha/api/siteverify',
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Site Verify Url
+    |--------------------------------------------------------------------------
+    | Type: string
+    | Google reCAPTCHA API
+    */
+    'display_badge' => true
 ];

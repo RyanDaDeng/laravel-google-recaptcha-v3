@@ -68,11 +68,6 @@ class GoogleReCaptchaV3ServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/../../config/googlerecaptchav3.php' => config_path('googlerecaptchav3.php'),
         ], 'googlerecaptchav3.config');
-
-        // Publishing the views.
-        $this->publishes([
-            __DIR__ . '/../../resources/views' => base_path('resources/views'),
-        ], 'googlerecaptchav3.views');
     }
 
     /**
