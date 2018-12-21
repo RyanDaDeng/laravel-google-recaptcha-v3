@@ -45,7 +45,8 @@ class GoogleReCaptchaV3
             [
                 'publicKey' => $this->getConfig()->getSiteKey(),
                 'mappers' => $prepareData,
-                'inline' => $this->config->isInline()
+                'inline' => $this->config->isInline(),
+                'language' => $this->config->getLanguage()
             ]
         );
     }

@@ -56,4 +56,10 @@ interface ReCaptchaConfigV3Interface
      * @return boolean
      */
     public function isInline();
+
+
+    /**
+     * @return string
+     */
+    public function getLanguage();
 }

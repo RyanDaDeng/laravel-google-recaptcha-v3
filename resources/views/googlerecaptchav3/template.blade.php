@@ -5,7 +5,8 @@
         let client{{$field}} = grecaptcha.render('{{$field}}', {
                 'sitekey': '{{$publicKey}}',
                     @if($inline===true) 'badge': 'inline', @endif
-                'size': 'invisible'
+                'size': 'invisible',
+                    'hl' : '{{$language}}'
             });
         grecaptcha.ready(function () {
             grecaptcha.execute(client{{$field}}, {

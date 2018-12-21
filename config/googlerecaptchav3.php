@@ -98,4 +98,13 @@ return [
     | Google reCAPTCHA API
     */
     'site_verify_url' => 'https://www.google.com/recaptcha/api/siteverify',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Language
+    |--------------------------------------------------------------------------
+    | Type: string
+    | https://developers.google.com/recaptcha/docs/language
+    */
+    'language' => 'en'
 ];

@@ -81,4 +81,12 @@ class ReCaptchaConfigV3 implements ReCaptchaConfigV3Interface
     {
         return config('googlerecaptchav3.inline');
     }
+
+    /**
+     * @return string
+     */
+    public function getLanguage()
+    {
+        return config('googlerecaptchav3.language');
+    }
 }
