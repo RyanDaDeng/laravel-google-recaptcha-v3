@@ -111,7 +111,7 @@ For more details please check comments in config file.
 Include div with an ID inside your form, e.g.
 
 ``` html  
- <div id="contact_us_2"></div>
+ <div id="contact_us_id"></div>
 ```
 
 Include Template script in your bottom/header of your page, params should follow 'ID'=>'Action', e.g.
