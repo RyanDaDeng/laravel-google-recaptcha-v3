@@ -165,8 +165,8 @@ Inline
 Invisible
 
 1. Set inline as true as well
-2. put your div with style display:none
-3. refer to Google official site: https://developers.google.com/recaptcha/docs/faq
+2. Modify your div with style display:none
+3. Refer to Google official site: https://developers.google.com/recaptcha/docs/faq
 , you need to include the following text:
  ``` HTML
     This site is protected by reCAPTCHA and the Google
