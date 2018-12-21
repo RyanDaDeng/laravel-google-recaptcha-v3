@@ -101,6 +101,8 @@ Note: if you want to enable Score Comparision, you also need to enable is_score_
 'is_score_enabled' = true
 ```   
 
+For score comparision, all actions should be registered in googlerecaptchav3 config file under 'setting' section. 
+
 For more details please check comments in config file.
 
 #### Display reCAPTCHA v3
@@ -182,13 +184,6 @@ Custom
 
 1. Set inline as true
 2. Do Styling/CSS on its div element
-
-
-##### Score Comparision
-
-Note: For score comparision, all actions should be registered in googlerecaptchav3 config file under 'setting' section. 
-
-You can also customise your own template under googlerecaptchav3 folder.
 
 
 #### Validation Class (Only support Laravel >= 5.5)
