@@ -67,7 +67,6 @@ return [
     | Type: array
     | Define your score threshold, define your action
     | action: Google reCAPTCHA required parameter
-    | id: <input> id
     | threshold: score threshold
     | score_comparision: true/false, if this is true, the system will do score comparsion against your threshold for the action
     */
