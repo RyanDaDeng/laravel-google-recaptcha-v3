@@ -47,7 +47,7 @@ return [
     |--------------------------------------------------------------------------
     | Badge Style
     |--------------------------------------------------------------------------
-    | Type: string
+    | Type: boolean
     | Support:
     |  -  true: the badge will be shown inline with the form, also you can customise your style
     |  -  false: the badge will be shown in the bottom right side
