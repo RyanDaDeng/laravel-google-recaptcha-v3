@@ -141,8 +141,7 @@ Include Template script in your bottom/header of your page, params should follow
     </div>
 </form>
 
-{!!  GoogleReCaptchaV3::render(
-           [
+{!!  GoogleReCaptchaV3::render([
                'contact_us_id'=>'contact_us'
            ]) !!}
 
