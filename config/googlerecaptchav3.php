@@ -50,10 +50,10 @@ return [
     | Type: string
     | Support:
     |  -  true: the badge will be shown inline with the form, also you can customise your style
-    |  -  false: the badge will be shown at the corner of the page
+    |  -  false: the badge will be shown in the bottom right side
     |
     */
-    'inline' => true,
+    'inline' => false,
 
     /*
     |--------------------------------------------------------------------------
@@ -98,14 +98,4 @@ return [
     | Google reCAPTCHA API
     */
     'site_verify_url' => 'https://www.google.com/recaptcha/api/siteverify',
-
-
-    /*
-    |--------------------------------------------------------------------------
-    | Site Verify Url
-    |--------------------------------------------------------------------------
-    | Type: string
-    | Google reCAPTCHA API
-    */
-    'display_badge' => true
 ];
