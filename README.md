@@ -230,7 +230,12 @@ Register your action in config, also enable score and set up your own site key a
             'action' => 'contact_us',
             'threshold' => 2,
             'score_comparision' => true
-        ]
+        ],
+        [
+            'action' => 'signup',
+            'threshold' => 0.2,
+            'score_comparision' => true
+        ],
     ]
 ```
 
