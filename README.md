@@ -13,25 +13,26 @@
 
 # Importance
 
+
 If you have any issues or questions on using the package, please use issue tracker to create ticket.
 
-In the future release, I am planning to add the following features:
-
-- Tests will be covered in future release.
-- Request client driver will be configurable.
-- Field name will be supported in config file
-- Combine reCAPTCHA v3 with v2, if v3 fails then pop-up v2 challenge to do second verification.
-- Support VueJS component
 
 ## Description
 
 Google reCAPTCHA v3 is a new mechanism to verify whether the user is bot or not.
+
+reCAPTCHA v3 is intended for power users, site owners that want more data about their traffic, and for use cases in which it is not appropriate to show a challenge to the user.
+
+For example, a registration page might still use reCAPTCHA v2 for a higher-friction challenge, whereas more common actions like sign-in, searches, comments, or voting might use reCAPTCHA v3.
+
+Please check Google site: https://developers.google.com/recaptcha/docs/faq
 
 ## Features
 
 - Score Comparision
 - Support custom implementation on config interface
 - Support custom implementation on request method interface 
+- Support invisible, global and inline badge style
 
 ## Requirement
 
@@ -51,7 +52,7 @@ This package requires the following dependencies:
 Via Composer
 
 ``` sh
-        $ composer require timehunter/laravel-google-recaptcha-v3 "^1.1.2"
+        $ composer require timehunter/laravel-google-recaptcha-v3 "^1.2.0"
 ```
 
 If your Laravel framework version <= 5.4, please register the service provider in your config file: /config/app.php, otherwise please skip it.
@@ -104,36 +105,92 @@ For more details please check comments in config file.
 
 #### Display reCAPTCHA v3
 
-Include Google API in header
+##### Blade
+Include div with an ID inside your form, e.g.
 
 ``` html  
-{!!  GoogleReCaptchaV3::requireJs() !!}
+ <div id="contact_us_2"></div>
 ```
 
-Include input field
+Include Template script in your bottom/header of your page, params should follow 'ID'=>'Action', e.g.
 
 ``` PHP  
- {!!  GoogleReCaptchaV3::render($actionName, $fieldName) !!} // $actionName is your google action, $fieldName is optional for input field name
+ {!!  GoogleReCaptchaV3::render(
+            [
+                'contact_us_id'=>'contact_us',  // the div id=contact_us_id maps to action name contact_us
+                'signin_id'=>'registration',  // the div id=signin_id maps to action name registration
+                'register_id'=>'registration'   // the div id=register_id maps to action name registration
+            ]) !!}
 ```
 
-Example Usage
+##### Example Usage
 
 ``` html  
-{!!  GoogleReCaptchaV3::requireJs() !!}
-
 <form method="POST" action="/verify">
     @csrf
-    {!!  GoogleReCaptchaV3::render('contact_us') !!}
-
+    <div id="contact_us_id"></div>
     <input type="submit" value="submit">
+    <div>
+        <small>
+            This site is protected by reCAPTCHA and the Google
+            <a href="https://policies.google.com/privacy">Privacy Policy</a> and
+            <a href="https://policies.google.com/terms">Terms of Service</a> apply.
+        </small>
+    </div>
 </form>
 
+{!!  GoogleReCaptchaV3::render(
+           [
+               'contact_us_id'=>'contact_us'
+           ]) !!}
+
 ```
+
+##### Badge Display
+
+Inline
+
+1. Go to config file, and set 
+``` PHP
+    [
+        ...
+        'inline' => true
+        ...
+    ]
+```
+2. Badge will be displayed as inline format within the form.
+
+
+Invisible
+
+1. Set inline as true as well
+2. put your div with style display:none
+3. refer to Google official site: https://developers.google.com/recaptcha/docs/faq
+, you need to include the following text:
+ ``` HTML
+    This site is protected by reCAPTCHA and the Google
+        <a href="https://policies.google.com/privacy">Privacy Policy</a> and
+        <a href="https://policies.google.com/terms">Terms of Service</a> apply.
+ ```
+
+Corner
+
+1. Set inline as false
+2. Your badge will be shown in the bottom right side.
+
+Custom
+
+1. Set inline as true
+2. Do Styling/CSS on its div element
+
+
+##### Score Comparision
 
 Note: For score comparision, all actions should be registered in googlerecaptchav3 config file under 'setting' section. 
 
 You can also customise your own template under googlerecaptchav3 folder.
-   
+
+
 #### Validation Class (Only support Laravel >= 5.5)
    
    You can use provided Validation object to verify your reCAPTCHA.
@@ -203,14 +260,20 @@ Create two functions in controller:
 
 Create your form in index.blade.php:
 ``` php
-{!!  GoogleReCaptchaV3::requireJs() !!}
+<form method="POST" action="/verify">
+    @csrf
+    <div id="contact_us_id"></div>
+    <input type="submit" value="submit">
+</form>
+
 
 <form method="POST" action="/verify">
-   @csrf
-   {!!  GoogleReCaptchaV3::render('contact_us') !!}
-
-   <input type="submit" value="submit">
+    @csrf
+    <div id="signup_id"></div>
+    <input type="submit" value="submit">
 </form>
+
+{!!  GoogleReCaptchaV3::render(['contact_us_id'=>'contact_us', 'signup_id'=>'signup']) !!}
 ```
 
 Go to /index and click submit button and you should see an error message that 'Score does not meet the treshhold' because the threshold >2. You can play around the controller to see all outcomes. Importantly, you need to wait the script to load and render the token before clicking the submit button.
