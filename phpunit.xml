@@ -17,12 +17,11 @@
     <filter>
         <whitelist>
             <directory>src/</directory>
+            <exclude>
+                <directory suffix=".php">Validations/</directory>
+                <file>GoogleReCaptchaValidationRule.php</file>
+            </exclude>
         </whitelist>
-        <blacklist>
-            <directory>src/Validations/</directory>
-            <directory>src/Providers/</directory>
-            <directory>src/Facades/</directory>
-        </blacklist>
     </filter>
     <logging>
         <log type="coverage-clover" target="build/logs/clover.xml"/>
