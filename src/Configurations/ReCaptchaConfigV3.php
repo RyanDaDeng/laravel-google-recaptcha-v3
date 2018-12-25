@@ -6,13 +6,14 @@ use TimeHunter\LaravelGoogleCaptchaV3\Interfaces\ReCaptchaConfigV3Interface;
 
 class ReCaptchaConfigV3 implements ReCaptchaConfigV3Interface
 {
-
     /**
      * @return string
      */
-    public function getRequestMethod(){
+    public function getRequestMethod()
+    {
         return config('googlerecaptchav3.request_method');
     }
+
     /**
      * @return string
      */
