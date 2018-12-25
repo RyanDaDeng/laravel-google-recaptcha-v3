@@ -153,7 +153,7 @@ Include Template script in your bottom/header of your page, params should follow
 
 ```
 
-##### Badge Display
+## Badge Display
 
 Inline
 
