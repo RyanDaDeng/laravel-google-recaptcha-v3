@@ -201,7 +201,7 @@ Custom
 2. Do Styling/CSS on its div element
 
 
-#### Validation Class (Only support Laravel >= 5.5)
+## Validation Class (Only support Laravel >= 5.5)
    
    You can use provided Validation object to verify your reCAPTCHA.
       
@@ -214,7 +214,7 @@ Custom
 
    -  $actionName: if its NULL, the package won't verify action with google response.
   
-#### Facade Usage
+## Facade Usage
 
 You can also directly use registered service by calling the following method.
 - setAction() is optional only if you want to verify if the action is matched.
