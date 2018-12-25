@@ -16,8 +16,6 @@
 
 I will be super happy if you think this package is good and also star me.  ^.^
 
-* Next version will be having Vuejs component for front-end.
-
 # DEMO
 
 ## Invisible
