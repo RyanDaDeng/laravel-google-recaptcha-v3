@@ -12,7 +12,7 @@
 [![Total Downloads][ico-downloads]][link-downloads]
 [![Coverage Status][ico-coverage]][link-coverage]
 [![Build][ico-build]][link-build]
-[![StyleCI][ico-styleci]][link-packagist]
+[![StyleCI][ico-styleci]][link-styleci]
 
 
 # DEMO
@@ -58,7 +58,7 @@ This package requires the following dependencies:
 Via Composer
 
 ``` sh
-        $ composer require timehunter/laravel-google-recaptcha-v3 "~1.3.2"
+        $ composer require timehunter/laravel-google-recaptcha-v3 "~1.3.3"
 ```
 
 If your Laravel framework version <= 5.4, please register the service provider in your config file: /config/app.php, otherwise please skip it.
@@ -338,3 +338,4 @@ MIT. Please see the [license file](license.md) for more information.
 [link-author]: https://github.com/ryandadeng
 [link-coverage]: https://coveralls.io/github/RyanDaDeng/laravel-google-recaptcha-v3?branch=master
 [link-build]: https://travis-ci.org/RyanDaDeng/laravel-google-recaptcha-v3
+[link-styleci]: https://github.styleci.io/repos/146857583

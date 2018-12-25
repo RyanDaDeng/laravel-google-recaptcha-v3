@@ -29,8 +29,8 @@
   },
   "require-dev": {
     "phpunit/phpunit": "~7.0",
+    "orchestra/testbench": "~3.0",
     "php-coveralls/php-coveralls": "^2.1"
-
   },
   "autoload": {
     "psr-4": {
