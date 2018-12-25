@@ -18,6 +18,11 @@
         <whitelist>
             <directory>src/</directory>
         </whitelist>
+        <blacklist>
+            <directory>src/Validations</directory>
+            <directory>src/Providers</directory>
+            <directory>src/Facades</directory>
+        </blacklist>
     </filter>
     <logging>
         <log type="coverage-clover" target="build/logs/clover.xml"/>
