@@ -26,7 +26,7 @@ class CurlRequestClient implements RequestClientInterface
         $response = curl_exec($curl);
 
         if (false === $response) {
-            app('log')->error('[Recaptcha] CURL error: ' . curl_error($curl));
+            return '{"success": false, "error-codes": ["'.GoogleReCaptchaV3Response::ERROR_TIMEOUT.'"]}';
         }
         curl_close($curl);
 

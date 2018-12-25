@@ -18,6 +18,7 @@ class GoogleReCaptchaV3Response
     const ERROR_HOSTNAME = 'Hostname does not match.';
     const ERROR_ACTION = 'Action does not match.';
     const ERROR_SCORE_THRESHOLD = 'Score does not meet threshold.';
+    const ERROR_TIMEOUT = 'Timeout';
 
 
     protected $success;

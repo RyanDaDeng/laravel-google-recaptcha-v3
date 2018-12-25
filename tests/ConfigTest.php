@@ -1,8 +1,8 @@
 <?php
 
-namespace Tests\Unit;
+namespace TimeHunter\Tests;
 
-use Tests\TestCase;
+use PHPUnit\Framework\TestCase;
 use TimeHunter\LaravelGoogleCaptchaV3\Configurations\ReCaptchaConfigV3;
 use TimeHunter\LaravelGoogleCaptchaV3\Core\GoogleReCaptchaV3Response;
 use TimeHunter\LaravelGoogleCaptchaV3\Core\GuzzleRequestClient;
@@ -54,6 +54,7 @@ class ConfigTest extends TestCase
         $this->assertEquals(false, $response->isSuccess());
 
         $response = $service->verifyResponse('');
+
         $this->assertEquals(false, $response->isSuccess());
     }
 

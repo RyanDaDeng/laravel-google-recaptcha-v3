@@ -18,13 +18,11 @@ class GoogleReCaptchaV3
     private $requestClient;
     private $action;
     private $defaultTemplate = 'GoogleReCaptchaV3::googlerecaptchav3.template';
-    private $request;
 
     public function __construct(ReCaptchaConfigV3Interface $config, RequestClientInterface $requestClient)
     {
         $this->config = $config;
         $this->requestClient = $requestClient;
-        $this->request = app('request');
     }
 
 
@@ -60,12 +58,12 @@ class GoogleReCaptchaV3
 
     /**
      * @param $response
+     * @param null $ip
      * @return GoogleReCaptchaV3Response
      */
-    public function verifyResponse($response)
+    public function verifyResponse($response, $ip = null)
     {
 
-        $ip = $this->request->getClientIp();
         if (!$this->config->isServiceEnabled()) {
             $res = new GoogleReCaptchaV3Response([], $ip);
             $res->setSuccess(true);

@@ -214,7 +214,7 @@ You can also directly use registered service by calling the following method.
 Example Usage
 
 ``` php
-   GoogleReCaptchaV3::verifyResponse($value)->getMessage();
+   GoogleReCaptchaV3::verifyResponse($value,$ip)->getMessage();
    GoogleReCaptchaV3::verifyResponse($value)->isSuccess();
    GoogleReCaptchaV3::verifyResponse($value)->toArray();
    GoogleReCaptchaV3::setAction($action)->verifyResponse($value)->isSuccess();

@@ -26,10 +26,7 @@ class GuzzleRequestClient implements RequestClientInterface
             ]);
             return $response->getBody();
         } catch (ClientException $e) {
-            $response = $e->getResponse();
-            $responseBodyAsString = $response->getBody()->getContents();
-            app('log')->error('[Recaptcha] Guzzle error: ' . $responseBodyAsString);
-            return $responseBodyAsString;
+            return '{"success": false, "error-codes": ["' . GoogleReCaptchaV3Response::ERROR_TIMEOUT . '"]}';
         }
     }
 }

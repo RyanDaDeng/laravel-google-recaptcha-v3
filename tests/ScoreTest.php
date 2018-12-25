@@ -1,8 +1,8 @@
 <?php
 
-namespace Tests\Unit;
+namespace TimeHunter\Tests;
 
-use Tests\TestCase;
+use PHPUnit\Framework\TestCase;
 use TimeHunter\LaravelGoogleCaptchaV3\Core\GoogleReCaptchaV3Response;
 use TimeHunter\LaravelGoogleCaptchaV3\Core\GuzzleRequestClient;
 use TimeHunter\LaravelGoogleCaptchaV3\GoogleReCaptchaV3;
