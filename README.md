@@ -14,10 +14,20 @@
 [![Build][ico-build]][link-build]
 [![StyleCI][ico-styleci]][link-styleci]
 
+I will be super happy if you think this package is good and also star me.
 
 # DEMO
+
+## Invisible
+
 <img src="https://github.com/RyanDaDeng/aws-study-notes/blob/master/881545398213_.pic.jpg" width="250" height="300" />
+
+## Inline
+
 <img src="https://github.com/RyanDaDeng/aws-study-notes/blob/master/891545398531_.pic.jpg" width="250" height="300" />
+
+## Global
+
 <img src="https://github.com/RyanDaDeng/aws-study-notes/blob/master/901545398593_.pic.jpg" width="150" height="100" />
 
 ## Description
