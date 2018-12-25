@@ -17,7 +17,6 @@
     <filter>
         <whitelist>
             <file>src/GoogleReCaptchaV3.php</file>
-            <directory>src/Configurations/</directory>
             <directory>src/Core/</directory>
         </whitelist>
     </filter>
