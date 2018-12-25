@@ -10,7 +10,7 @@
          processIsolation="false"
          stopOnFailure="false">
     <testsuites>
-        <testsuite name="Package">
+        <testsuite name="Google reCAPTCHA v3 Test Suite">
             <directory suffix=".php">./tests/</directory>
         </testsuite>
     </testsuites>

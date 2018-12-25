@@ -32,7 +32,7 @@
     "mockery/mockery": "^1.1",
     "orchestra/testbench": "~3.0",
     "sempro/phpunit-pretty-print": "^1.0",
-    "satooshi/php-coveralls":"*"
+    "php-coveralls/php-coveralls": "^2.1"
 
   },
   "autoload": {
