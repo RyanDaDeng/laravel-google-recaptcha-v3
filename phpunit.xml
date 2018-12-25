@@ -16,7 +16,7 @@
     </testsuites>
     <filter>
         <whitelist>
-            <file>src/ReCaptcha/GoogleReCaptchaV3.php</file>
+            <file>src/GoogleReCaptchaV3.php</file>
             <directory>src/Configurations/</directory>
             <directory>src/Core/</directory>
         </whitelist>
