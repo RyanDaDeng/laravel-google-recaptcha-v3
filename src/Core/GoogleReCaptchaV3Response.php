@@ -3,11 +3,10 @@
  * Created by PhpStorm.
  * User: dadeng
  * Date: 2018/11/22
- * Time: 下午11:46
+ * Time: 下午11:46.
  */
 
 namespace TimeHunter\LaravelGoogleCaptchaV3\Core;
-
 
 use Carbon\Carbon;
 
@@ -19,7 +18,6 @@ class GoogleReCaptchaV3Response
     const ERROR_ACTION = 'Action does not match.';
     const ERROR_SCORE_THRESHOLD = 'Score does not meet threshold.';
     const ERROR_TIMEOUT = 'Timeout';
-
 
     protected $success;
     protected $score;
@@ -50,7 +48,6 @@ class GoogleReCaptchaV3Response
         $this->success = $value;
     }
 
-
     /**
      * @param string $value
      */
@@ -66,7 +63,6 @@ class GoogleReCaptchaV3Response
     {
         return $this->message;
     }
-
 
     /**
      * @return bool
@@ -129,8 +125,7 @@ class GoogleReCaptchaV3Response
             'challengeTs' => $this->challengeTs,
             'hostname' => $this->hostname,
             'errorCodes' => $this->errorCodes,
-            'message' => $this->message
+            'message' => $this->message,
         ];
     }
-
 }

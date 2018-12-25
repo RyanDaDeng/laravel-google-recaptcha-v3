@@ -3,15 +3,12 @@
 namespace TimeHunter\Tests;
 
 use PHPUnit\Framework\TestCase;
-use TimeHunter\LaravelGoogleCaptchaV3\Core\GuzzleRequestClient;
 use TimeHunter\LaravelGoogleCaptchaV3\GoogleReCaptchaV3;
+use TimeHunter\LaravelGoogleCaptchaV3\Core\GuzzleRequestClient;
 use TimeHunter\LaravelGoogleCaptchaV3\Configurations\ReCaptchaConfigV3;
-
 
 class ViewTest extends TestCase
 {
-
-
     public function testView()
     {
         // Create a stub for the SomeClass class.
@@ -21,7 +18,6 @@ class ViewTest extends TestCase
         $configStub->method('isServiceEnabled')
             ->willReturn(false);
 
-
         $clientStub = $this->createMock(GuzzleRequestClient::class);
 
         $service = new GoogleReCaptchaV3($configStub, $clientStub);
@@ -29,7 +25,6 @@ class ViewTest extends TestCase
         $data = $service->render(['contact_us_id' => 'contact_us']);
         $this->assertEquals(null, $data);
     }
-
 
     public function testView2()
     {
@@ -49,7 +44,6 @@ class ViewTest extends TestCase
         $configStub->method('getLanguage')
             ->willReturn('en');
 
-
         $clientStub = $this->createMock(GuzzleRequestClient::class);
 
         $service = new GoogleReCaptchaV3($configStub, $clientStub);
@@ -60,6 +54,4 @@ class ViewTest extends TestCase
         $this->assertEquals(false, $data['inline']);
         $this->assertEquals('en', $data['language']);
     }
-
-
 }

@@ -3,17 +3,15 @@
  * Created by PhpStorm.
  * User: dadeng
  * Date: 2018/11/23
- * Time: 下午7:24
+ * Time: 下午7:24.
  */
 
 namespace TimeHunter\LaravelGoogleCaptchaV3\Core;
-
 
 use TimeHunter\LaravelGoogleCaptchaV3\Interfaces\RequestClientInterface;
 
 class CurlRequestClient implements RequestClientInterface
 {
-
     public function post($url, $body, $options = [])
     {
         $curl = curl_init($url);

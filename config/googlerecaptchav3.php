@@ -77,8 +77,8 @@ return [
         [
             'action' => 'contact_us',
             'threshold' => 0,
-            'score_comparision' => false
-        ]
+            'score_comparision' => false,
+        ],
     ],
     /*
     |--------------------------------------------------------------------------
@@ -106,5 +106,5 @@ return [
     | Type: string
     | https://developers.google.com/recaptcha/docs/language
     */
-    'language' => 'en'
+    'language' => 'en',
 ];
