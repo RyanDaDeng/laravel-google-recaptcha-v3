@@ -16,19 +16,9 @@
     </testsuites>
     <filter>
         <whitelist>
-            <directory>src/</directory>
-            <exclude>
-                <directory suffix=".php">Validations/</directory>
-                <file>GoogleReCaptchaValidationRule.php</file>
-            </exclude>
-            <exclude>
-                <directory suffix=".php">Providers/</directory>
-                <file>GoogleReCaptchaV3ServiceProvider.php</file>
-            </exclude>
-            <exclude>
-                <directory suffix=".php">Facades/</directory>
-                <file>GoogleReCaptchaV3.php</file>
-            </exclude>
+            <file>src/ReCaptcha/GoogleReCaptchaV3.php</file>
+            <directory>src/Configurations/</directory>
+            <directory>src/Core/</directory>
         </whitelist>
     </filter>
     <logging>
