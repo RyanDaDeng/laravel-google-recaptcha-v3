@@ -10,7 +10,6 @@ matrix:
 before_script:
   - travis_retry composer self-update
   - travis_retry composer install --prefer-source --no-interaction
-  - composer require satooshi/php-coveralls:~2.1@stable
 
 after_success:
   - travis_retry php vendor/bin/php-coveralls
