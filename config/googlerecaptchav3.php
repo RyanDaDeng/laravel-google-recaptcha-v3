@@ -4,6 +4,17 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Default Session Driver
+    |--------------------------------------------------------------------------
+    |
+    | If not provided, will use curl as default.
+    | Supported: "guzzle", "curl", if you want to use your own request method,
+    | please read document.
+    |
+    */
+    'request_method' => 'curl',
+    /*
+    |--------------------------------------------------------------------------
     | Enable/Disable Service
     |--------------------------------------------------------------------------
     | Type: bool

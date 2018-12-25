@@ -58,7 +58,7 @@ This package requires the following dependencies:
 Via Composer
 
 ``` sh
-        $ composer require timehunter/laravel-google-recaptcha-v3 "~1.3.1"
+        $ composer require timehunter/laravel-google-recaptcha-v3 "~1.3.2"
 ```
 
 If your Laravel framework version <= 5.4, please register the service provider in your config file: /config/app.php, otherwise please skip it.
@@ -293,7 +293,7 @@ For some users, they might store the config details in their own storage e.g dat
 TimeHunter\LaravelGoogleCaptchaV3\Interfaces\ReCaptchaConfigV3Interface
 ```
 
-Remember to register your implementation, e.g.
+Remember to register it in your own service provider
 
 ``` php
      $this->app->bind(
@@ -304,12 +304,12 @@ Remember to register your implementation, e.g.
 
 #### Custom implementation on Request method
 
-The package uses Guzzle\Http to verify, if you want to use your own request method, You can create your own class and implement 
+The package has two default options to verify: Guzzle and Curl, if you want to use your own request method, You can create your own class and implement 
 ```
 TimeHunter\LaravelGoogleCaptchaV3\Interfaces\RequestClientInterface
 ```
 
-Remember to register your implementation.
+Remember to register it in your own service provider
 ``` php
      $this->app->bind(
                 RequestClientInterface::class,
@@ -317,7 +317,6 @@ Remember to register your implementation.
             );
 ```
 
-Next version will support driver switch in config file.
 
 ## Security
 

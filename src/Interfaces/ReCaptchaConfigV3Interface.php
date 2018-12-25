@@ -11,6 +11,11 @@ namespace TimeHunter\LaravelGoogleCaptchaV3\Interfaces;
 interface ReCaptchaConfigV3Interface
 {
     /**
+     * @return string
+     */
+    public function getRequestMethod();
+
+    /**
      * @return bool
      */
     public function isServiceEnabled();
