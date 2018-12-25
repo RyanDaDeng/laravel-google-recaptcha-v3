@@ -3,15 +3,13 @@
  * Created by PhpStorm.
  * User: rayndeng
  * Date: 6/8/18
- * Time: 5:29 PM
+ * Time: 5:29 PM.
  */
 
 namespace TimeHunter\LaravelGoogleCaptchaV3\Interfaces;
 
-
 interface RequestClientInterface
 {
-
     /**
      * @param $url
      * @param $body
@@ -19,5 +17,4 @@ interface RequestClientInterface
      * @return mixed
      */
     public function post($url, $body, $options = []);
-
 }

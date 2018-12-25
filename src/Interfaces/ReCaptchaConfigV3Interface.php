@@ -3,15 +3,13 @@
  * Created by PhpStorm.
  * User: rayndeng
  * Date: 6/8/18
- * Time: 5:29 PM
+ * Time: 5:29 PM.
  */
 
 namespace TimeHunter\LaravelGoogleCaptchaV3\Interfaces;
 
-
 interface ReCaptchaConfigV3Interface
 {
-
     /**
      * @return bool
      */
@@ -53,10 +51,9 @@ interface ReCaptchaConfigV3Interface
     public function getHostName();
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function isInline();
-
 
     /**
      * @return string

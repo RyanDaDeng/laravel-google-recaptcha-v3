@@ -3,14 +3,14 @@
  * Created by PhpStorm.
  * User: rayndeng
  * Date: 6/8/18
- * Time: 5:29 PM
+ * Time: 5:29 PM.
  */
 
 namespace TimeHunter\LaravelGoogleCaptchaV3;
 
-use TimeHunter\LaravelGoogleCaptchaV3\Interfaces\ReCaptchaConfigV3Interface;
-use TimeHunter\LaravelGoogleCaptchaV3\Interfaces\RequestClientInterface;
 use TimeHunter\LaravelGoogleCaptchaV3\Core\GoogleReCaptchaV3Response;
+use TimeHunter\LaravelGoogleCaptchaV3\Interfaces\RequestClientInterface;
+use TimeHunter\LaravelGoogleCaptchaV3\Interfaces\ReCaptchaConfigV3Interface;
 
 class GoogleReCaptchaV3
 {
@@ -25,7 +25,6 @@ class GoogleReCaptchaV3
         $this->requestClient = $requestClient;
     }
 
-
     /**
      * @param $mappers
      * @return array
@@ -37,11 +36,11 @@ class GoogleReCaptchaV3
             $prepareData[$action][] = $id;
         }
 
-        $data =  [
+        $data = [
             'publicKey' => $this->getConfig()->getSiteKey(),
             'mappers' => $prepareData,
             'inline' => $this->config->isInline(),
-            'language' => $this->config->getLanguage()
+            'language' => $this->config->getLanguage(),
         ];
 
         return $data;
@@ -51,11 +50,13 @@ class GoogleReCaptchaV3
      * @param $mappers
      * @return \Illuminate\Contracts\View\View|null
      */
-    public function render($mappers){
-        if (!$this->config->isServiceEnabled()) {
-            return null;
+    public function render($mappers)
+    {
+        if (! $this->config->isServiceEnabled()) {
+            return;
         }
         $data = $this->prepareViewData($mappers);
+
         return app('view')->make($this->getView(), $data);
     }
 
@@ -74,16 +75,17 @@ class GoogleReCaptchaV3
      */
     public function verifyResponse($response, $ip = null)
     {
-
-        if (!$this->config->isServiceEnabled()) {
+        if (! $this->config->isServiceEnabled()) {
             $res = new GoogleReCaptchaV3Response([], $ip);
             $res->setSuccess(true);
+
             return $res;
         }
 
         if (empty($response)) {
             $res = new GoogleReCaptchaV3Response([], $ip, GoogleReCaptchaV3Response::MISSING_INPUT_ERROR);
             $res->setSuccess(false);
+
             return $res;
         }
 
@@ -108,15 +110,17 @@ class GoogleReCaptchaV3
             return $rawResponse;
         }
 
-        if (!empty($this->config->getHostName()) && strcasecmp($this->config->getHostName(), $rawResponse->getHostname()) !== 0) {
+        if (! empty($this->config->getHostName()) && strcasecmp($this->config->getHostName(), $rawResponse->getHostname()) !== 0) {
             $rawResponse->setMessage(GoogleReCaptchaV3Response::ERROR_HOSTNAME);
             $rawResponse->setSuccess(false);
+
             return $rawResponse;
         }
 
         if (isset($this->action) && strcasecmp($this->action, $rawResponse->getAction()) !== 0) {
             $rawResponse->setMessage(GoogleReCaptchaV3Response::ERROR_ACTION);
             $rawResponse->setSuccess(false);
+
             return $rawResponse;
         }
 
@@ -129,11 +133,13 @@ class GoogleReCaptchaV3
             if ($count > 0) {
                 $rawResponse->setSuccess(false);
                 $rawResponse->setMessage(GoogleReCaptchaV3Response::ERROR_SCORE_THRESHOLD);
+
                 return $rawResponse;
             }
         }
         $rawResponse->setSuccess(true);
         $rawResponse->setMessage('Successfully passed.');
+
         return $rawResponse;
     }
 
@@ -143,7 +149,6 @@ class GoogleReCaptchaV3
     public function getConfig()
     {
         return $this->config;
-
     }
 
     /**
@@ -153,7 +158,7 @@ class GoogleReCaptchaV3
     public function setAction(string $value = null)
     {
         $this->action = $value;
+
         return $this;
     }
-
 }
