@@ -28,24 +28,35 @@ class GoogleReCaptchaV3
 
     /**
      * @param $mappers
-     * @return mixed
+     * @return array
      */
-    public function render($mappers)
+    public function prepareViewData($mappers)
     {
         $prepareData = [];
         foreach ($mappers as $id => $action) {
             $prepareData[$action][] = $id;
         }
 
-        return app('view')->make(
-            $this->getView(),
-            [
-                'publicKey' => $this->getConfig()->getSiteKey(),
-                'mappers' => $prepareData,
-                'inline' => $this->config->isInline(),
-                'language' => $this->config->getLanguage()
-            ]
-        );
+        $data =  [
+            'publicKey' => $this->getConfig()->getSiteKey(),
+            'mappers' => $prepareData,
+            'inline' => $this->config->isInline(),
+            'language' => $this->config->getLanguage()
+        ];
+
+        return $data;
+    }
+
+    /**
+     * @param $mappers
+     * @return \Illuminate\Contracts\View\View|null
+     */
+    public function render($mappers){
+        if (!$this->config->isServiceEnabled()) {
+            return null;
+        }
+        $data = $this->prepareViewData($mappers);
+        return app('view')->make($this->getView(), $data);
     }
 
     /**

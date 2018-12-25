@@ -6,8 +6,6 @@ use PHPUnit\Framework\TestCase;
 use TimeHunter\LaravelGoogleCaptchaV3\Core\CurlRequestClient;
 use TimeHunter\LaravelGoogleCaptchaV3\Core\GoogleReCaptchaV3Response;
 use TimeHunter\LaravelGoogleCaptchaV3\Core\GuzzleRequestClient;
-use TimeHunter\LaravelGoogleCaptchaV3\GoogleReCaptchaV3;
-use TimeHunter\LaravelGoogleCaptchaV3\Configurations\ReCaptchaConfigV3;
 
 
 class RequestTest extends TestCase
