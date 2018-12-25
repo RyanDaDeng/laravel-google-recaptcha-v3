@@ -25,7 +25,6 @@ class GoogleReCaptchaV3
         $this->config = $config;
         $this->requestClient = $requestClient;
         $this->request = app('request');
-
     }
 
 
@@ -74,7 +73,7 @@ class GoogleReCaptchaV3
         }
 
         if (empty($response)) {
-            $res = new GoogleReCaptchaV3Response([], $ip, 'Missing input response.');
+            $res = new GoogleReCaptchaV3Response([], $ip, GoogleReCaptchaV3Response::MISSING_INPUT_ERROR);
             $res->setSuccess(false);
             return $res;
         }
@@ -90,7 +89,7 @@ class GoogleReCaptchaV3
         );
 
         if (is_null($verifiedResponse) || empty($verifiedResponse)) {
-            return new GoogleReCaptchaV3Response([], $ip, 'Unable to verify.');
+            return new GoogleReCaptchaV3Response([], $ip, GoogleReCaptchaV3Response::ERROR_UNABLE_TO_VERIFY);
         }
 
         $decodedResponse = json_decode($verifiedResponse, true);
@@ -101,13 +100,13 @@ class GoogleReCaptchaV3
         }
 
         if (!empty($this->config->getHostName()) && strcasecmp($this->config->getHostName(), $rawResponse->getHostname()) !== 0) {
-            $rawResponse->setMessage('Hostname does not match.');
+            $rawResponse->setMessage(GoogleReCaptchaV3Response::ERROR_HOSTNAME);
             $rawResponse->setSuccess(false);
             return $rawResponse;
         }
 
         if (isset($this->action) && strcasecmp($this->action, $rawResponse->getAction()) !== 0) {
-            $rawResponse->setMessage('Action does not match.');
+            $rawResponse->setMessage(GoogleReCaptchaV3Response::ERROR_ACTION);
             $rawResponse->setSuccess(false);
             return $rawResponse;
         }
@@ -120,7 +119,7 @@ class GoogleReCaptchaV3
                 ->count();
             if ($count > 0) {
                 $rawResponse->setSuccess(false);
-                $rawResponse->setMessage('Score does not meet threshold.');
+                $rawResponse->setMessage(GoogleReCaptchaV3Response::ERROR_SCORE_THRESHOLD);
                 return $rawResponse;
             }
         }

@@ -13,6 +13,13 @@ use Carbon\Carbon;
 
 class GoogleReCaptchaV3Response
 {
+    const MISSING_INPUT_ERROR = 'Missing input response.';
+    const ERROR_UNABLE_TO_VERIFY = 'Unable to verify.';
+    const ERROR_HOSTNAME = 'Hostname does not match.';
+    const ERROR_ACTION = 'Action does not match.';
+    const ERROR_SCORE_THRESHOLD = 'Score does not meet threshold.';
+
+
     protected $success;
     protected $score;
     protected $action;
