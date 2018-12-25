@@ -10,6 +10,7 @@ namespace TimeHunter\LaravelGoogleCaptchaV3\Core;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Exception\ConnectException;
 use TimeHunter\LaravelGoogleCaptchaV3\Interfaces\RequestClientInterface;
 
 class GuzzleRequestClient implements RequestClientInterface
@@ -24,7 +25,9 @@ class GuzzleRequestClient implements RequestClientInterface
 
             return $response->getBody();
         } catch (ClientException $e) {
-            return '{"success": false, "error-codes": ["'.GoogleReCaptchaV3Response::ERROR_TIMEOUT.'"]}';
+            return '{"success": false, "error-codes": ["Guzzle Client Error Code: ' . $e->getCode() . '"]}';
+        } catch (ConnectException $e) {
+            return '{"success": false, "error-codes": ["Guzzle Client Error Code: ' . GoogleReCaptchaV3Response::ERROR_TIMEOUT . '"]}';
         }
     }
 }
