@@ -53,7 +53,7 @@ class GoogleReCaptchaV3
     public function render($mappers)
     {
         if (! $this->config->isServiceEnabled()) {
-            return null;
+            return;
         }
         $data = $this->prepareViewData($mappers);
 
