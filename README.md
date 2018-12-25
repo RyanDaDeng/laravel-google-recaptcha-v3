@@ -326,7 +326,7 @@ If you discover any security related issues, please email ryandadeng@gmail.com i
 
 MIT. Please see the [license file](license.md) for more information.
 
-[ico-version]: https://img.shields.io/packagist/v/timehunter/laravel-google-recaptcha-v3.svg?style=flat-square
+[ico-version]: https://img.shields.io/packagist/v/timehunter/laravel-google-recaptcha-v3.svg?style=flat-square&service=github
 [ico-downloads]: https://img.shields.io/packagist/dt/timehunter/laravel-google-recaptcha-v3.svg?style=flat-square
 [ico-coverage]: https://coveralls.io/repos/github/RyanDaDeng/laravel-google-recaptcha-v3/badge.svg?branch=master&service=github
 [ico-build]: https://travis-ci.org/RyanDaDeng/laravel-google-recaptcha-v3.svg?branch=master
