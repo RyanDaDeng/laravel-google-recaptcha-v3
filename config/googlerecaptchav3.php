@@ -4,7 +4,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Default Session Driver
+    | Default Request Method
     |--------------------------------------------------------------------------
     |
     | If not provided, will use curl as default.
