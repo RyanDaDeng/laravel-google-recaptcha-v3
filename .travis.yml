@@ -16,4 +16,9 @@ after_success:
 
 script:
   - mkdir -p build/logs
-  - phpunit --coverage-clover build/logs/clover.xml
+  - composer run-script lint
+  - composer run-script test
+
+cache:
+  directories:
+    - "$HOME/.composer/cache/files"
