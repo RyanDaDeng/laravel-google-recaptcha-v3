@@ -19,9 +19,9 @@
             <directory>src/</directory>
         </whitelist>
         <blacklist>
-            <directory>src/Validations</directory>
-            <directory>src/Providers</directory>
-            <directory>src/Facades</directory>
+            <directory>src/Validations/</directory>
+            <directory>src/Providers/</directory>
+            <directory>src/Facades/</directory>
         </blacklist>
     </filter>
     <logging>
