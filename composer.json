@@ -45,6 +45,7 @@
       "TimeHunter\\LaravelGoogleCaptchaV3\\Tests\\": "tests"
     }
   },
+
   "extra": {
     "laravel": {
       "providers": [
@@ -53,6 +54,9 @@
       "aliases": {
         "GoogleReCaptchaV3": "TimeHunter\\LaravelGoogleCaptchaV3\\Facades\\GoogleReCaptchaV3"
       }
+    },
+    "branch-alias": {
+      "dev-master": "1.3.*-dev"
     }
   }
 }
