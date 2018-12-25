@@ -12,6 +12,8 @@
 [![Total Downloads][ico-downloads]][link-downloads]
 [![Coverage Status][ico-coverage]][link-coverage]
 [![Build][ico-build]][link-build]
+[![StyleCI][ico-styleci]][link-packagist]
+
 
 # DEMO
 <img src="https://github.com/RyanDaDeng/aws-study-notes/blob/master/881545398213_.pic.jpg" width="250" height="300" />
@@ -330,6 +332,7 @@ MIT. Please see the [license file](license.md) for more information.
 [ico-downloads]: https://poser.pugx.org/timehunter/laravel-google-recaptcha-v3/downloads
 [ico-coverage]: https://coveralls.io/repos/github/RyanDaDeng/laravel-google-recaptcha-v3/badge.svg?branch=master&service=github
 [ico-build]: https://travis-ci.org/RyanDaDeng/laravel-google-recaptcha-v3.svg?branch=master
+[ico-styleci]: https://github.styleci.io/repos/146857583/shield
 
 [link-packagist]: https://packagist.org/packages/timehunter/laravel-google-recaptcha-v3
 [link-downloads]: https://packagist.org/packages/timehunter/laravel-google-recaptcha-v3
