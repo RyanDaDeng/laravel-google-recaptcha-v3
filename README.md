@@ -11,6 +11,7 @@
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Total Downloads][ico-downloads]][link-downloads]
 [![Coverage Status][ico-coverage]][link-coverage]
+[![Build][ico-build]][link-build]
 
 # DEMO
 <img src="https://github.com/RyanDaDeng/aws-study-notes/blob/master/881545398213_.pic.jpg" width="250" height="300" />
@@ -328,8 +329,10 @@ MIT. Please see the [license file](license.md) for more information.
 [ico-version]: https://img.shields.io/packagist/v/timehunter/laravel-google-recaptcha-v3.svg?style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/timehunter/laravel-google-recaptcha-v3.svg?style=flat-square
 [ico-coverage]: https://coveralls.io/repos/github/RyanDaDeng/laravel-google-recaptcha-v3/badge.svg?branch=master
+[ico-build]: https://travis-ci.org/RyanDaDeng/laravel-google-recaptcha-v3.svg?branch=master
 
 [link-packagist]: https://packagist.org/packages/timehunter/laravel-google-recaptcha-v3
 [link-downloads]: https://packagist.org/packages/timehunter/laravel-google-recaptcha-v3
 [link-author]: https://github.com/ryandadeng
 [link-coverage]: https://coveralls.io/github/RyanDaDeng/laravel-google-recaptcha-v3?branch=master
+[link-build]: https://travis-ci.org/RyanDaDeng/laravel-google-recaptcha-v3
