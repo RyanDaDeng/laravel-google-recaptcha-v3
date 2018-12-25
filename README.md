@@ -14,7 +14,7 @@
 [![Build][ico-build]][link-build]
 [![StyleCI][ico-styleci]][link-styleci]
 
-I will be super happy if you think this package is good and also star me.
+I will be super happy if you think this package is good and also star me.  ^.^
 
 # DEMO
 
