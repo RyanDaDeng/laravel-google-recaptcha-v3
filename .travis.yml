@@ -17,7 +17,7 @@ after_success:
 
 script:
   - mkdir -p build/logs
-  - phpunit --coverage-clover build/logs/clover.xml
+  - phpunit -c phpunit.xml.dist --coverage-clover build/logs/clover.xml
 
 cache:
   directories:
