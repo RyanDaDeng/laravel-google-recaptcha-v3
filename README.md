@@ -26,7 +26,7 @@ I will be super happy if you think this package is good and also star me.
 
 <img src="https://github.com/RyanDaDeng/aws-study-notes/blob/master/891545398531_.pic.jpg" width="250" height="300" />
 
-## Global
+## Corner
 
 <img src="https://github.com/RyanDaDeng/aws-study-notes/blob/master/901545398593_.pic.jpg" width="150" height="100" />
 
