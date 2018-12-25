@@ -3,14 +3,13 @@
  * Created by PhpStorm.
  * User: rayndeng
  * Date: 9/8/18
- * Time: 1:39 PM
+ * Time: 1:39 PM.
  */
 
 namespace TimeHunter\LaravelGoogleCaptchaV3\Validations;
 
-
 use Illuminate\Contracts\Validation\ImplicitRule;
-use \TimeHunter\LaravelGoogleCaptchaV3\Facades\GoogleReCaptchaV3;
+use TimeHunter\LaravelGoogleCaptchaV3\Facades\GoogleReCaptchaV3;
 
 class GoogleReCaptchaValidationRule implements ImplicitRule
 {
@@ -32,6 +31,7 @@ class GoogleReCaptchaValidationRule implements ImplicitRule
     {
         $response = GoogleReCaptchaV3::setAction($this->action)->verifyResponse($value, app('request')->getClientIp());
         $this->message = $response->getMessage();
+
         return $response->isSuccess();
     }
 

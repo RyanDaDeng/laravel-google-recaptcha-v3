@@ -3,16 +3,13 @@
 namespace TimeHunter\Tests;
 
 use PHPUnit\Framework\TestCase;
-use TimeHunter\LaravelGoogleCaptchaV3\Core\GoogleReCaptchaV3Response;
-use TimeHunter\LaravelGoogleCaptchaV3\Core\GuzzleRequestClient;
 use TimeHunter\LaravelGoogleCaptchaV3\GoogleReCaptchaV3;
+use TimeHunter\LaravelGoogleCaptchaV3\Core\GuzzleRequestClient;
+use TimeHunter\LaravelGoogleCaptchaV3\Core\GoogleReCaptchaV3Response;
 use TimeHunter\LaravelGoogleCaptchaV3\Configurations\ReCaptchaConfigV3;
-
 
 class ScoreTest extends TestCase
 {
-
-
     public function testScore1()
     {
         // Create a stub for the SomeClass class.
@@ -30,10 +27,9 @@ class ScoreTest extends TestCase
                 [
                     'action' => 'contact_us',
                     'threshold' => 1,
-                    'score_comparision' => true
-                ]
+                    'score_comparision' => true,
+                ],
             ]);
-
 
         $testJson = '{ "success": true, "challenge_ts": "2018-12-25T03:35:32Z", "hostname": "ryandeng.test", "score": 0.9, "action": "contact_us" }';
 
@@ -47,8 +43,6 @@ class ScoreTest extends TestCase
         $this->assertEquals(false, $response->isSuccess());
         $this->assertEquals(GoogleReCaptchaV3Response::ERROR_SCORE_THRESHOLD, $response->getMessage());
     }
-
-
 
     public function testScore2()
     {
@@ -67,10 +61,9 @@ class ScoreTest extends TestCase
                 [
                     'action' => 'contact_us',
                     'threshold' => 1,
-                    'score_comparision' => true
-                ]
+                    'score_comparision' => true,
+                ],
             ]);
-
 
         $testJson = '{ "success": true, "challenge_ts": "2018-12-25T03:35:32Z", "hostname": "ryandeng.test", "score": 0.9, "action": "contact_us" }';
 
@@ -83,9 +76,6 @@ class ScoreTest extends TestCase
         $response = $service->verifyResponse('test response');
         $this->assertEquals(true, $response->isSuccess());
     }
-
-
-
 
     public function testScore3()
     {
@@ -104,10 +94,9 @@ class ScoreTest extends TestCase
                 [
                     'action' => 'contact_us',
                     'threshold' => 1,
-                    'score_comparision' => false
-                ]
+                    'score_comparision' => false,
+                ],
             ]);
-
 
         $testJson = '{ "success": true, "challenge_ts": "2018-12-25T03:35:32Z", "hostname": "ryandeng.test", "score": 0.9, "action": "contact_us" }';
 
@@ -120,9 +109,6 @@ class ScoreTest extends TestCase
         $response = $service->verifyResponse('test response');
         $this->assertEquals(true, $response->isSuccess());
     }
-
-
-
 
     public function testScore4()
     {
@@ -141,10 +127,9 @@ class ScoreTest extends TestCase
                 [
                     'action' => 'contact_us',
                     'threshold' => 0.9,
-                    'score_comparision' => true
-                ]
+                    'score_comparision' => true,
+                ],
             ]);
-
 
         $testJson = '{ "success": true, "challenge_ts": "2018-12-25T03:35:32Z", "hostname": "ryandeng.test", "score": 0.9, "action": "contact_us" }';
 
@@ -157,7 +142,6 @@ class ScoreTest extends TestCase
         $response = $service->verifyResponse('test response');
         $this->assertEquals(true, $response->isSuccess());
     }
-
 
     public function testScore5()
     {
@@ -176,10 +160,9 @@ class ScoreTest extends TestCase
                 [
                     'action' => 'contact_us',
                     'threshold' => 0.91,
-                    'score_comparision' => true
-                ]
+                    'score_comparision' => true,
+                ],
             ]);
-
 
         $testJson = '{ "success": true, "challenge_ts": "2018-12-25T03:35:32Z", "hostname": "ryandeng.test", "score": 0.9, "action": "contact_us" }';
 
@@ -193,8 +176,6 @@ class ScoreTest extends TestCase
         $this->assertEquals(false, $response->isSuccess());
         $this->assertEquals(GoogleReCaptchaV3Response::ERROR_SCORE_THRESHOLD, $response->getMessage());
     }
-
-
 
     public function testScore6()
     {
@@ -213,10 +194,9 @@ class ScoreTest extends TestCase
                 [
                     'action' => 'contact_us_test',
                     'threshold' => 0.91,
-                    'score_comparision' => true
-                ]
+                    'score_comparision' => true,
+                ],
             ]);
-
 
         $testJson = '{ "success": true, "challenge_ts": "2018-12-25T03:35:32Z", "hostname": "ryandeng.test", "score": 0.9, "action": "contact_us" }';
 
@@ -229,5 +209,4 @@ class ScoreTest extends TestCase
         $response = $service->verifyResponse('test response');
         $this->assertEquals(true, $response->isSuccess());
     }
-
 }

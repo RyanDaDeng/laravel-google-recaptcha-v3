@@ -2,7 +2,6 @@
 
 namespace TimeHunter\LaravelGoogleCaptchaV3\Configurations;
 
-
 use TimeHunter\LaravelGoogleCaptchaV3\Interfaces\ReCaptchaConfigV3Interface;
 
 class ReCaptchaConfigV3 implements ReCaptchaConfigV3Interface
@@ -55,16 +54,13 @@ class ReCaptchaConfigV3 implements ReCaptchaConfigV3Interface
         return config('googlerecaptchav3.site_key');
     }
 
-
     /**
      * @return array
      */
     public function getOptions()
     {
-
         return config('googlerecaptchav3.options');
     }
-
 
     /**
      * @return array
