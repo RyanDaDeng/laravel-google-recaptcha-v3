@@ -93,7 +93,7 @@ And also
 ```
 
 
-If your Laravel framework version is >= 5.5, just run the following command to publish views and config.
+If your Laravel framework version is >= 5.5, just run the following command to publish config.
 ```sh 
 $ php artisan vendor:publish --provider="TimeHunter\LaravelGoogleCaptchaV3\Providers\GoogleReCaptchaV3ServiceProvider"
 ```
