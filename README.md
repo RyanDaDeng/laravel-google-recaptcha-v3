@@ -223,7 +223,7 @@ Custom
 
 You can also directly use registered service by calling the following method.
 - setAction() is optional only if you want to verify if the action is matched.
-- verifyResponse() which accepts the token value from your form. This return Google reCAPTCHA Response object.
+- verifyResponse() which accepts the token value from your form. This returns Google reCAPTCHA Response object.
 
 ``` php
    GoogleReCaptchaV3::setAction($action)->verifyResponse($value,$ip = null);
@@ -296,7 +296,7 @@ Create your form in index.blade.php:
 {!!  GoogleReCaptchaV3::render(['contact_us_id'=>'contact_us', 'signup_id'=>'signup']) !!}
 ```
 
-Go to /index and click submit button on contact us form and you should see an error message that 'Score does not meet the treshhold' because the threshold >2. You can play around the controller to see all outcomes. Importantly, you need to wait the script to load and render the token before clicking the submit button.
+Go to /index and click submit button on contact us form and you should see an error message that 'Score does not meet the treshhold' because the threshold >2. You can play around the controller to see all outcomes. Importantly, you need to wait the script to be loaded before clicking the submit button.
 
 ## Advanced Usage
 
