@@ -29,7 +29,7 @@ class GoogleReCaptchaV3
      * @param $mappers
      * @return array
      */
-    public function prepareViewData($mappers)
+    public    function  prepareViewData($mappers)
     {
         $prepareData = [];
         foreach ($mappers as $id => $action) {
