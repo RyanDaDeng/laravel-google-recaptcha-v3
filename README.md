@@ -163,6 +163,8 @@ Include Template script in your bottom/header of your page, params should follow
 
 ```
 
+The backend request will receive a value for 'g-recaptcha-response', please take a look at Sample Use Case and Facade usage sections.
+
 ## Badge Display
 
 Inline
