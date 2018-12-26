@@ -47,7 +47,7 @@ Please check Google site: https://developers.google.com/recaptcha/docs/faq
 
 - Score Comparision
 - Support invisible, global and inline badge style
-- Support multiple reCAPTCHA the same page for different forms
+- Support multiple reCAPTCHA on the same page for different forms
 - Support multiple actions to be placed on the same page
 - Support custom implementation on config interface
 - Support custom implementation on request method interface 
@@ -98,7 +98,7 @@ If your Laravel framework version is >= 5.5, just run the following command to p
 $ php artisan vendor:publish --provider="TimeHunter\LaravelGoogleCaptchaV3\Providers\GoogleReCaptchaV3ServiceProvider"
 ```
 
-After installation, you should see a googlerecaptchav3/field.blade and header.blade file in your views folder and googlerecaptchav3.php in your app/config folder.
+After installation, you should see a googlerecaptchav3.php in your app/config folder.
 
 ## Basic Usage
 #### Setting up your Google reCAPTCHA details in config file
