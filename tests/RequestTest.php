@@ -38,7 +38,6 @@ class RequestTest extends TestCase
         $this->assertEquals(false, $response->isSuccess());
     }
 
-
     public function testGuzzleRequest()
     {
         $client = new GuzzleRequestClient();
@@ -53,7 +52,6 @@ class RequestTest extends TestCase
         $this->assertEquals(false, $response->toArray()['success']);
         $this->assertEquals(2, count($response->getErrorCodes()));
     }
-
 
     public function testGuzzleRequest2()
     {

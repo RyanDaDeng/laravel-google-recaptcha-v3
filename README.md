@@ -14,10 +14,20 @@
 [![Build][ico-build]][link-build]
 [![StyleCI][ico-styleci]][link-styleci]
 
+I will be super happy if you think this package is good and also star me.  ^.^
 
 # DEMO
+
+## Invisible
+
 <img src="https://github.com/RyanDaDeng/aws-study-notes/blob/master/881545398213_.pic.jpg" width="250" height="300" />
+
+## Inline
+
 <img src="https://github.com/RyanDaDeng/aws-study-notes/blob/master/891545398531_.pic.jpg" width="250" height="300" />
+
+## Corner
+
 <img src="https://github.com/RyanDaDeng/aws-study-notes/blob/master/901545398593_.pic.jpg" width="150" height="100" />
 
 ## Description
@@ -153,7 +163,9 @@ Include Template script in your bottom/header of your page, params should follow
 
 ```
 
-##### Badge Display
+The backend request will receive a value for 'g-recaptcha-response', please take a look at Sample Use Case and Facade usage sections.
+
+## Badge Display
 
 Inline
 
@@ -191,7 +203,7 @@ Custom
 2. Do Styling/CSS on its div element
 
 
-#### Validation Class (Only support Laravel >= 5.5)
+## Validation Class (Only support Laravel >= 5.5)
    
    You can use provided Validation object to verify your reCAPTCHA.
       
@@ -204,7 +216,7 @@ Custom
 
    -  $actionName: if its NULL, the package won't verify action with google response.
   
-#### Facade Usage
+## Facade Usage
 
 You can also directly use registered service by calling the following method.
 - setAction() is optional only if you want to verify if the action is matched.

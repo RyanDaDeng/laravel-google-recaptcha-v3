@@ -25,11 +25,11 @@ class CurlRequestClient implements RequestClientInterface
         $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 
         if (false === $response) {
-            return '{"success": false, "error-codes": ["Curl Error Code: ' . GoogleReCaptchaV3Response::ERROR_TIMEOUT . '"]}';
+            return '{"success": false, "error-codes": ["Curl Error Code: '.GoogleReCaptchaV3Response::ERROR_TIMEOUT.'"]}';
         }
 
         if ($httpCode !== 200) {
-            return '{"success": false, "error-codes": ["Curl Error Code: ' . $httpCode . '"]}';
+            return '{"success": false, "error-codes": ["Curl Error Code: '.$httpCode.'"]}';
         }
 
         curl_close($curl);
