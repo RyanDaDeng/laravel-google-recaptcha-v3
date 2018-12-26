@@ -103,7 +103,7 @@ After installation, you should see a googlerecaptchav3.php in your app/config fo
 ## Basic Usage
 #### Setting up your Google reCAPTCHA details in config file
 
-Please register all details on host_name, site_key, secret_key and site_verify_url.
+Please register all details in config for host_name, site_key, secret_key and site_verify_url.
 
 Specify your Score threshold and action in 'setting', e.g.
 ``` php
