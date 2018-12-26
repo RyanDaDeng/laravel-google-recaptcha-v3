@@ -13,8 +13,11 @@
 [![Coverage Status][ico-coverage]][link-coverage]
 [![Build][ico-build]][link-build]
 [![StyleCI][ico-styleci]][link-styleci]
+[![Latest Unstable Version][ico-unstable]][link-unstable]
 
 I will be super happy if you think this package is good and also star me.  ^.^
+
+PS: The version "~3.*" contains vue component which is unstable and incomplete right now, feel free to install it if you really want to use vue. It will be released soon.
 
 # DEMO
 
@@ -344,6 +347,7 @@ MIT. Please see the [license file](license.md) for more information.
 [ico-coverage]: https://coveralls.io/repos/github/RyanDaDeng/laravel-google-recaptcha-v3/badge.svg?branch=master&service=github
 [ico-build]: https://travis-ci.org/RyanDaDeng/laravel-google-recaptcha-v3.svg?branch=master
 [ico-styleci]: https://github.styleci.io/repos/146857583/shield
+[ico-unstable]: https://poser.pugx.org/timehunter/laravel-google-recaptcha-v3/v/unstable
 
 [link-packagist]: https://packagist.org/packages/timehunter/laravel-google-recaptcha-v3
 [link-downloads]: https://packagist.org/packages/timehunter/laravel-google-recaptcha-v3
@@ -351,3 +355,5 @@ MIT. Please see the [license file](license.md) for more information.
 [link-coverage]: https://coveralls.io/github/RyanDaDeng/laravel-google-recaptcha-v3?branch=master
 [link-build]: https://travis-ci.org/RyanDaDeng/laravel-google-recaptcha-v3
 [link-styleci]: https://github.styleci.io/repos/146857583
+[link-unstable]: https://packagist.org/packages/timehunter/laravel-google-recaptcha-v3
+
