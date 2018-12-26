@@ -226,7 +226,7 @@ You can also directly use registered service by calling the following method.
 - verifyResponse() which accepts the token value from your form. This return Google reCAPTCHA Response object.
 
 ``` php
-   GoogleReCaptchaV3::setAction($action)->verifyResponse($value);
+   GoogleReCaptchaV3::setAction($action)->verifyResponse($value,$ip = null);
 ```
 
 Example Usage
@@ -239,7 +239,7 @@ Example Usage
 ```
 
 ``` php
-   GoogleReCaptchaV3::verifyResponse($request->input('g-recaptcha-response'))->getMessage()
+   GoogleReCaptchaV3::verifyResponse($request->input('g-recaptcha-response'), $request->getClientIp())->getMessage()
 ```
 
 ## Sample Use Case
