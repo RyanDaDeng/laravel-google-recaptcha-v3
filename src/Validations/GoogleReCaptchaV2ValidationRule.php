@@ -11,7 +11,7 @@ namespace TimeHunter\LaravelGoogleReCaptchaV3\Validations;
 use Illuminate\Contracts\Validation\ImplicitRule;
 use TimeHunter\LaravelGoogleReCaptchaV3\Facades\GoogleReCaptchaV3;
 
-class GoogleReCaptchaValidationRule implements ImplicitRule
+class GoogleReCaptchaV2ValidationRule implements ImplicitRule
 {
     protected $action;
     protected $ip;
