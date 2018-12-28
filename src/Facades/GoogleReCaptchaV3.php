@@ -1,13 +1,13 @@
 <?php
 
-namespace TimeHunter\LaravelGoogleCaptchaV3\Facades;
+namespace TimeHunter\LaravelGoogleReCaptchaV3\Facades;
 
 use Illuminate\Support\Facades\Facade;
-use TimeHunter\LaravelGoogleCaptchaV3\Core\GoogleReCaptchaV3Response;
+use TimeHunter\LaravelGoogleReCaptchaV3\Core\GoogleReCaptchaV3Response;
 
 /**
- * @method static GoogleReCaptchaV3Response verifyResponse(array $data)
- * @method static \TimeHunter\LaravelGoogleCaptchaV3\GoogleReCaptchaV3 setAction(string $value)
+ * @method static GoogleReCaptchaV3Response verifyResponse($value, $ip = null)
+ * @method static \TimeHunter\LaravelGoogleReCaptchaV3\GoogleReCaptchaV3 setAction(string $value)
  * @method static render($action)
  * @see ReCaptcha
  */

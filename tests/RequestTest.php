@@ -3,9 +3,9 @@
 namespace TimeHunter\Tests;
 
 use PHPUnit\Framework\TestCase;
-use TimeHunter\LaravelGoogleCaptchaV3\Core\CurlRequestClient;
-use TimeHunter\LaravelGoogleCaptchaV3\Core\GuzzleRequestClient;
-use TimeHunter\LaravelGoogleCaptchaV3\Core\GoogleReCaptchaV3Response;
+use TimeHunter\LaravelGoogleReCaptchaV3\Core\CurlRequestClient;
+use TimeHunter\LaravelGoogleReCaptchaV3\Core\GuzzleRequestClient;
+use TimeHunter\LaravelGoogleReCaptchaV3\Core\GoogleReCaptchaV3Response;
 
 class RequestTest extends TestCase
 {

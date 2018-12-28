@@ -6,12 +6,12 @@
  * Time: 下午7:24.
  */
 
-namespace TimeHunter\LaravelGoogleCaptchaV3\Core;
+namespace TimeHunter\LaravelGoogleReCaptchaV3\Core;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\ConnectException;
-use TimeHunter\LaravelGoogleCaptchaV3\Interfaces\RequestClientInterface;
+use TimeHunter\LaravelGoogleReCaptchaV3\Interfaces\RequestClientInterface;
 
 class GuzzleRequestClient implements RequestClientInterface
 {

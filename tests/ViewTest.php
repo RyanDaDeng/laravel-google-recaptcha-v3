@@ -3,9 +3,10 @@
 namespace TimeHunter\Tests;
 
 use PHPUnit\Framework\TestCase;
-use TimeHunter\LaravelGoogleCaptchaV3\GoogleReCaptchaV3;
-use TimeHunter\LaravelGoogleCaptchaV3\Core\GuzzleRequestClient;
-use TimeHunter\LaravelGoogleCaptchaV3\Configurations\ReCaptchaConfigV3;
+use TimeHunter\LaravelGoogleReCaptchaV3\GoogleReCaptchaV3;
+use TimeHunter\LaravelGoogleReCaptchaV3\Core\GuzzleRequestClient;
+use TimeHunter\LaravelGoogleReCaptchaV3\Configurations\ReCaptchaConfigV3;
+use TimeHunter\LaravelGoogleReCaptchaV3\Services\GoogleReCaptchaV3Service;
 
 class ViewTest extends TestCase
 {
@@ -20,7 +21,8 @@ class ViewTest extends TestCase
 
         $clientStub = $this->createMock(GuzzleRequestClient::class);
 
-        $service = new GoogleReCaptchaV3($configStub, $clientStub);
+        $_service = new GoogleReCaptchaV3Service($configStub, $clientStub);
+        $service = new GoogleReCaptchaV3($_service);
 
         $data = $service->render(['contact_us_id' => 'contact_us']);
         $this->assertEquals(null, $data);
@@ -46,7 +48,8 @@ class ViewTest extends TestCase
 
         $clientStub = $this->createMock(GuzzleRequestClient::class);
 
-        $service = new GoogleReCaptchaV3($configStub, $clientStub);
+        $_service = new GoogleReCaptchaV3Service($configStub, $clientStub);
+        $service = new GoogleReCaptchaV3($_service);
 
         $data = $service->prepareViewData(['contact_us_id' => 'contact_us']);
         $this->assertEquals('test1', $data['publicKey']);

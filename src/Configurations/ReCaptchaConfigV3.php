@@ -1,8 +1,8 @@
 <?php
 
-namespace TimeHunter\LaravelGoogleCaptchaV3\Configurations;
+namespace TimeHunter\LaravelGoogleReCaptchaV3\Configurations;
 
-use TimeHunter\LaravelGoogleCaptchaV3\Interfaces\ReCaptchaConfigV3Interface;
+use TimeHunter\LaravelGoogleReCaptchaV3\Interfaces\ReCaptchaConfigV3Interface;
 
 class ReCaptchaConfigV3 implements ReCaptchaConfigV3Interface
 {

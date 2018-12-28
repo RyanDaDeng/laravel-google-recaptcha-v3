@@ -6,7 +6,7 @@
  * Time: 5:29 PM.
  */
 
-namespace TimeHunter\LaravelGoogleCaptchaV3\Interfaces;
+namespace TimeHunter\LaravelGoogleReCaptchaV3\Interfaces;
 
 interface ReCaptchaConfigV3Interface
 {

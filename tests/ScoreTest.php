@@ -3,10 +3,11 @@
 namespace TimeHunter\Tests;
 
 use PHPUnit\Framework\TestCase;
-use TimeHunter\LaravelGoogleCaptchaV3\GoogleReCaptchaV3;
-use TimeHunter\LaravelGoogleCaptchaV3\Core\GuzzleRequestClient;
-use TimeHunter\LaravelGoogleCaptchaV3\Core\GoogleReCaptchaV3Response;
-use TimeHunter\LaravelGoogleCaptchaV3\Configurations\ReCaptchaConfigV3;
+use TimeHunter\LaravelGoogleReCaptchaV3\GoogleReCaptchaV3;
+use TimeHunter\LaravelGoogleReCaptchaV3\Core\GuzzleRequestClient;
+use TimeHunter\LaravelGoogleReCaptchaV3\Core\GoogleReCaptchaV3Response;
+use TimeHunter\LaravelGoogleReCaptchaV3\Configurations\ReCaptchaConfigV3;
+use TimeHunter\LaravelGoogleReCaptchaV3\Services\GoogleReCaptchaV3Service;
 
 class ScoreTest extends TestCase
 {
@@ -37,7 +38,8 @@ class ScoreTest extends TestCase
         $clientStub->method('post')
             ->willReturn($testJson);
 
-        $service = new GoogleReCaptchaV3($configStub, $clientStub);
+        $_service = new GoogleReCaptchaV3Service($configStub, $clientStub);
+        $service = new GoogleReCaptchaV3($_service);
 
         $response = $service->verifyResponse('test response');
         $this->assertEquals(false, $response->isSuccess());
@@ -71,7 +73,8 @@ class ScoreTest extends TestCase
         $clientStub->method('post')
             ->willReturn($testJson);
 
-        $service = new GoogleReCaptchaV3($configStub, $clientStub);
+        $_service = new GoogleReCaptchaV3Service($configStub, $clientStub);
+        $service = new GoogleReCaptchaV3($_service);
 
         $response = $service->verifyResponse('test response');
         $this->assertEquals(true, $response->isSuccess());
@@ -104,7 +107,8 @@ class ScoreTest extends TestCase
         $clientStub->method('post')
             ->willReturn($testJson);
 
-        $service = new GoogleReCaptchaV3($configStub, $clientStub);
+        $_service = new GoogleReCaptchaV3Service($configStub, $clientStub);
+        $service = new GoogleReCaptchaV3($_service);
 
         $response = $service->verifyResponse('test response');
         $this->assertEquals(true, $response->isSuccess());
@@ -137,7 +141,8 @@ class ScoreTest extends TestCase
         $clientStub->method('post')
             ->willReturn($testJson);
 
-        $service = new GoogleReCaptchaV3($configStub, $clientStub);
+        $_service = new GoogleReCaptchaV3Service($configStub, $clientStub);
+        $service = new GoogleReCaptchaV3($_service);
 
         $response = $service->verifyResponse('test response');
         $this->assertEquals(true, $response->isSuccess());
@@ -170,7 +175,8 @@ class ScoreTest extends TestCase
         $clientStub->method('post')
             ->willReturn($testJson);
 
-        $service = new GoogleReCaptchaV3($configStub, $clientStub);
+        $_service = new GoogleReCaptchaV3Service($configStub, $clientStub);
+        $service = new GoogleReCaptchaV3($_service);
 
         $response = $service->verifyResponse('test response');
         $this->assertEquals(false, $response->isSuccess());
@@ -204,7 +210,8 @@ class ScoreTest extends TestCase
         $clientStub->method('post')
             ->willReturn($testJson);
 
-        $service = new GoogleReCaptchaV3($configStub, $clientStub);
+        $_service = new GoogleReCaptchaV3Service($configStub, $clientStub);
+        $service = new GoogleReCaptchaV3($_service);
 
         $response = $service->verifyResponse('test response');
         $this->assertEquals(true, $response->isSuccess());

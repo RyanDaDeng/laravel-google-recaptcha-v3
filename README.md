@@ -17,11 +17,11 @@
 
 I will be super happy if you think this package is good and also star me.  ^.^
 
-PS: The version ~3.* contains vue component which is unstable and incomplete right now, feel free to install it if you really want to use vue, otherwise please install ~2.*
+PS: For Vue component, you can customise it if you want.
 
 # DEMO
 
-## Invisible
+## Invisible - hidden
 
 <img src="https://github.com/RyanDaDeng/aws-study-notes/blob/master/881545398213_.pic.jpg" width="250" height="300" />
 
@@ -80,7 +80,7 @@ If your Laravel framework version <= 5.4, please register the service provider u
 ``` php
 'providers'=[
     ....,
-    TimeHunter\LaravelGoogleCaptchaV3\Providers\GoogleReCaptchaV3ServiceProvider::class
+    TimeHunter\LaravelGoogleReCaptchaV3\Providers\GoogleReCaptchaV3ServiceProvider::class
 ]
 ```
 
@@ -88,17 +88,23 @@ And also
 ``` php
 'aliases'=[
      ....,
-     'GoogleReCaptchaV3'=> TimeHunter\LaravelGoogleCaptchaV3\Facades\GoogleReCaptchaV3::class
+     'GoogleReCaptchaV3'=> TimeHunter\LaravelGoogleReCaptchaV3\Facades\GoogleReCaptchaV3::class
  ]
 ```
 
 
 If your Laravel framework version is >= 5.5, just run the following command to publish config.
 ```sh 
-$ php artisan vendor:publish --provider="TimeHunter\LaravelGoogleCaptchaV3\Providers\GoogleReCaptchaV3ServiceProvider"
+$ php artisan vendor:publish --provider="TimeHunter\LaravelGoogleReCaptchaV3\Providers\GoogleReCaptchaV3ServiceProvider" --tag=googlerecaptchav3.config
 ```
 
-After installation, you should see a googlerecaptchav3.php in your app/config folder.
+For vue component:
+```sh 
+$ php artisan vendor:publish --provider="TimeHunter\LaravelGoogleReCaptchaV3\Providers\GoogleReCaptchaV3ServiceProvider" --tag=googlerecaptchav3.vuejs
+```
+
+After installation, you should see a googlerecaptchav3.php in your app/config folder, and vue component under js/components/googlerecaptchav3 folder.
+
 
 ## Basic Usage
 #### Setting up your Google reCAPTCHA details in config file
@@ -211,7 +217,7 @@ Custom
    You can use provided Validation object to verify your reCAPTCHA.
       
 ``` php
-   use TimeHunter\LaravelGoogleCaptchaV3\Validations\GoogleReCaptchaValidationRule
+   use TimeHunter\LaravelGoogleReCaptchaV3\Validations\GoogleReCaptchaValidationRule
    $rule = [
             'g-recaptcha-response' => [new GoogleReCaptchaValidationRule('action_name')]
         ];
@@ -305,7 +311,7 @@ Go to /index and click submit button on contact us form and you should see an er
 For some users, they might store the config details in their own storage e.g database. You can create your own class and implement:
 
 ```
-TimeHunter\LaravelGoogleCaptchaV3\Interfaces\ReCaptchaConfigV3Interface
+TimeHunter\LaravelGoogleReCaptchaV3\Interfaces\ReCaptchaConfigV3Interface
 ```
 
 Remember to register it in your own service provider
@@ -321,7 +327,7 @@ Remember to register it in your own service provider
 
 The package has two default options to verify: Guzzle and Curl, if you want to use your own request method, You can create your own class and implement 
 ```
-TimeHunter\LaravelGoogleCaptchaV3\Interfaces\RequestClientInterface
+TimeHunter\LaravelGoogleReCaptchaV3\Interfaces\RequestClientInterface
 ```
 
 Remember to register it in your own service provider

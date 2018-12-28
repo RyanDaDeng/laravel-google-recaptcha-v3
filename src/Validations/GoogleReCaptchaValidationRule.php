@@ -6,10 +6,10 @@
  * Time: 1:39 PM.
  */
 
-namespace TimeHunter\LaravelGoogleCaptchaV3\Validations;
+namespace TimeHunter\LaravelGoogleReCaptchaV3\Validations;
 
 use Illuminate\Contracts\Validation\ImplicitRule;
-use TimeHunter\LaravelGoogleCaptchaV3\Facades\GoogleReCaptchaV3;
+use TimeHunter\LaravelGoogleReCaptchaV3\Facades\GoogleReCaptchaV3;
 
 class GoogleReCaptchaValidationRule implements ImplicitRule
 {

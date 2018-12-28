@@ -34,22 +34,22 @@
   },
   "autoload": {
     "psr-4": {
-      "TimeHunter\\LaravelGoogleCaptchaV3\\": "src/"
+      "TimeHunter\\LaravelGoogleReCaptchaV3\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "TimeHunter\\LaravelGoogleCaptchaV3\\Tests\\": "tests"
+      "TimeHunter\\LaravelGoogleReCaptchaV3\\Tests\\": "tests"
     }
   },
 
   "extra": {
     "laravel": {
       "providers": [
-        "TimeHunter\\LaravelGoogleCaptchaV3\\Providers\\GoogleReCaptchaV3ServiceProvider"
+        "TimeHunter\\LaravelGoogleReCaptchaV3\\Providers\\GoogleReCaptchaV3ServiceProvider"
       ],
       "aliases": {
-        "GoogleReCaptchaV3": "TimeHunter\\LaravelGoogleCaptchaV3\\Facades\\GoogleReCaptchaV3"
+        "GoogleReCaptchaV3": "TimeHunter\\LaravelGoogleReCaptchaV3\\Facades\\GoogleReCaptchaV3"
       }
     },
     "branch-alias": {

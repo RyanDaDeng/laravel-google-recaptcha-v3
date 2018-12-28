@@ -1,14 +1,14 @@
 <?php
 
-namespace TimeHunter\LaravelGoogleCaptchaV3\Providers;
+namespace TimeHunter\LaravelGoogleReCaptchaV3\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use TimeHunter\LaravelGoogleCaptchaV3\GoogleReCaptchaV3;
-use TimeHunter\LaravelGoogleCaptchaV3\Core\CurlRequestClient;
-use TimeHunter\LaravelGoogleCaptchaV3\Core\GuzzleRequestClient;
-use TimeHunter\LaravelGoogleCaptchaV3\Configurations\ReCaptchaConfigV3;
-use TimeHunter\LaravelGoogleCaptchaV3\Interfaces\RequestClientInterface;
-use TimeHunter\LaravelGoogleCaptchaV3\Interfaces\ReCaptchaConfigV3Interface;
+use TimeHunter\LaravelGoogleReCaptchaV3\GoogleReCaptchaV3;
+use TimeHunter\LaravelGoogleReCaptchaV3\Core\CurlRequestClient;
+use TimeHunter\LaravelGoogleReCaptchaV3\Core\GuzzleRequestClient;
+use TimeHunter\LaravelGoogleReCaptchaV3\Configurations\ReCaptchaConfigV3;
+use TimeHunter\LaravelGoogleReCaptchaV3\Interfaces\RequestClientInterface;
+use TimeHunter\LaravelGoogleReCaptchaV3\Interfaces\ReCaptchaConfigV3Interface;
 
 class GoogleReCaptchaV3ServiceProvider extends ServiceProvider
 {
@@ -90,7 +90,7 @@ class GoogleReCaptchaV3ServiceProvider extends ServiceProvider
 
         // Publishing the vue component file.
         $this->publishes([
-            __DIR__.'/../../vuejs/GoogleReCaptchaV3.vue' => resource_path('js/components/recaptcha/GoogleReCaptchaV3.vue'),
+            __DIR__.'/../../vuejs/GoogleReCaptchaV3.vue' => resource_path('js/components/googlerecaptchav3/GoogleReCaptchaV3.vue'),
         ], 'googlerecaptchav3.vuejs');
     }
 
