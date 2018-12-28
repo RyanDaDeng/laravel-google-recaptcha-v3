@@ -13,7 +13,6 @@
 [![Coverage Status][ico-coverage]][link-coverage]
 [![Build][ico-build]][link-build]
 [![StyleCI][ico-styleci]][link-styleci]
-[![Latest Unstable Version][ico-unstable]][link-unstable]
 
 If you want to use v2, please go to: https://github.com/RyanDaDeng/laravel-google-recaptcha-v2
 
