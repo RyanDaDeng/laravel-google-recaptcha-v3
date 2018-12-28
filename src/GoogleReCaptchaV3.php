@@ -9,9 +9,8 @@
 namespace TimeHunter\LaravelGoogleReCaptchaV3;
 
 use TimeHunter\LaravelGoogleReCaptchaV3\Core\GoogleReCaptchaV3Response;
-use TimeHunter\LaravelGoogleReCaptchaV3\Interfaces\RequestClientInterface;
-use TimeHunter\LaravelGoogleReCaptchaV3\Interfaces\ReCaptchaConfigV3Interface;
 use TimeHunter\LaravelGoogleReCaptchaV3\Services\GoogleReCaptchaV3Service;
+use TimeHunter\LaravelGoogleReCaptchaV3\Interfaces\ReCaptchaConfigV3Interface;
 
 class GoogleReCaptchaV3
 {
@@ -50,8 +49,8 @@ class GoogleReCaptchaV3
      */
     public function render($mappers)
     {
-        if (!$this->getConfig()->isServiceEnabled()) {
-            return null;
+        if (! $this->getConfig()->isServiceEnabled()) {
+            return;
         }
         $data = $this->prepareViewData($mappers);
 
@@ -91,6 +90,7 @@ class GoogleReCaptchaV3
     public function setAction($value = null)
     {
         $this->service->setAction($value);
+
         return $this;
     }
 }
