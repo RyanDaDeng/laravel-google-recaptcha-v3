@@ -15,6 +15,8 @@
 [![StyleCI][ico-styleci]][link-styleci]
 [![Latest Unstable Version][ico-unstable]][link-unstable]
 
+If you want to use v2, please go to: https://github.com/RyanDaDeng/laravel-google-recaptcha-v2
+
 I will be super happy if you think this package is good and also star me.  ^.^
 
 PS: For Vue component, you can customise it if you want.
