@@ -15,6 +15,8 @@
 [![StyleCI][ico-styleci]][link-styleci]
 [![Latest Unstable Version][ico-unstable]][link-unstable]
 
+If you want to use v2, please go to: https://github.com/RyanDaDeng/laravel-google-recaptcha-v3
+
 I will be super happy if you think this package is good and also star me.  ^.^
 
 PS: The version ~3.* contains vue component which is unstable and incomplete right now, feel free to install it if you really want to use vue, otherwise please install ~2.*
