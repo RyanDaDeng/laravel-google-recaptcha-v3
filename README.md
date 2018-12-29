@@ -218,7 +218,7 @@ Custom
    You can use provided Validation object to verify your reCAPTCHA.
       
 ``` php
-   use TimeHunter\LaravelGoogleReCaptchaV3\Validations\GoogleReCaptchaValidationRule
+   use TimeHunter\LaravelGoogleReCaptchaV3\Validations\GoogleReCaptchaValidationRule;
    $rule = [
             'g-recaptcha-response' => [new GoogleReCaptchaValidationRule('action_name')]
         ];
