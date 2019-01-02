@@ -1,10 +1,10 @@
 <!--
   Title: Laravel Recaptcha v3
-  Description: Laravel package for recaptcha v3.
+  Description: Laravel recaptcha v3
   Author: ryandeng
   -->
   
-  <meta name='keywords' content='recaptcha v3,laravel recaptcha v3,laravel google recaptcha v3,google recaptcha v3,laravel recaptcha'>
+  <meta name='keywords' content='recaptcha v3,laravel recaptcha v3,laravel google recaptcha v3,google recaptcha v3,laravel recaptcha,laravel recaptcha v3'>
 
 # Laravel Package for Google reCAPTCHA V3
 
