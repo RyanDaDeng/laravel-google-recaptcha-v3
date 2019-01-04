@@ -14,6 +14,8 @@
 [![Build][ico-build]][link-build]
 [![StyleCI][ico-styleci]][link-styleci]
 
+I guarantee that bugs or issues will be responded in 48 hours.
+
 If you want to use v2, please go to: https://github.com/RyanDaDeng/laravel-google-recaptcha-v2
 
 I will be super happy if you think this package is good and also star me.  ^.^
