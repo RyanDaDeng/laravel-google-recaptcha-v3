@@ -79,7 +79,7 @@ class GoogleReCaptchaV3ServiceProvider extends ServiceProvider
     }
 
     /**
-     * Bind request
+     * @param $method
      */
     public function bindRequest($method)
     {
