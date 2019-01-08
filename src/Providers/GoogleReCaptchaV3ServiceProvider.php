@@ -45,9 +45,8 @@ class GoogleReCaptchaV3ServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(
             __DIR__ . '/../../config/googlerecaptchav3.php', 'googlerecaptchav3'
         );
-
-        $version = $this->app::VERSION;
-
+        $laravel = app();
+        $version = $laravel::VERSION;
 
         if (version_compare($version, '5.7.*') === 1 || version_compare($version, '5.6.*') === 1 || version_compare($version, '5.5.*') === 1) {
 
