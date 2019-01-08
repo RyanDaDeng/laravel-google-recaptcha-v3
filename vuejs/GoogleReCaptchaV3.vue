@@ -73,5 +73,3 @@
         }
     }
 </script>
-
-<!-- table-complete-1.vue -->
