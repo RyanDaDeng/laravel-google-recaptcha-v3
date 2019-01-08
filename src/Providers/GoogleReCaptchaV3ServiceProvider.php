@@ -30,11 +30,6 @@ class GoogleReCaptchaV3ServiceProvider extends ServiceProvider
         }
     }
 
-    public function Laravel54Register()
-    {
-
-    }
-
     /**
      * Register services.
      *
@@ -45,6 +40,7 @@ class GoogleReCaptchaV3ServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(
             __DIR__ . '/../../config/googlerecaptchav3.php', 'googlerecaptchav3'
         );
+
         $laravel = app();
         $version = $laravel::VERSION;
 
