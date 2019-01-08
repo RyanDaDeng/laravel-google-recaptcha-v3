@@ -182,6 +182,8 @@ The backend request will receive a value for 'g-recaptcha-response', please take
 
 ## Badge Display
 
+If your settings were not reflected, please run php artisan config:cache to clear cache.
+
 Inline
 
 1. Go to config file, and set 
