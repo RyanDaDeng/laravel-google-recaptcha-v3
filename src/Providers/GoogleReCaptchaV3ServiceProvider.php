@@ -23,11 +23,16 @@ class GoogleReCaptchaV3ServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->loadViewsFrom(__DIR__.'/../../resources/views', 'GoogleReCaptchaV3');
+        $this->loadViewsFrom(__DIR__ . '/../../resources/views', 'GoogleReCaptchaV3');
 
         if ($this->app->runningInConsole()) {
             $this->bootForConsole();
         }
+    }
+
+    public function Laravel54Register()
+    {
+
     }
 
     /**
@@ -38,45 +43,71 @@ class GoogleReCaptchaV3ServiceProvider extends ServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(
-            __DIR__.'/../../config/googlerecaptchav3.php', 'googlerecaptchav3'
+            __DIR__ . '/../../config/googlerecaptchav3.php', 'googlerecaptchav3'
         );
 
-        if (! $this->app->has(ReCaptchaConfigV3Interface::class)) {
-            $this->app->bind(
-                ReCaptchaConfigV3Interface::class,
-                ReCaptchaConfigV3::class
-            );
+        $version = $this->app::VERSION;
+
+
+        if (version_compare($version, '5.7.*') === 1 || version_compare($version, '5.6.*') === 1 || version_compare($version, '5.5.*') === 1) {
+
+            if (!$this->app->has(ReCaptchaConfigV3Interface::class)) {
+                $this->bindConfig();
+            }
+
+            if (!$this->app->has(RequestClientInterface::class)) {
+                $this->bindRequest($this->app->get(ReCaptchaConfigV3Interface::class)->getRequestMethod());
+            }
+        } else {
+            $this->bindConfig();
+            $this->bindRequest(app(ReCaptchaConfigV3Interface::class)->getRequestMethod());
         }
 
-        // default strategy
-        if (! $this->app->has(RequestClientInterface::class)) {
-            switch ($this->app->get(ReCaptchaConfigV3Interface::class)->getRequestMethod()) {
-                case 'guzzle':
-                    $this->app->bind(
-                        RequestClientInterface::class,
-                        GuzzleRequestClient::class
-                    );
-                    break;
-                case'curl':
-                    $this->app->bind(
-                        RequestClientInterface::class,
-                        CurlRequestClient::class
-                    );
-                    break;
-                default:
-                    $this->app->bind(
-                        RequestClientInterface::class,
-                        CurlRequestClient::class
-                    );
-                    break;
-            }
-        }
 
         $this->app->bind('GoogleReCaptchaV3', function () {
             $service = new GoogleReCaptchaV3Service(app(ReCaptchaConfigV3Interface::class), app(RequestClientInterface::class));
 
             return new GoogleReCaptchaV3($service);
         });
+
+    }
+
+    /**
+     * Bind config
+     */
+    public function bindConfig()
+    {
+        $this->app->bind(
+            ReCaptchaConfigV3Interface::class,
+            ReCaptchaConfigV3::class
+        );
+    }
+
+    /**
+     * Bind request
+     */
+    public function bindRequest($method)
+    {
+        switch ($method) {
+            case 'guzzle':
+                $this->app->bind(
+                    RequestClientInterface::class,
+                    GuzzleRequestClient::class
+                );
+                break;
+            case'curl':
+                $this->app->bind(
+                    RequestClientInterface::class,
+                    CurlRequestClient::class
+                );
+                break;
+            default:
+                $this->app->bind(
+                    RequestClientInterface::class,
+                    CurlRequestClient::class
+                );
+                break;
+        }
     }
 
     /**
@@ -88,12 +119,12 @@ class GoogleReCaptchaV3ServiceProvider extends ServiceProvider
     {
         // Publishing the configuration file.
         $this->publishes([
-            __DIR__.'/../../config/googlerecaptchav3.php' => config_path('googlerecaptchav3.php'),
+            __DIR__ . '/../../config/googlerecaptchav3.php' => config_path('googlerecaptchav3.php'),
         ], 'googlerecaptchav3.config');
 
         // Publishing the vue component file.
         $this->publishes([
-            __DIR__.'/../../vuejs/GoogleReCaptchaV3.vue' => resource_path('js/components/googlerecaptchav3/GoogleReCaptchaV3.vue'),
+            __DIR__ . '/../../vuejs/GoogleReCaptchaV3.vue' => resource_path('js/components/googlerecaptchav3/GoogleReCaptchaV3.vue'),
         ], 'googlerecaptchav3.vuejs');
     }
 
