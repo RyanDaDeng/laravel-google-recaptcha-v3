@@ -156,6 +156,9 @@ Include Template script in your bottom/header of your page, params should follow
 ##### Example Usage
 
 ``` html  
+
+{{--if laravel version <=5.6, please use {{ csrf_field() }}--}}
+
 <form method="POST" action="/verify">
     @csrf
     <div id="contact_us_id"></div>
@@ -220,9 +223,9 @@ Custom
    You can use provided Validation object to verify your reCAPTCHA.
       
 ``` php
-   use TimeHunter\LaravelGoogleReCaptchaV3\Validations\GoogleReCaptchaValidationRule;
+   use TimeHunter\LaravelGoogleReCaptchaV3\Validations\GoogleReCaptchaV3ValidationRule;
    $rule = [
-            'g-recaptcha-response' => [new GoogleReCaptchaValidationRule('action_name')]
+            'g-recaptcha-response' => [new GoogleReCaptchaV3ValidationRule('action_name')]
         ];
 ```
 
