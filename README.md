@@ -292,6 +292,8 @@ Create two functions in controller:
 
 Create your form in index.blade.php:
 ``` html
+{{--if laravel version <=5.6, please use {{ csrf_field() }}--}}
+
 <form method="POST" action="/verify">
     @csrf
     <div id="contact_us_id"></div>
