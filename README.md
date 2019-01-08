@@ -1,10 +1,10 @@
 <!--
   Title: Laravel Recaptcha v3
-  Description: Laravel package for recaptcha v3.
+  Description: Laravel recaptcha v3
   Author: ryandeng
   -->
   
-  <meta name='keywords' content='recaptcha v3,laravel recaptcha v3,laravel google recaptcha v3,google recaptcha v3,laravel recaptcha'>
+  <meta name='keywords' content='recaptcha v3,laravel recaptcha v3,laravel google recaptcha v3,google recaptcha v3,laravel recaptcha,laravel recaptcha v3'>
 
 # Laravel Package for Google reCAPTCHA V3
 
@@ -13,6 +13,8 @@
 [![Coverage Status][ico-coverage]][link-coverage]
 [![Build][ico-build]][link-build]
 [![StyleCI][ico-styleci]][link-styleci]
+
+I guarantee that bugs or issues will be responded in 48 hours.
 
 If you want to use v2, please go to: https://github.com/RyanDaDeng/laravel-google-recaptcha-v2
 
@@ -218,7 +220,7 @@ Custom
    You can use provided Validation object to verify your reCAPTCHA.
       
 ``` php
-   use TimeHunter\LaravelGoogleReCaptchaV3\Validations\GoogleReCaptchaValidationRule
+   use TimeHunter\LaravelGoogleReCaptchaV3\Validations\GoogleReCaptchaValidationRule;
    $rule = [
             'g-recaptcha-response' => [new GoogleReCaptchaValidationRule('action_name')]
         ];
