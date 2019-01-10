@@ -252,18 +252,22 @@ Example Usage
 
  
 ``` php
-   GoogleReCaptchaV3::verifyResponse($request->input('g-recaptcha-response'), $request->getClientIp())->getMessage()
+   GoogleReCaptchaV3::verifyResponse($request->input('g-recaptcha-response'), $request->getClientIp())
+                      ->getMessage()
 ```
 
 
 ``` php
- GoogleReCaptchaV3::setAction($action)->verifyResponse($value)->isSuccess();
+  GoogleReCaptchaV3::setAction($action)->verifyResponse($value)->isSuccess();
  ```
  
 If you manually assign a value to setScore($score), the code will fully skip your config file and force to check the score.
  
 ``` php
-   GoogleReCaptchaV3::setScore($score)->setAction($action)->verifyResponse($request->input('g-recaptcha-response'), $request->getClientIp())->getMessage()
+ GoogleReCaptchaV3::setScore($score)
+                    ->setAction($action)
+                    ->verifyResponse($request->input('g-recaptcha-response'), $request->getClientIp())
+                     ->getMessage()
 ```
 
 ## Sample Use Case
