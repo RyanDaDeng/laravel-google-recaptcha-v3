@@ -361,7 +361,7 @@ Remember to register it in your own service provider
 
 ## Contributors
 
-Thank you for the following contributors, You guys are the BEST!:
+Thank you for the following contributors, You guys are the BEST!
 
 * [@xalunda](https://www.google.com)
 
