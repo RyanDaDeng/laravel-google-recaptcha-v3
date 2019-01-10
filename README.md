@@ -252,7 +252,10 @@ Example Usage
 
  
 ``` php
-   GoogleReCaptchaV3::verifyResponse($request->input('g-recaptcha-response'), $request->getClientIp())
+   GoogleReCaptchaV3::verifyResponse(
+                         $request->input('g-recaptcha-response'), 
+                         $request->getClientIp()
+                         )
                       ->getMessage()
 ```
 
@@ -266,8 +269,11 @@ If you manually assign a value to setScore($score), the code will fully skip you
 ``` php
  GoogleReCaptchaV3::setScore($score)
                     ->setAction($action)
-                    ->verifyResponse($request->input('g-recaptcha-response'), $request->getClientIp())
-                     ->getMessage()
+                    ->verifyResponse(
+                        $request->input('g-recaptcha-response'), 
+                        $request->getClientIp()
+                        )
+                    ->getMessage()
 ```
 
 ## Sample Use Case
