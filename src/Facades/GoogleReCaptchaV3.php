@@ -7,7 +7,8 @@ use TimeHunter\LaravelGoogleReCaptchaV3\Core\GoogleReCaptchaV3Response;
 
 /**
  * @method static GoogleReCaptchaV3Response verifyResponse($value, $ip = null)
- * @method static \TimeHunter\LaravelGoogleReCaptchaV3\GoogleReCaptchaV3 setAction(string $value)
+ * @method static \TimeHunter\LaravelGoogleReCaptchaV3\GoogleReCaptchaV3 setAction($value)
+ * @method static \TimeHunter\LaravelGoogleReCaptchaV3\GoogleReCaptchaV3 setScore($value)
  * @method static render($mappers)
  * @see \TimeHunter\LaravelGoogleReCaptchaV3\GoogleReCaptchaV3
  */

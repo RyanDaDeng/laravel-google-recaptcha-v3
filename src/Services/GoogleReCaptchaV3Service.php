@@ -17,6 +17,7 @@ class GoogleReCaptchaV3Service
     private $config;
     private $requestClient;
     private $action;
+    private $score;
 
     public function __construct(ReCaptchaConfigV3Interface $config, RequestClientInterface $requestClient)
     {
@@ -31,7 +32,7 @@ class GoogleReCaptchaV3Service
      */
     public function verifyResponse($response, $ip = null)
     {
-        if (! $this->config->isServiceEnabled()) {
+        if (!$this->config->isServiceEnabled()) {
             $res = new GoogleReCaptchaV3Response([], $ip);
             $res->setSuccess(true);
 
@@ -66,7 +67,7 @@ class GoogleReCaptchaV3Service
             return $rawResponse;
         }
 
-        if (! empty($this->config->getHostName()) && strcasecmp($this->config->getHostName(), $rawResponse->getHostname()) !== 0) {
+        if (!empty($this->config->getHostName()) && strcasecmp($this->config->getHostName(), $rawResponse->getHostname()) !== 0) {
             $rawResponse->setMessage(GoogleReCaptchaV3Response::ERROR_HOSTNAME);
             $rawResponse->setSuccess(false);
 
@@ -80,19 +81,28 @@ class GoogleReCaptchaV3Service
             return $rawResponse;
         }
 
-        if ($this->getConfig()->isScoreEnabled()) {
-            $count = collect($this->getConfig()->getSetting())
-                ->where('action', '=', $rawResponse->getAction())
-                ->where('score_comparision', '=', true)
-                ->where('threshold', '>', $rawResponse->getScore())
-                ->count();
-            if ($count > 0) {
-                $rawResponse->setSuccess(false);
-                $rawResponse->setMessage(GoogleReCaptchaV3Response::ERROR_SCORE_THRESHOLD);
+        if (isset($this->score) && $this->score > $rawResponse->getScore()) {
+            $rawResponse->setSuccess(false);
+            $rawResponse->setMessage(GoogleReCaptchaV3Response::ERROR_SCORE_THRESHOLD);
+            return $rawResponse;
+        } else {
+            if ($this->getConfig()->isScoreEnabled()) {
+                $count = collect($this->getConfig()->getSetting())
+                    ->where('action', '=', $rawResponse->getAction())
+                    ->where('score_comparision', '=', true)
+                    ->where('threshold', '>', $rawResponse->getScore())
+                    ->count();
 
-                return $rawResponse;
+                if ($count > 0) {
+                    $rawResponse->setSuccess(false);
+                    $rawResponse->setMessage(GoogleReCaptchaV3Response::ERROR_SCORE_THRESHOLD);
+
+                    return $rawResponse;
+                }
             }
         }
+
+
         $rawResponse->setSuccess(true);
         $rawResponse->setMessage('Successfully passed.');
 
@@ -111,9 +121,20 @@ class GoogleReCaptchaV3Service
      * @param string|null $value
      * @return $this
      */
-    public function setAction(string $value = null)
+    public function setAction($value = null)
     {
         $this->action = $value;
+
+        return $this;
+    }
+
+    /**
+     * @param string|null $value
+     * @return $this
+     */
+    public function setScore($value = null)
+    {
+        $this->score = $value;
 
         return $this;
     }

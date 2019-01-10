@@ -93,4 +93,16 @@ class GoogleReCaptchaV3
 
         return $this;
     }
+
+
+    /**
+     * @param string|null $value
+     * @return $this
+     */
+    public function setScore($value = null)
+    {
+        $this->service->setScore($value);
+
+        return $this;
+    }
 }

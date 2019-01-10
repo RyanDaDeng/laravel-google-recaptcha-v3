@@ -216,4 +216,109 @@ class ScoreTest extends TestCase
         $response = $service->verifyResponse('test response');
         $this->assertEquals(true, $response->isSuccess());
     }
+
+
+    public function testScore7()
+    {
+        // Create a stub for the SomeClass class.
+        $configStub = $this->createMock(ReCaptchaConfigV3::class);
+
+        // Configure the stub.
+        $configStub->method('isServiceEnabled')
+            ->willReturn(true);
+
+        $configStub->method('isScoreEnabled')
+            ->willReturn(false);
+
+        $configStub->method('getSetting')
+            ->willReturn([
+                [
+                    'action' => 'contact_us_test',
+                    'threshold' => 0.91,
+                    'score_comparision' => true,
+                ],
+            ]);
+
+        $testJson = '{ "success": true, "challenge_ts": "2018-12-25T03:35:32Z", "hostname": "ryandeng.test", "score": 0.9, "action": "contact_us" }';
+
+        $clientStub = $this->createMock(GuzzleRequestClient::class);
+        $clientStub->method('post')
+            ->willReturn($testJson);
+
+        $_service = new GoogleReCaptchaV3Service($configStub, $clientStub);
+        $service = new GoogleReCaptchaV3($_service);
+
+        $response = $service->setScore(0.8)->verifyResponse('test response');
+        $this->assertEquals(true, $response->isSuccess());
+    }
+
+
+    public function testScore11()
+    {
+        // Create a stub for the SomeClass class.
+        $configStub = $this->createMock(ReCaptchaConfigV3::class);
+
+        // Configure the stub.
+        $configStub->method('isServiceEnabled')
+            ->willReturn(true);
+
+        $configStub->method('isScoreEnabled')
+            ->willReturn(true);
+
+        $configStub->method('getSetting')
+            ->willReturn([
+                [
+                    'action' => 'contact_us',
+                    'threshold' => 0.91,
+                    'score_comparision' => true,
+                ],
+            ]);
+
+        $testJson = '{ "success": true, "challenge_ts": "2018-12-25T03:35:32Z", "hostname": "ryandeng.test", "score": 0.9, "action": "contact_us" }';
+
+        $clientStub = $this->createMock(GuzzleRequestClient::class);
+        $clientStub->method('post')
+            ->willReturn($testJson);
+
+        $_service = new GoogleReCaptchaV3Service($configStub, $clientStub);
+        $service = new GoogleReCaptchaV3($_service);
+
+        $response = $service->verifyResponse('test response');
+        $this->assertEquals(false, $response->isSuccess());
+    }
+
+
+    public function testScore8()
+    {
+        // Create a stub for the SomeClass class.
+        $configStub = $this->createMock(ReCaptchaConfigV3::class);
+
+        // Configure the stub.
+        $configStub->method('isServiceEnabled')
+            ->willReturn(true);
+
+        $configStub->method('isScoreEnabled')
+            ->willReturn(true);
+
+        $configStub->method('getSetting')
+            ->willReturn([
+                [
+                    'action' => 'contact_us',
+                    'threshold' => 0.91,
+                    'score_comparision' => true,
+                ],
+            ]);
+
+        $testJson = '{ "success": true, "challenge_ts": "2018-12-25T03:35:32Z", "hostname": "ryandeng.test", "score": 0.9, "action": "contact_us" }';
+
+        $clientStub = $this->createMock(GuzzleRequestClient::class);
+        $clientStub->method('post')
+            ->willReturn($testJson);
+
+        $_service = new GoogleReCaptchaV3Service($configStub, $clientStub);
+        $service = new GoogleReCaptchaV3($_service);
+
+        $response = $service->setScore(0.8)->verifyResponse('test response');
+        $this->assertEquals(false, $response->isSuccess());
+    }
 }
