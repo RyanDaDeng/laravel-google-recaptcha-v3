@@ -359,6 +359,12 @@ Remember to register it in your own service provider
 ```
 
 
+## Contributors
+
+Thank you for the following contributors, You guys are the BEST!:
+
+* [@xalunda](https://www.google.com)
+
 ## Security
 
 If you discover any security related issues, please email ryandadeng@gmail.com instead of using the issue tracker.
@@ -382,4 +388,3 @@ MIT. Please see the [license file](license.md) for more information.
 [link-build]: https://travis-ci.org/RyanDaDeng/laravel-google-recaptcha-v3
 [link-styleci]: https://github.styleci.io/repos/146857583
 [link-unstable]: https://packagist.org/packages/timehunter/laravel-google-recaptcha-v3
-
