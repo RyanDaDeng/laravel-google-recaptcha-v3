@@ -19,7 +19,7 @@ If you want to use v2, please go to: https://github.com/RyanDaDeng/laravel-googl
 
 I will be super happy if you think this package is good and also star me.  ^.^
 
-PS: For Vue component, you can customise it if you want.
+PS: For Vue component, it will be polished in the near future, however, the basic version works fine, feel free to create ticket if you encounter any issues.
 
 # DEMO
 
