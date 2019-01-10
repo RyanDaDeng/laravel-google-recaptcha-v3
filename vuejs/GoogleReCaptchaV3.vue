@@ -7,9 +7,22 @@
     export default {
         name: 'google-recaptcha-v3',
         props: {
-            siteKey: String,
-            elementId: String,
-            inline: Boolean
+            siteKey: {
+                type: String,
+                required: true
+            },
+            elementId: {
+                type: String,
+                required: true
+            },
+            inline: {
+                type: Boolean,
+                default: false
+            },
+            action: {
+                type: String,
+                required: true
+            }
         },
         data() {
             return {
@@ -42,9 +55,10 @@
         },
         methods: {
             execute() {
+                let action = this.action;
                 window.grecaptcha.ready(function () {
                     grecaptcha.execute(this.gAssignedId, {
-                        action: 'contact_us'
+                        action: action
                     });
                 });
             },
