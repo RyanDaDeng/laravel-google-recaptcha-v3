@@ -32,7 +32,7 @@ class GoogleReCaptchaV3Service
      */
     public function verifyResponse($response, $ip = null)
     {
-        if (!$this->config->isServiceEnabled()) {
+        if (! $this->config->isServiceEnabled()) {
             $res = new GoogleReCaptchaV3Response([], $ip);
             $res->setSuccess(true);
 
@@ -67,7 +67,7 @@ class GoogleReCaptchaV3Service
             return $rawResponse;
         }
 
-        if (!empty($this->config->getHostName()) && strcasecmp($this->config->getHostName(), $rawResponse->getHostname()) !== 0) {
+        if (! empty($this->config->getHostName()) && strcasecmp($this->config->getHostName(), $rawResponse->getHostname()) !== 0) {
             $rawResponse->setMessage(GoogleReCaptchaV3Response::ERROR_HOSTNAME);
             $rawResponse->setSuccess(false);
 
@@ -84,6 +84,7 @@ class GoogleReCaptchaV3Service
         if (isset($this->score) && $this->score > $rawResponse->getScore()) {
             $rawResponse->setSuccess(false);
             $rawResponse->setMessage(GoogleReCaptchaV3Response::ERROR_SCORE_THRESHOLD);
+
             return $rawResponse;
         } else {
             if ($this->getConfig()->isScoreEnabled()) {
@@ -101,7 +102,6 @@ class GoogleReCaptchaV3Service
                 }
             }
         }
-
 
         $rawResponse->setSuccess(true);
         $rawResponse->setMessage('Successfully passed.');

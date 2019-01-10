@@ -217,7 +217,6 @@ class ScoreTest extends TestCase
         $this->assertEquals(true, $response->isSuccess());
     }
 
-
     public function testScore7()
     {
         // Create a stub for the SomeClass class.
@@ -252,7 +251,6 @@ class ScoreTest extends TestCase
         $this->assertEquals(true, $response->isSuccess());
     }
 
-
     public function testScore11()
     {
         // Create a stub for the SomeClass class.
@@ -286,7 +284,6 @@ class ScoreTest extends TestCase
         $response = $service->verifyResponse('test response');
         $this->assertEquals(false, $response->isSuccess());
     }
-
 
     public function testScore8()
     {
