@@ -376,7 +376,7 @@ Supported: siteKey, elementId, inline and action, check the original file to see
 ```` 
 
 
-There are two ways you can bind reCAPTCHA v3 to the component, in the following example, you need to import GoogleReCaptchaV3 component first and then pass site key into the component.
+There are two ways you can bind site key to the component.
 
 ### Use prop
 
@@ -396,7 +396,7 @@ There are two ways you can bind reCAPTCHA v3 to the component, in the following 
                        placeholder="Password">
             </div>
             <div>
-                <div id="contact_us_id"></div>
+                <div id="contact_us_id"></div> // Your reCAPTCHA div element
             </div>
 
             <button type="submit">Submit</button>
@@ -437,7 +437,7 @@ There are two ways you can bind reCAPTCHA v3 to the component, in the following 
 
 ````
 
-###  Add site key directly into GoogleReCaptchaV3 component
+###  or Add site key directly into GoogleReCaptchaV3 component
 
 Alternatively, I believe most of cases your site key will never be changed, so you could just modify the original published component to have sitekey hard-coded in.
 
