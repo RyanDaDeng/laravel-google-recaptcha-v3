@@ -21,6 +21,13 @@ I will be super happy if you think this package is good and also star me.  ^.^
 
 PS: For Vue component, it will be polished in the near future, however, the basic version works fine, feel free to create ticket if you encounter any issues.
 
+# Table of Contents
+1. [Facade Usage](#facade-usage)
+2. [Blade Usage](#blade-basic-usage)
+3. [Vue Usage](#vue-usage)
+4. [Validation](#validation-class)
+5. [Advanced Usage](#advanced-usage)
+
 # DEMO
 
 ## Invisible - hidden
@@ -108,8 +115,61 @@ $ php artisan vendor:publish --provider="TimeHunter\LaravelGoogleReCaptchaV3\Pro
 After installation, you should see a googlerecaptchav3.php in your app/config folder, and vue component under js/components/googlerecaptchav3 folder.
 
 
-## Basic Usage
-#### Setting up your Google reCAPTCHA details in config file
+## Facade Usage <a name="facade-usage" />
+
+You can directly use registered facade service by calling the following methods.
+
+- setAction() is optional only if you want to verify if the action is matched.
+- verifyResponse() which accepts the token value from your form. This returns Google reCAPTCHA Response object.
+- setScore() is optional only if you want to manually verify the score.
+
+``` php
+   GoogleReCaptchaV3::setAction($action)->verifyResponse($value,$ip = null);
+```
+
+Example Usage
+
+``` php
+   GoogleReCaptchaV3::verifyResponse($value,$ip)->getMessage();
+   GoogleReCaptchaV3::verifyResponse($value)->isSuccess();
+   GoogleReCaptchaV3::verifyResponse($value)->toArray();
+```
+
+ 
+``` php
+   GoogleReCaptchaV3::verifyResponse($request->input('g-recaptcha-response'), $request->getClientIp())->getMessage()
+```
+
+
+``` php
+   GoogleReCaptchaV3::setAction($action)->verifyResponse($value)->isSuccess();
+ ```
+ 
+If you manually assign a value to setScore($score), the code will fully skip your config file and force to check the score.
+ 
+``` php
+   GoogleReCaptchaV3::setScore($score)->setAction($action)->verifyResponse($request->input('g-recaptcha-response'), $request->getClientIp())->getMessage()
+```
+
+
+
+## Validation Class (Only support Laravel >= 5.5) <a name="validation-class" />
+   
+   You can use provided Validation object to verify your reCAPTCHA.
+      
+``` php
+   use TimeHunter\LaravelGoogleReCaptchaV3\Validations\GoogleReCaptchaV3ValidationRule;
+   $rule = [
+            'g-recaptcha-response' => [new GoogleReCaptchaV3ValidationRule('action_name')]
+        ];
+```
+
+   -  $actionName: if its NULL, the package won't verify action with google response.
+  
+
+
+## Blade Usage <a name="blade-basic-usage" />
+### Setting up your Google reCAPTCHA details in config file
 
 Please register all details in config for host_name, site_key, secret_key and site_verify_url.
 
@@ -132,9 +192,9 @@ For score comparision, all actions should be registered in googlerecaptchav3 con
 
 For more details please check comments in config file.
 
-#### Display reCAPTCHA v3
+### Display reCAPTCHA v3 
 
-##### Blade
+#### Blade
 Include div with an ID inside your form, e.g.
 
 ``` html  
@@ -152,7 +212,7 @@ Include Template script in your bottom/header of your page, params should follow
             ]) !!}
 ```
 
-##### Example Usage
+#### Example Usage
 
 ``` html  
 
@@ -179,7 +239,7 @@ Include Template script in your bottom/header of your page, params should follow
 
 The backend request will receive a value for 'g-recaptcha-response', please take a look at Sample Use Case and Facade usage sections.
 
-## Badge Display
+### Badge Display
 
 If your settings were not reflected, please run php artisan config:cache to clear cache.
 
@@ -219,54 +279,7 @@ Custom
 2. Do Styling/CSS on its div element
 
 
-## Validation Class (Only support Laravel >= 5.5)
-   
-   You can use provided Validation object to verify your reCAPTCHA.
-      
-``` php
-   use TimeHunter\LaravelGoogleReCaptchaV3\Validations\GoogleReCaptchaV3ValidationRule;
-   $rule = [
-            'g-recaptcha-response' => [new GoogleReCaptchaV3ValidationRule('action_name')]
-        ];
-```
-
-   -  $actionName: if its NULL, the package won't verify action with google response.
-  
-## Facade Usage
-
-You can also directly use registered service by calling the following method.
-- setAction() is optional only if you want to verify if the action is matched.
-- verifyResponse() which accepts the token value from your form. This returns Google reCAPTCHA Response object.
-
-``` php
-   GoogleReCaptchaV3::setAction($action)->verifyResponse($value,$ip = null);
-```
-
-Example Usage
-
-``` php
-   GoogleReCaptchaV3::verifyResponse($value,$ip)->getMessage();
-   GoogleReCaptchaV3::verifyResponse($value)->isSuccess();
-   GoogleReCaptchaV3::verifyResponse($value)->toArray();
-```
-
- 
-``` php
-   GoogleReCaptchaV3::verifyResponse($request->input('g-recaptcha-response'), $request->getClientIp())->getMessage()
-```
-
-
-``` php
- GoogleReCaptchaV3::setAction($action)->verifyResponse($value)->isSuccess();
- ```
- 
-If you manually assign a value to setScore($score), the code will fully skip your config file and force to check the score.
- 
-``` php
-   GoogleReCaptchaV3::setScore($score)->setAction($action)->verifyResponse($request->input('g-recaptcha-response'), $request->getClientIp())->getMessage()
-```
-
-## Sample Use Case
+### Blade Use Case
 
 Register your action in config, also enable score and set up your own site key and secret key:
 ``` php
@@ -324,7 +337,127 @@ Create your form in index.blade.php:
 
 Go to /index and click submit button on contact us form and you should see an error message that 'Score does not meet the treshhold' because the threshold >2. You can play around the controller to see all outcomes. Importantly, you need to wait the script to be loaded before clicking the submit button.
 
-## Advanced Usage
+### Vue Usage <a name="vue-usage" />
+
+The package provides a lightweight vue component. You need to publish the vue component before playing around it.
+
+##### Step 1 Publish vue component:
+```sh 
+$ php artisan vendor:publish --provider="TimeHunter\LaravelGoogleReCaptchaV3\Providers\GoogleReCaptchaV3ServiceProvider" --tag=googlerecaptchav3.vuejs
+```
+
+The file will be created under js/components/googlerecaptchav3/GoogleReCaptchaV3.vue, you have full control and modification ability on this file.
+
+
+##### Step 2 Import vue component and Register reCAPTCHA v3 SiteKey
+
+The Blade way is no longer useful if you use Vue, so we need to manage to assign site key by ourselves. The component supports props below:
+
+Supported: siteKey, elementId, inline and action, check the original file to see the details.
+
+````vue
+<google-re-captcha-v3
+                :siteKey="this.siteKey"
+                :elementId="'contact_us_id'"
+                :inline="true"
+                :action="'contact_us'">
+</google-re-captcha-v3>
+        
+```` 
+
+
+There are two ways you can bind reCAPTCHA v3 to the component, in the following example, you need to import GoogleReCaptchaV3 component first and then pass site key into the component.
+
+###### Use prop
+
+````vue
+<template>
+    <div>
+        <form method="POST" action="/verify">
+            <div>
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email"  id="exampleInputEmail1"
+                       aria-describedby="emailHelp"
+                       placeholder="Enter email">
+            </div>
+            <div>
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" id="exampleInputPassword1"
+                       placeholder="Password">
+            </div>
+            <div>
+                <div id="contact_us_id"></div>
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+        <google-re-captcha-v3
+                :siteKey="this.siteKey"
+                :elementId="'contact_us_id'"
+                :inline="true"
+                :action="'contact_us'">
+
+        </google-re-captcha-v3>
+    </div>
+
+</template>
+<script>
+    import GoogleReCaptchaV3 from '../components/googlerecaptchav3/GoogleReCaptchaV3'; // location might be diff to your case, ensure that your location is right
+
+    export default {
+        components: {
+            GoogleReCaptchaV3
+        },
+        data() {
+            return {
+                siteKey: 'YOUR_SITE_KEY', // provide your site key here
+            }
+        },
+        created() {
+
+        },
+        computed: {},
+        mounted() {
+
+        },
+        watch: {},
+        methods: {}
+    }
+</script>
+
+````
+
+######  Add site key directly into GoogleReCaptchaV3 component
+
+Alternatively, I believe most of cases your site key will never be changed, so you could just modify the original published component to have sitekey hard-coded in.
+
+For instance, open published file and find code below:
+````vue
+        ....
+        props: {
+                siteKey: {
+                    type: String,
+                    required: true
+                },
+               .....
+            },
+       ....
+
+````
+
+Remove it from prop and add it in data():
+
+````vue
+ data() {
+            return {
+                siteKey: "YOUR_KEY_HERE",
+                ....
+            }
+        },
+````     
+
+
+## Advanced Usage <a name="advanced-usage" />
 
 #### Custom implementation on Config
     
