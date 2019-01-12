@@ -18,6 +18,7 @@
         <whitelist>
             <file>src/GoogleReCaptchaV3.php</file>
             <directory>src/Core/</directory>
+            <directory>src/Services/</directory>
         </whitelist>
     </filter>
     <logging>
