@@ -319,8 +319,6 @@ class ScoreTest extends TestCase
         $this->assertEquals(false, $response->isSuccess());
     }
 
-
-
     public function testScore12()
     {
         // Create a stub for the SomeClass class.
