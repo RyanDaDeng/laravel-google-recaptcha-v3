@@ -94,7 +94,6 @@ class GoogleReCaptchaV3
         return $this;
     }
 
-
     /**
      * @param string|null $value
      * @return $this

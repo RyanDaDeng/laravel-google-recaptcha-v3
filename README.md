@@ -137,7 +137,11 @@ Example Usage
 
  
 ``` php
-   GoogleReCaptchaV3::verifyResponse($request->input('g-recaptcha-response'), $request->getClientIp())->getMessage()
+   GoogleReCaptchaV3::verifyResponse(
+                         $request->input('g-recaptcha-response'), 
+                         $request->getClientIp()
+                         )
+                      ->getMessage()
 ```
 
 
@@ -148,9 +152,14 @@ Example Usage
 If you manually assign a value to setScore($score), the code will fully skip your config file and force to check the score.
  
 ``` php
-   GoogleReCaptchaV3::setScore($score)->setAction($action)->verifyResponse($request->input('g-recaptcha-response'), $request->getClientIp())->getMessage()
+   GoogleReCaptchaV3::setScore($score)
+                    ->setAction($action)
+                    ->verifyResponse(
+                        $request->input('g-recaptcha-response'), 
+                        $request->getClientIp()
+                        )
+                    ->getMessage()
 ```
-
 
 
 ## Validation Class (Only support Laravel >= 5.5) <a name="validation-class" />
@@ -492,6 +501,12 @@ Remember to register it in your own service provider
 ```
 
 
+## Contributors  <a name="contributors" />
+
+Thank you for the following contributors, You guys are the BEST!
+
+* [@xalunda](https://www.google.com)
+
 ## Security
 
 If you discover any security related issues, please email ryandadeng@gmail.com instead of using the issue tracker.
@@ -515,4 +530,3 @@ MIT. Please see the [license file](license.md) for more information.
 [link-build]: https://travis-ci.org/RyanDaDeng/laravel-google-recaptcha-v3
 [link-styleci]: https://github.styleci.io/repos/146857583
 [link-unstable]: https://packagist.org/packages/timehunter/laravel-google-recaptcha-v3
-
