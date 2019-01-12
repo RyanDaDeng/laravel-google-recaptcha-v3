@@ -13,7 +13,7 @@
 [![Build][ico-build]][link-build]
 [![StyleCI][ico-styleci]][link-styleci]
 
-I guarantee that bugs, issues, features and changes will be responded in 48 hours, end-users are alwasy my high priority.
+I guarantee that bugs, issues, features and changes will be responded in 48 hours.
 
 If you want to use v2, please go to: https://github.com/RyanDaDeng/laravel-google-recaptcha-v2
 
