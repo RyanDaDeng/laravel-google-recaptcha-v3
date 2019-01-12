@@ -347,11 +347,11 @@ Create your form in index.blade.php:
 
 Go to /index and click submit button on contact us form and you should see an error message that 'Score does not meet the treshhold' because the threshold >2. You can play around the controller to see all outcomes. Importantly, you need to wait the script to be loaded before clicking the submit button.
 
-### Vue Usage <a name="vue-usage" />
+## Vue Usage <a name="vue-usage" />
 
 The package provides a lightweight vue component. You need to publish the vue component before playing around it.
 
-##### Step 1 Publish vue component:
+### Step 1 Publish vue component:
 ```sh 
 $ php artisan vendor:publish --provider="TimeHunter\LaravelGoogleReCaptchaV3\Providers\GoogleReCaptchaV3ServiceProvider" --tag=googlerecaptchav3.vuejs
 ```
@@ -359,7 +359,7 @@ $ php artisan vendor:publish --provider="TimeHunter\LaravelGoogleReCaptchaV3\Pro
 The file will be created under js/components/googlerecaptchav3/GoogleReCaptchaV3.vue, you have full control and modification ability on this file.
 
 
-##### Step 2 Import vue component and Register reCAPTCHA v3 SiteKey
+### Step 2 Import vue component and Register reCAPTCHA v3 SiteKey
 
 The Blade way is no longer useful if you use Vue, so we need to manage to assign site key by ourselves. The component supports props below:
 
@@ -378,7 +378,7 @@ Supported: siteKey, elementId, inline and action, check the original file to see
 
 There are two ways you can bind reCAPTCHA v3 to the component, in the following example, you need to import GoogleReCaptchaV3 component first and then pass site key into the component.
 
-###### Use prop
+### Use prop
 
 ````vue
 <template>
@@ -437,7 +437,7 @@ There are two ways you can bind reCAPTCHA v3 to the component, in the following 
 
 ````
 
-######  Add site key directly into GoogleReCaptchaV3 component
+###  Add site key directly into GoogleReCaptchaV3 component
 
 Alternatively, I believe most of cases your site key will never be changed, so you could just modify the original published component to have sitekey hard-coded in.
 
@@ -469,7 +469,7 @@ Remove it from prop and add it in data():
 
 ## Advanced Usage <a name="advanced-usage" />
 
-#### Custom implementation on Config
+### Custom implementation on Config
     
 For some users, they might store the config details in their own storage e.g database. You can create your own class and implement:
 
@@ -486,7 +486,7 @@ Remember to register it in your own service provider
             );
 ```
 
-#### Custom implementation on Request method
+### Custom implementation on Request method
 
 The package has two default options to verify: Guzzle and Curl, if you want to use your own request method, You can create your own class and implement 
 ```
