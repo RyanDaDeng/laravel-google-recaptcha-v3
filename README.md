@@ -27,6 +27,7 @@ PS: For Vue component, it will be polished in the near future, however, the basi
 3. [Vue Usage](#vue-usage)
 4. [Validation](#validation-class)
 5. [Advanced Usage](#advanced-usage)
+6. [Contributors](#contributors)
 
 # DEMO
 
