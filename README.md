@@ -506,7 +506,7 @@ Remember to register it in your own service provider
 
 Thank you for the following contributors, You guys are the BEST!
 
-* [@xalunda](https://www.google.com)
+* [@xalunda](https://github.com/xalunda)
 
 ## Security
 
