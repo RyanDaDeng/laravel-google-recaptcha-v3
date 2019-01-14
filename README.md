@@ -22,6 +22,7 @@ I will be super happy if you think this package is good and also star me.  ^.^
 PS: For Vue component, it will be polished in the near future, however, the basic version works fine, feel free to create ticket if you encounter any issues.
 
 # Table of Contents
+0. [Configurations](#settings)
 1. [Facade Usage](#facade-usage)
 2. [Blade Usage](#blade-basic-usage)
 3. [Vue Usage](#vue-usage)
@@ -178,7 +179,7 @@ If you manually assign a value to setScore($score), the code will fully skip you
   
 
 
-## Blade Usage <a name="blade-basic-usage" />
+## Configurations <a name="settings" />
 ### Setting up your Google reCAPTCHA details in config file
 
 Please register all details in config for host_name, site_key, secret_key and site_verify_url.
@@ -202,6 +203,7 @@ For score comparision, all actions should be registered in googlerecaptchav3 con
 
 For more details please check comments in config file.
 
+## Blade Usage <a name="blade-basic-usage" />
 ### Display reCAPTCHA v3 
 
 #### Blade
