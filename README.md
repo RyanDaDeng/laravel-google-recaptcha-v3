@@ -116,6 +116,31 @@ $ php artisan vendor:publish --provider="TimeHunter\LaravelGoogleReCaptchaV3\Pro
 
 After installation, you should see a googlerecaptchav3.php in your app/config folder, and vue component under js/components/googlerecaptchav3 folder.
 
+## Configurations <a name="settings" />
+### Setting up your Google reCAPTCHA details in config file
+
+Please register all details in config for host_name, site_key, secret_key and site_verify_url.
+
+Specify your Score threshold and action in 'setting', e.g.
+``` php
+      'setting' =  [
+          [
+            'action' => 'contact_us', // Google reCAPTCHA required paramater
+            'threshold' => 0.2, // score threshold
+            'is_enabled' => false // if this is true, the system will do score comparsion against your threshold for the action
+            ]
+        ]
+```        
+Note: if you want to enable Score Comparision, you also need to enable is_score_enabled to be true.
+``` php
+'is_score_enabled' = true
+```   
+
+For score comparision, all actions should be registered in googlerecaptchav3 config file under 'setting' section. 
+
+For more details please check comments in config file.
+
+
 
 ## Facade Usage <a name="facade-usage" />
 
@@ -178,30 +203,6 @@ If you manually assign a value to setScore($score), the code will fully skip you
    -  $actionName: if its NULL, the package won't verify action with google response.
   
 
-
-## Configurations <a name="settings" />
-### Setting up your Google reCAPTCHA details in config file
-
-Please register all details in config for host_name, site_key, secret_key and site_verify_url.
-
-Specify your Score threshold and action in 'setting', e.g.
-``` php
-      'setting' =  [
-          [
-            'action' => 'contact_us', // Google reCAPTCHA required paramater
-            'threshold' => 0.2, // score threshold
-            'is_enabled' => false // if this is true, the system will do score comparsion against your threshold for the action
-            ]
-        ]
-```        
-Note: if you want to enable Score Comparision, you also need to enable is_score_enabled to be true.
-``` php
-'is_score_enabled' = true
-```   
-
-For score comparision, all actions should be registered in googlerecaptchav3 config file under 'setting' section. 
-
-For more details please check comments in config file.
 
 ## Blade Usage <a name="blade-basic-usage" />
 ### Display reCAPTCHA v3 
