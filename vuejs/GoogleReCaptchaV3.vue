@@ -37,16 +37,26 @@
         },
         methods: {
             init() {
-                if (!('grecaptcha' in window)) {
+                if (!document.getElementById('gRecaptchaScript')) {
 
-                    window.gRecaptchaOnLoad = this.render;
+                    window.gRecaptchaOnLoadCallbacks = [this.render];
+                    window.gRecaptchaOnLoad = function () {
+                        for (let i = 0; i < window.gRecaptchaOnLoadCallbacks.length; i++) {
+                            window.gRecaptchaOnLoadCallbacks[i]();
+                        }
+                        delete window.gRecaptchaOnLoadCallbacks;
+                        delete window.gRecaptchaOnLoad;
+                    };
 
                     let recaptchaScript = document.createElement('script');
                     recaptchaScript.setAttribute('src', 'https://www.google.com/recaptcha/api.js?render=explicit&onload=gRecaptchaOnLoad');
+                    recaptchaScript.setAttribute('id', 'gRecaptchaScript');
                     recaptchaScript.async = true;
                     recaptchaScript.defer = true;
                     document.head.appendChild(recaptchaScript);
 
+                } else if (!window.grecaptcha || !window.grecaptcha.render) {
+                    window.gRecaptchaOnLoadCallbacks.push(this.render);
                 } else {
                     this.render();
                 }
