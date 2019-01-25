@@ -367,7 +367,7 @@ The file will be created under js/components/googlerecaptchav3/GoogleReCaptchaV3
 
 #### A BIG thanks to [@Fluxlicious](https://github.com/Fluxlicious) who improved the vue component.
 
-The Blade way is no longer useful if you use Vue, so we need to manage to assign site key by ourselves. The component supports props below:
+The Blade way is no longer useful if you use Vue. We need to manage to assign site key by ourselves. The component supports props below:
 
 Supported: siteKey, id, inline and action, check the original file to see the details.
 
