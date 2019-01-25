@@ -64,6 +64,7 @@ Please check Google site: https://developers.google.com/recaptcha/docs/faq
 - Support custom implementation on config interface
 - Support custom implementation on request method interface 
 - Fully supported Vue component
+- IP skipp list supported
 
 ## Requirement
 
@@ -229,72 +230,6 @@ Include Template script in your bottom/header of your page, params should follow
 #### Example Usage
 
 ``` html  
-
-{{--if laravel version <=5.6, please use {{ csrf_field() }}--}}
-
-<form method="POST" action="/verify">
-    @csrf
-    <div id="contact_us_id"></div>
-    <input type="submit" value="submit">
-    <div>
-        <small>
-            This site is protected by reCAPTCHA and the Google
-            <a href="https://policies.google.com/privacy">Privacy Policy</a> and
-            <a href="https://policies.google.com/terms">Terms of Service</a> apply.
-        </small>
-    </div>
-</form>
-
-{!!  GoogleReCaptchaV3::render([
-               'contact_us_id'=>'contact_us'
-           ]) !!}
-
-```
-
-The backend request will receive a value for 'g-recaptcha-response', please take a look at Sample Use Case and Facade usage sections.
-
-### Badge Display
-
-If your settings were not reflected, please run php artisan config:cache to clear cache.
-
-Inline
-
-1. Go to config file, and set 
-``` PHP
-    [
-        ...
-        'inline' => true
-        ...
-    ]
-```
-2. Badge will be displayed as inline format within the form.
-
-
-Invisible
-
-1. Set inline as true as well
-2. Modify your div with style display:none
-3. Refer to Google official site: https://developers.google.com/recaptcha/docs/faq
-, you need to include the following text:
- ``` HTML
-    This site is protected by reCAPTCHA and the Google
-        <a href="https://policies.google.com/privacy">Privacy Policy</a> and
-        <a href="https://policies.google.com/terms">Terms of Service</a> apply.
- ```
-
-Corner
-
-1. Set inline as false
-2. Your badge will be shown in the bottom right side.
-
-Custom
-
-1. Set inline as true
-2. Do Styling/CSS on its div element
-
-
-### Blade Use Case
-
 Register your action in config, also enable score and set up your own site key and secret key:
 ``` php
     'setting' => [
@@ -349,7 +284,49 @@ Create your form in index.blade.php:
 {!!  GoogleReCaptchaV3::render(['contact_us_id'=>'contact_us', 'signup_id'=>'signup']) !!}
 ```
 
+The backend request will receive a value for 'g-recaptcha-response'.
+
 Go to /index and click submit button on contact us form and you should see an error message that 'Score does not meet the treshhold' because the threshold >2. You can play around the controller to see all outcomes. Importantly, you need to wait the script to be loaded before clicking the submit button.
+
+### Badge Display
+
+If your settings were not reflected, please run php artisan config:cache to clear cache.
+
+Inline
+
+1. Go to config file, and set 
+``` PHP
+    [
+        ...
+        'inline' => true
+        ...
+    ]
+```
+2. Badge will be displayed as inline format within the form.
+
+
+Invisible
+
+1. Set inline as true as well
+2. Modify your div with style display:none
+3. Refer to Google official site: https://developers.google.com/recaptcha/docs/faq
+, you need to include the following text:
+ ``` HTML
+    This site is protected by reCAPTCHA and the Google
+        <a href="https://policies.google.com/privacy">Privacy Policy</a> and
+        <a href="https://policies.google.com/terms">Terms of Service</a> apply.
+ ```
+
+Corner
+
+1. Set inline as false
+2. Your badge will be shown in the bottom right side.
+
+Custom
+
+1. Set inline as true
+2. Do Styling/CSS on its div element
+
 
 ## Vue Usage (Pacakge version >= 2.2.0) <a name="vue-usage" />
 
