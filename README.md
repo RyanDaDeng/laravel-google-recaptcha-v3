@@ -19,6 +19,8 @@ If you want to use v2, please go to: https://github.com/RyanDaDeng/laravel-googl
 
 Update: Vue component is ready for production usage.
 
+A star would be a nice encouragement ^.^
+
 # Table of Contents
 0. [Configurations](#settings)
 1. [Facade Usage](#facade-usage)
