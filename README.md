@@ -17,7 +17,7 @@ I guarantee that bugs, issues, features and changes will be responded in 48 hour
 
 If you want to use v2, please go to: https://github.com/RyanDaDeng/laravel-google-recaptcha-v2
 
-Update: Vue component is ready for production usage.
+Update: Vue component is ready for production usage. Please upgrade package version to ~2.2.0
 
 A star would be a nice encouragement. ^.^
 
