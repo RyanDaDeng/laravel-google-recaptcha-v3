@@ -13,7 +13,7 @@
 [![Build][ico-build]][link-build]
 [![StyleCI][ico-styleci]][link-styleci]
 
-## Update: Vue component is ready for production usage. Please upgrade package version : ~2.2.0
+## Update: Vue component is ready for production use. Please upgrade package version : ~2.2.0
 
 I guarantee that bugs, issues, features and changes will be responded in 48 hours.
 
