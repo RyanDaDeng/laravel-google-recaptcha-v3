@@ -221,8 +221,6 @@ class ConfigTest extends TestCase
         $this->assertEquals(true, $response->isSuccess());
     }
 
-
-
     public function testIpSkip1()
     {
         // Create a stub for the SomeClass class.
@@ -244,10 +242,9 @@ class ConfigTest extends TestCase
         $_service = new GoogleReCaptchaV3Service($configStub, $clientStub);
         $service = new GoogleReCaptchaV3($_service);
 
-        $response = $service->verifyResponse('test response','1.1.1.1');
+        $response = $service->verifyResponse('test response', '1.1.1.1');
         $this->assertEquals(true, $response->isSuccess());
     }
-
 
     public function testIpSkip2()
     {
@@ -270,7 +267,7 @@ class ConfigTest extends TestCase
         $_service = new GoogleReCaptchaV3Service($configStub, $clientStub);
         $service = new GoogleReCaptchaV3($_service);
 
-        $response = $service->verifyResponse('test response','1.1.1.2');
+        $response = $service->verifyResponse('test response', '1.1.1.2');
         $this->assertEquals(false, $response->isSuccess());
     }
 }
