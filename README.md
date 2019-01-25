@@ -22,13 +22,14 @@ Update: Vue component is ready for production usage.
 A star would be a nice encouragement. ^.^
 
 # Table of Contents
-0. [Configurations](#settings)
-1. [Facade Usage](#facade-usage)
-2. [Blade Usage](#blade-basic-usage)
-3. [Vue Usage](#vue-usage)
-4. [Validation](#validation-class)
-5. [Advanced Usage](#advanced-usage)
-6. [Contributors](#contributors)
+1. [Installation](#installation)
+2. [Configurations](#settings)
+3. [Facade Usage](#facade-usage)
+4. [Blade Usage](#blade-basic-usage)
+5. [Vue Usage](#vue-usage)
+6. [Validation](#validation-class)
+7. [Advanced Usage](#advanced-usage)
+8. [Contributors](#contributors)
 
 # DEMO
 
@@ -76,8 +77,7 @@ This package requires the following dependencies:
 
 - Please ensure that you have read basic information from Google reCAPTCHA v3.
 
-## Installation
-
+## Installation <a name="installation" />
 
 Via Composer
 
