@@ -150,11 +150,12 @@ You can directly use registered facade service by calling the following methods.
 - verifyResponse() which accepts the token value from your form. This returns Google reCAPTCHA Response object.
 - setScore() is optional only if you want to manually verify the score.
 
+
+Example Usage
+
 ``` php
    GoogleReCaptchaV3::setAction($action)->verifyResponse($value,$ip = null);
 ```
-
-Example Usage
 
 ``` php
    GoogleReCaptchaV3::verifyResponse($value,$ip)->getMessage();
@@ -494,6 +495,7 @@ Remember to register it in your own service provider
 Thank you for the following contributors, You guys are the BEST!
 
 * [@xalunda](https://github.com/xalunda)
+* [@Fluxlicious](https://github.com/Fluxlicious)
 
 ## Security
 
