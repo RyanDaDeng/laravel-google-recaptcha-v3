@@ -8,4 +8,9 @@ Contributions are accepted via Pull Requests on [Github](https://github.com/ryan
 
 
 Contributors:
-@xalunda PR: https://github.com/RyanDaDeng/laravel-google-recaptcha-v3/pull/16
+
+* [@xalunda](https://github.com/xalunda)
+  - https://github.com/RyanDaDeng/laravel-google-recaptcha-v3/pull/16
+
+* [@Fluxlicious](https://github.com/Fluxlicious) 
+  - https://github.com/RyanDaDeng/laravel-google-recaptcha-v3/pull/21
