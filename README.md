@@ -17,18 +17,19 @@ I guarantee that bugs, issues, features and changes will be responded in 48 hour
 
 If you want to use v2, please go to: https://github.com/RyanDaDeng/laravel-google-recaptcha-v2
 
-I will be super happy if you think this package is good and also star me.  ^.^
+Update: Vue component is ready for production usage. Please upgrade package version to ~2.2.0
 
-PS: For Vue component, it will be polished in the near future, however, the basic version works fine, feel free to create ticket if you encounter any issues.
+A star would be a nice encouragement. ^.^
 
 # Table of Contents
-0. [Configurations](#settings)
-1. [Facade Usage](#facade-usage)
-2. [Blade Usage](#blade-basic-usage)
-3. [Vue Usage](#vue-usage)
-4. [Validation](#validation-class)
-5. [Advanced Usage](#advanced-usage)
-6. [Contributors](#contributors)
+1. [Installation](#installation)
+2. [Configurations](#settings)
+3. [Facade Usage](#facade-usage)
+4. [Blade Usage](#blade-basic-usage)
+5. [Vue Usage](#vue-usage)
+6. [Validation](#validation-class)
+7. [Advanced Usage](#advanced-usage)
+8. [Contributors](#contributors)
 
 # DEMO
 
@@ -56,13 +57,15 @@ Please check Google site: https://developers.google.com/recaptcha/docs/faq
 
 ## Features
 
+- High Test coverage, safe and easy to use
 - Score Comparision
-- Support invisible, global and inline badge style
+- Support invisible, corner and inline badge style
 - Support multiple reCAPTCHA on the same page for different forms
 - Support multiple actions to be placed on the same page
 - Support custom implementation on config interface
 - Support custom implementation on request method interface 
-
+- Fully supported Vue component
+- IP skip list supported
 
 ## Requirement
 
@@ -76,13 +79,12 @@ This package requires the following dependencies:
 
 - Please ensure that you have read basic information from Google reCAPTCHA v3.
 
-## Installation
-
+## Installation <a name="installation" />
 
 Via Composer
 
 ``` sh
-        $ composer require timehunter/laravel-google-recaptcha-v3 "~2.0.0" -vvv
+        $ composer require timehunter/laravel-google-recaptcha-v3 "~2.2.0" -vvv
 ```
 
 If your Laravel framework version <= 5.4, please register the service provider under your config file: /config/app.php, otherwise please skip it.
@@ -229,72 +231,6 @@ Include Template script in your bottom/header of your page, params should follow
 #### Example Usage
 
 ``` html  
-
-{{--if laravel version <=5.6, please use {{ csrf_field() }}--}}
-
-<form method="POST" action="/verify">
-    @csrf
-    <div id="contact_us_id"></div>
-    <input type="submit" value="submit">
-    <div>
-        <small>
-            This site is protected by reCAPTCHA and the Google
-            <a href="https://policies.google.com/privacy">Privacy Policy</a> and
-            <a href="https://policies.google.com/terms">Terms of Service</a> apply.
-        </small>
-    </div>
-</form>
-
-{!!  GoogleReCaptchaV3::render([
-               'contact_us_id'=>'contact_us'
-           ]) !!}
-
-```
-
-The backend request will receive a value for 'g-recaptcha-response', please take a look at Sample Use Case and Facade usage sections.
-
-### Badge Display
-
-If your settings were not reflected, please run php artisan config:cache to clear cache.
-
-Inline
-
-1. Go to config file, and set 
-``` PHP
-    [
-        ...
-        'inline' => true
-        ...
-    ]
-```
-2. Badge will be displayed as inline format within the form.
-
-
-Invisible
-
-1. Set inline as true as well
-2. Modify your div with style display:none
-3. Refer to Google official site: https://developers.google.com/recaptcha/docs/faq
-, you need to include the following text:
- ``` HTML
-    This site is protected by reCAPTCHA and the Google
-        <a href="https://policies.google.com/privacy">Privacy Policy</a> and
-        <a href="https://policies.google.com/terms">Terms of Service</a> apply.
- ```
-
-Corner
-
-1. Set inline as false
-2. Your badge will be shown in the bottom right side.
-
-Custom
-
-1. Set inline as true
-2. Do Styling/CSS on its div element
-
-
-### Blade Use Case
-
 Register your action in config, also enable score and set up your own site key and secret key:
 ``` php
     'setting' => [
@@ -349,9 +285,51 @@ Create your form in index.blade.php:
 {!!  GoogleReCaptchaV3::render(['contact_us_id'=>'contact_us', 'signup_id'=>'signup']) !!}
 ```
 
+The backend request will receive a value for 'g-recaptcha-response'.
+
 Go to /index and click submit button on contact us form and you should see an error message that 'Score does not meet the treshhold' because the threshold >2. You can play around the controller to see all outcomes. Importantly, you need to wait the script to be loaded before clicking the submit button.
 
-## Vue Usage <a name="vue-usage" />
+### Badge Display
+
+If your settings were not reflected, please run php artisan config:cache to clear cache.
+
+Inline
+
+1. Go to config file, and set 
+``` PHP
+    [
+        ...
+        'inline' => true
+        ...
+    ]
+```
+2. Badge will be displayed as inline format within the form.
+
+
+Invisible
+
+1. Set inline as true as well
+2. Modify your div with style display:none
+3. Refer to Google official site: https://developers.google.com/recaptcha/docs/faq
+, you need to include the following text:
+ ``` HTML
+    This site is protected by reCAPTCHA and the Google
+        <a href="https://policies.google.com/privacy">Privacy Policy</a> and
+        <a href="https://policies.google.com/terms">Terms of Service</a> apply.
+ ```
+
+Corner
+
+1. Set inline as false
+2. Your badge will be shown in the bottom right side.
+
+Custom
+
+1. Set inline as true
+2. Do Styling/CSS on its div element
+
+
+## Vue Usage (Pacakge version >= 2.2.0) <a name="vue-usage" />
 
 The package provides a lightweight vue component. You need to publish the vue component before playing around it.
 
@@ -367,7 +345,7 @@ The file will be created under js/components/googlerecaptchav3/GoogleReCaptchaV3
 
 #### A BIG thanks to [@Fluxlicious](https://github.com/Fluxlicious) who improved the vue component.
 
-The Blade way is no longer useful if you use Vue, so we need to manage to assign site key by ourselves. The component supports props below:
+The Blade way is no longer useful if you use Vue. We need to manage to assign site key by ourselves. The component supports props below:
 
 Supported: siteKey, id, inline and action, check the original file to see the details.
 
