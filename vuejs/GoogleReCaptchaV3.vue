@@ -1,88 +1,84 @@
 <template>
-    <div :id="elementId"
-    ></div>
+    <div :id="id"></div>
 </template>
 
 <script>
     export default {
         name: 'google-recaptcha-v3',
         props: {
+            action: {
+                type: String,
+                required: false,
+                default: 'validate_grecaptcha'
+            },
+            id: {
+                type: String,
+                required: false,
+                default: 'grecaptcha_container'
+            },
             siteKey: {
                 type: String,
-                required: true
-            },
-            elementId: {
-                type: String,
-                required: true
+                required: false, // set to true if you don't want to store the siteKey in this component
+                default: '' // set siteKey here if you want to store it in this component
             },
             inline: {
                 type: Boolean,
-                default: false
+                required: false,
+                default: false,
             },
-            action: {
-                type: String,
-                required: true
-            }
         },
         data() {
             return {
-                gAssignedId: null,
-                captchaReady: false,
-                renderedReady: false,
-                checkInterval: null,
-                checkIntervalRunCount: 0
+                captchaId: null,
             }
         },
-        created() {
-        },
-        computed: {},
         mounted() {
             this.init();
         },
-        watch: {
-            captchaReady: function (data) {
-                if (data) {
-                    clearInterval(this.checkInterval)
-                    this.render()
-                }
-            },
-            renderedReady: function (data) {
-                if (data) {
-                    clearInterval(this.checkInterval)
-                    this.execute()
-                }
-            },
-        },
         methods: {
-            execute() {
-                let action = this.action;
-                window.grecaptcha.ready(function () {
-                    grecaptcha.execute(this.gAssignedId, {
-                        action: action
-                    });
-                });
+            init() {
+                if (!document.getElementById('gRecaptchaScript')) {
+
+                    window.gRecaptchaOnLoadCallbacks = [this.render];
+                    window.gRecaptchaOnLoad = function () {
+                        for (let i = 0; i < window.gRecaptchaOnLoadCallbacks.length; i++) {
+                            window.gRecaptchaOnLoadCallbacks[i]();
+                        }
+                        delete window.gRecaptchaOnLoadCallbacks;
+                        delete window.gRecaptchaOnLoad;
+                    };
+
+                    let recaptchaScript = document.createElement('script');
+                    recaptchaScript.setAttribute('src', 'https://www.google.com/recaptcha/api.js?render=explicit&onload=gRecaptchaOnLoad');
+                    recaptchaScript.setAttribute('id', 'gRecaptchaScript');
+                    recaptchaScript.async = true;
+                    recaptchaScript.defer = true;
+                    document.head.appendChild(recaptchaScript);
+
+                } else if (!window.grecaptcha || !window.grecaptcha.render) {
+                    window.gRecaptchaOnLoadCallbacks.push(this.render);
+                } else {
+                    this.render();
+                }
             },
+
             render() {
-                this.gAssignedId = window.grecaptcha.render(this.elementId, {
+                this.captchaId = window.grecaptcha.render(this.id, {
                     sitekey: this.siteKey,
                     badge: this.inline === true ? 'inline' : '',
-                    size: 'invisible'
+                    size: 'invisible',
+                    'expired-callback': this.execute
                 });
-                this.renderedReady = true;
+
+                this.execute();
             },
-            init() {
-                this.checkInterval = setInterval(() => {
-                    this.checkIntervalRunCount++;
-                    if (window.grecaptcha && window.grecaptcha.hasOwnProperty('render')) {
-                        this.captchaReady = true
-                    } else {
-                        let recaptchaScript = document.createElement('script');
-                        recaptchaScript.setAttribute('src', 'https://www.google.com/recaptcha/api.js?render=explicit');
-                        document.head.appendChild(recaptchaScript);
-                        recaptchaScript.async = true;
-                        recaptchaScript.defer = true;
-                    }
-                }, 1000)
+
+            execute() {
+                window.grecaptcha.execute(this.captchaId, {
+                    action: this.action,
+                }).then((token) => {
+                    this.$emit('input', token);
+                });
             }
         }
     }
