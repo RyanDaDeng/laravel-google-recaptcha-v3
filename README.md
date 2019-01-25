@@ -21,9 +21,10 @@ Update: Vue component is ready for production usage. Please upgrade package vers
 
 A star would be a nice encouragement. ^.^
 
-Future improvement:
-1. Advanced Code decouple and performance improvement
+Future improvement (Will be done in a 1-2 days, everything will still be compatible with all test cases):
+1. Minor advanced code decouple and performance improvement
 2. Add Comments
+
 
 # Table of Contents
 1. [Installation](#installation)
