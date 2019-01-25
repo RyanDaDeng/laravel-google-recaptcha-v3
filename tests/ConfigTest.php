@@ -220,4 +220,57 @@ class ConfigTest extends TestCase
         $response = $service->verifyResponse('test response');
         $this->assertEquals(true, $response->isSuccess());
     }
+
+
+
+    public function testIpSkip1()
+    {
+        // Create a stub for the SomeClass class.
+        $configStub = $this->createMock(ReCaptchaConfigV3::class);
+
+        // Configure the stub.
+        $configStub->method('isServiceEnabled')
+            ->willReturn(true);
+
+        $configStub->method('getSkipIps')
+            ->willReturn(['1.1.1.1']);
+
+        $testJson = '{ "success": false, "challenge_ts": "2018-12-25T03:35:32Z", "hostname": "ryandeng.test", "score": 0.9, "action": "contact_us" }';
+
+        $clientStub = $this->createMock(GuzzleRequestClient::class);
+        $clientStub->method('post')
+            ->willReturn($testJson);
+
+        $_service = new GoogleReCaptchaV3Service($configStub, $clientStub);
+        $service = new GoogleReCaptchaV3($_service);
+
+        $response = $service->verifyResponse('test response','1.1.1.1');
+        $this->assertEquals(true, $response->isSuccess());
+    }
+
+
+    public function testIpSkip2()
+    {
+        // Create a stub for the SomeClass class.
+        $configStub = $this->createMock(ReCaptchaConfigV3::class);
+
+        // Configure the stub.
+        $configStub->method('isServiceEnabled')
+            ->willReturn(true);
+
+        $configStub->method('getSkipIps')
+            ->willReturn(['1.1.1.1']);
+
+        $testJson = '{ "success": false, "challenge_ts": "2018-12-25T03:35:32Z", "hostname": "ryandeng.test", "score": 0.9, "action": "contact_us" }';
+
+        $clientStub = $this->createMock(GuzzleRequestClient::class);
+        $clientStub->method('post')
+            ->willReturn($testJson);
+
+        $_service = new GoogleReCaptchaV3Service($configStub, $clientStub);
+        $service = new GoogleReCaptchaV3($_service);
+
+        $response = $service->verifyResponse('test response','1.1.1.2');
+        $this->assertEquals(false, $response->isSuccess());
+    }
 }

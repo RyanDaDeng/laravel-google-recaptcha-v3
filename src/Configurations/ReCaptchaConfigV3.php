@@ -93,4 +93,12 @@ class ReCaptchaConfigV3 implements ReCaptchaConfigV3Interface
     {
         return config('googlerecaptchav3.language');
     }
+
+    /**
+     * @return string
+     */
+    public function getSkipIps()
+    {
+        return config('googlerecaptchav3.skip_ips');
+    }
 }

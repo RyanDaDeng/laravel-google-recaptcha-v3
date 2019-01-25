@@ -64,4 +64,9 @@ interface ReCaptchaConfigV3Interface
      * @return string
      */
     public function getLanguage();
+
+    /**
+     * @return array
+     */
+    public function getSkipIps();
 }
