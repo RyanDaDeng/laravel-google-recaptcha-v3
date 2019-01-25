@@ -32,6 +32,7 @@ class GoogleReCaptchaV3Service
     public function ifInSkippedIps($ip)
     {
         $ips = $this->config->getSkipIps();
+
         return in_array($ip, $ips);
     }
 
@@ -42,13 +43,12 @@ class GoogleReCaptchaV3Service
      */
     public function verifyResponse($response, $ip = null)
     {
-        if (!$this->config->isServiceEnabled() || ($ip && $this->ifInSkippedIps($ip)) === true) {
+        if (! $this->config->isServiceEnabled() || ($ip && $this->ifInSkippedIps($ip)) === true) {
             $res = new GoogleReCaptchaV3Response([], $ip);
             $res->setSuccess(true);
 
             return $res;
         }
-
 
         if (empty($response)) {
             $res = new GoogleReCaptchaV3Response([], $ip, GoogleReCaptchaV3Response::MISSING_INPUT_ERROR);
@@ -78,7 +78,7 @@ class GoogleReCaptchaV3Service
             return $rawResponse;
         }
 
-        if (!empty($this->config->getHostName()) && strcasecmp($this->config->getHostName(), $rawResponse->getHostname()) !== 0) {
+        if (! empty($this->config->getHostName()) && strcasecmp($this->config->getHostName(), $rawResponse->getHostname()) !== 0) {
             $rawResponse->setMessage(GoogleReCaptchaV3Response::ERROR_HOSTNAME);
             $rawResponse->setSuccess(false);
 
