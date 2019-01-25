@@ -57,6 +57,7 @@ Please check Google site: https://developers.google.com/recaptcha/docs/faq
 
 ## Features
 
+- High Test coverage, safe and easy to use
 - Score Comparision
 - Support invisible, corner and inline badge style
 - Support multiple reCAPTCHA on the same page for different forms
@@ -64,7 +65,7 @@ Please check Google site: https://developers.google.com/recaptcha/docs/faq
 - Support custom implementation on config interface
 - Support custom implementation on request method interface 
 - Fully supported Vue component
-- IP skipp list supported
+- IP skip list supported
 
 ## Requirement
 
