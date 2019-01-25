@@ -30,11 +30,12 @@ Future improvement (Will be done in 1-2 days, everything will still be compatibl
 1. [Installation](#installation)
 2. [Configurations](#settings)
 3. [Facade Usage](#facade-usage)
-4. [Blade Usage](#blade-basic-usage)
-5. [Vue Usage](#vue-usage)
-6. [Validation](#validation-class)
-7. [Advanced Usage](#advanced-usage)
-8. [Contributors](#contributors)
+4. [Badge Display](#badge-display)
+5. [Blade Usage](#blade-basic-usage)
+6. [Vue Usage](#vue-usage)
+7. [Validation](#validation-class)
+8. [Advanced Usage](#advanced-usage)
+9. [Contributors](#contributors)
 
 # DEMO
 
@@ -294,7 +295,7 @@ The backend request will receive a value for 'g-recaptcha-response'.
 
 Go to /index and click submit button on contact us form and you should see an error message that 'Score does not meet the treshhold' because the threshold >2. You can play around the controller to see all outcomes. Importantly, you need to wait the script to be loaded before clicking the submit button.
 
-### Badge Display
+## Badge Display <a name="badge-display" />
 
 If your settings were not reflected, please run php artisan config:cache to clear cache.
 
