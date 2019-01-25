@@ -364,17 +364,20 @@ The file will be created under js/components/googlerecaptchav3/GoogleReCaptchaV3
 
 ### Step 2 Import vue component and Register reCAPTCHA v3 SiteKey
 
+#### A BIG thanks to [@Fluxlicious](https://github.com/Fluxlicious) who improved the vue component.
+
 The Blade way is no longer useful if you use Vue, so we need to manage to assign site key by ourselves. The component supports props below:
 
-Supported: siteKey, elementId, inline and action, check the original file to see the details.
+Supported: siteKey, id, inline and action, check the original file to see the details.
 
 ````vue
-<google-re-captcha-v3
-                :siteKey="this.siteKey"
-                :elementId="'contact_us_id'"
-                :inline="true"
-                :action="'contact_us'">
-</google-re-captcha-v3>
+                <google-re-captcha-v3
+                        ref="captcha" v-model="gRecaptchaResponse"
+                        :siteKey="'Your Site Key Here'"
+                        :id="'contact_us_id'"
+                        :inline="true"
+                        :action="'contact_us'">
+                </google-re-captcha-v3>
         
 ```` 
 
@@ -386,57 +389,51 @@ There are two ways you can bind site key to the component.
 ````vue
 <template>
     <div>
-        <form method="POST" action="/verify">
+        <form @submit.prevent="submit">
             <div>
-                <label for="exampleInputEmail1">Email address</label>
-                <input type="email"  id="exampleInputEmail1"
-                       aria-describedby="emailHelp"
-                       placeholder="Enter email">
+                <google-re-captcha-v3
+                        ref="captcha" v-model="form.gRecaptchaResponse"
+                        :siteKey="this.siteKey"
+                        :id="'contact_us_id'"
+                        :inline="true"
+                        :action="'contact_us'">
+                </google-re-captcha-v3>
             </div>
-            <div>
-                <label for="exampleInputPassword1">Password</label>
-                <input type="password" id="exampleInputPassword1"
-                       placeholder="Password">
-            </div>
-            <div>
-                <div id="contact_us_id"></div> // Your reCAPTCHA div element
-            </div>
-
             <button type="submit">Submit</button>
         </form>
-        <google-re-captcha-v3
-                :siteKey="this.siteKey"
-                :elementId="'contact_us_id'"
-                :inline="true"
-                :action="'contact_us'">
-
-        </google-re-captcha-v3>
     </div>
-
 </template>
 <script>
-    import GoogleReCaptchaV3 from '../components/googlerecaptchav3/GoogleReCaptchaV3'; // location might be diff to your case, ensure that your location is right
-
+    import GoogleReCaptchaV3 from '../../components/googlerecaptchav3/GoogleReCaptchaV3';
+    // location might be diff to your case, ensure that your component location is right
+    
     export default {
         components: {
             GoogleReCaptchaV3
         },
         data() {
             return {
-                siteKey: 'YOUR_SITE_KEY', // provide your site key here
+                form: {
+                    gRecaptchaResponse: null
+                },
+                siteKey: 'Your Site Key',
             }
         },
-        created() {
-
-        },
-        computed: {},
-        mounted() {
-
-        },
-        watch: {},
-        methods: {}
+        methods: {
+            submit() {
+                axios.post('/verify', this.form).then(
+                    response => {
+                        this.$refs.captcha.execute(); // every time you submit, the reCAPTCHA token needs to be refreshed
+                    }
+                ).catch(
+                    error => {
+                        this.$refs.captcha.execute(); // every time you submit, the reCAPTCHA token needs to be refreshed
+                    });
+            }
+        }
     }
 </script>
+
 
 ````
 
@@ -447,27 +444,14 @@ Alternatively, I believe most of cases your site key will never be changed, so y
 For instance, open published file and find code below:
 ````vue
         ....
-        props: {
-                siteKey: {
-                    type: String,
-                    required: true
-                },
-               .....
-            },
+        siteKey: {
+                  type: String,
+                  required: false, // set to true if you don't want to store the siteKey in this component
+                  default: 'Your Site Key Here' // set siteKey here if you want to store it in this component
+              },
        ....
 
 ````
-
-Remove it from prop and add it in data():
-
-````vue
- data() {
-            return {
-                siteKey: "YOUR_KEY_HERE",
-                ....
-            }
-        },
-````     
 
 
 ## Advanced Usage <a name="advanced-usage" />
