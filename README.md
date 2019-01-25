@@ -351,7 +351,7 @@ Create your form in index.blade.php:
 
 Go to /index and click submit button on contact us form and you should see an error message that 'Score does not meet the treshhold' because the threshold >2. You can play around the controller to see all outcomes. Importantly, you need to wait the script to be loaded before clicking the submit button.
 
-## Vue Usage <a name="vue-usage" />
+## Vue Usage (Pacakge version >= 2.2.0) <a name="vue-usage" />
 
 The package provides a lightweight vue component. You need to publish the vue component before playing around it.
 
