@@ -86,7 +86,6 @@ class ViewTest extends TestCase
         $this->assertEquals('', $background);
     }
 
-
     public function testView4()
     {
         // Create a stub for the SomeClass class.
