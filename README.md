@@ -33,11 +33,10 @@ Future improvement (Will be done in 1-2 days, everything will still be compatibl
 2. [Configurations](#settings)
 3. [Facade Usage](#facade-usage)
 4. [Badge Display](#badge-display)
-5. [Blade Usage](#blade-basic-usage)
-6. [Vue Usage](#vue-usage)
-7. [Validation](#validation-class)
-8. [Advanced Usage](#advanced-usage)
-9. [Contributors](#contributors)
+5. [Vue Usage](#vue-usage)
+6. [Validation](#validation-class)
+7. [Advanced Usage](#advanced-usage)
+8. [Contributors](#contributors)
 
 # DEMO
 
