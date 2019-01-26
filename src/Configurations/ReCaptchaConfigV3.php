@@ -103,10 +103,18 @@ class ReCaptchaConfigV3 implements ReCaptchaConfigV3Interface
     }
 
     /**
-     * @return \Illuminate\Config\Repository|mixed
+     * @return bool
      */
     public function getBackgroundBadgeDisplay()
     {
         return config('googlerecaptchav3.background_badge_display');
+    }
+
+    /**
+     * @return bool
+     */
+    public function shouldEnableBackgroundMode()
+    {
+        return config('googlerecaptchav3.background_mode');
     }
 }

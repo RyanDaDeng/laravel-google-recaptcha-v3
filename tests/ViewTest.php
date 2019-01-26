@@ -24,9 +24,30 @@ class ViewTest extends TestCase
         $_service = new GoogleReCaptchaV3Service($configStub, $clientStub);
         $service = new GoogleReCaptchaV3($_service);
 
-        $data = $service->render(['contact_us_id' => 'contact_us']);
+        $service->renderOne('contact_us_id', 'contact_us');
+        $data = $service->init();
         $this->assertEquals(null, $data);
     }
+
+    public function testView1()
+    {
+        // Create a stub for the SomeClass class.
+        $configStub = $this->createMock(ReCaptchaConfigV3::class);
+
+        // Configure the stub.
+        $configStub->method('isServiceEnabled')
+            ->willReturn(false);
+
+        $clientStub = $this->createMock(GuzzleRequestClient::class);
+
+        $_service = new GoogleReCaptchaV3Service($configStub, $clientStub);
+        $service = new GoogleReCaptchaV3($_service);
+
+        $service->renderOne('contact_us_id', 'contact_us');
+        $service->render(['contact_us_id1'=> 'contact_us']);
+        $this->assertEquals(null, $service::$collection);
+    }
+
 
     public function testView2()
     {
@@ -58,34 +79,6 @@ class ViewTest extends TestCase
         $this->assertEquals('en', $data['language']);
     }
 
-    public function testView3()
-    {
-        // Create a stub for the SomeClass class.
-        $configStub = $this->createMock(ReCaptchaConfigV3::class);
-
-        // Configure the stub.
-        $configStub->method('isServiceEnabled')
-            ->willReturn(true);
-
-        $configStub->method('getSiteKey')
-            ->willReturn('test1');
-
-        $configStub->method('isInline')
-            ->willReturn(false);
-
-        $configStub->method('getLanguage')
-            ->willReturn('en');
-
-        $clientStub = $this->createMock(GuzzleRequestClient::class);
-
-        $_service = new GoogleReCaptchaV3Service($configStub, $clientStub);
-        $service = new GoogleReCaptchaV3($_service);
-
-        $service->prepareViewData(['contact_us_id' => 'contact_us']);
-        $background = $service->background();
-        $this->assertEquals('', $background);
-    }
-
     public function testView4()
     {
         // Create a stub for the SomeClass class.
@@ -111,7 +104,7 @@ class ViewTest extends TestCase
 
         $_service = new GoogleReCaptchaV3Service($configStub, $clientStub);
         $service = new GoogleReCaptchaV3($_service);
-        $data = $service->prepareBackgroundData();
+        $data = $service->prepareData();
         $this->assertEquals(false, $data['display']);
         $this->assertEquals('test1', $data['publicKey']);
     }

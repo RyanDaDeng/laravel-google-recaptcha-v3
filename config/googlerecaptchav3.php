@@ -77,6 +77,17 @@ return [
     |
     */
     'background_badge_display' => true,
+    /*
+    |--------------------------------------------------------------------------
+    | Background Badge Style
+    |--------------------------------------------------------------------------
+    | Type: boolean
+    | Support:
+    |  -  true: the script will run on every page if you put init() on the global page
+    |  -  false: the script will only be running if there is action defined
+    |
+    */
+    'background_mode' => false,
 
     /*
     |--------------------------------------------------------------------------
@@ -111,7 +122,7 @@ return [
     | Type: array
     | Define a list of ip that you want to skip
     */
-    'skip_ips'=>[
+    'skip_ips' => [
 
     ],
     /*

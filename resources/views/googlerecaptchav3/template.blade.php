@@ -1,22 +1,45 @@
-<script>
+@if(! $hasAction && $backgroundMode )
+    @if($display === false)
+        <style>
+            .grecaptcha-badge {
+                display: none;
+            }
+        </style>
+    @endif
+    <script>
+        if (!document.getElementById('gReCaptchaScript')) {
+            let reCaptchaScript = document.createElement('script');
+            reCaptchaScript.setAttribute('src', 'https://www.google.com/recaptcha/api.js?render={{$publicKey}}');
+            reCaptchaScript.async = true;
+            reCaptchaScript.defer = true;
+            document.head.appendChild(reCaptchaScript);
+        }
+    </script>
+@endif
 
-    function onloadCallback() {
-                @foreach($mappers as $action=>$fields)
-                @foreach($fields as $field)
-        let client{{$field}} = grecaptcha.render('{{$field}}', {
-                'sitekey': '{{$publicKey}}',
-                    @if($inline===true) 'badge': 'inline', @endif
-                'size': 'invisible',
-                'hl': '{{$language}}'
+
+@if($hasAction)
+    <script>
+        function onloadCallback() {
+                    @foreach($mappers as $action=>$fields)
+                    @foreach($fields as $field)
+            let client{{$field}} = grecaptcha.render('{{$field}}', {
+                    'sitekey': '{{$publicKey}}',
+                        @if($inline===true) 'badge': 'inline', @endif
+                    'size': 'invisible',
+                    'hl': '{{$language}}'
+                });
+            grecaptcha.ready(function () {
+                grecaptcha.execute(client{{$field}}, {
+                    action: '{{$action}}'
+                });
             });
-        grecaptcha.ready(function () {
-            grecaptcha.execute(client{{$field}}, {
-                action: '{{$action}}'
-            });
-        });
-        @endforeach
-        @endforeach
-    }
-</script>
-<script id='gReCaptchaScript' src="https://www.google.com/recaptcha/api.js?render=explicit&onload=onloadCallback" defer
-        async></script>
+            @endforeach
+            @endforeach
+        }
+    </script>
+    <script id='gReCaptchaScript' src="https://www.google.com/recaptcha/api.js?render=explicit&onload=onloadCallback"
+            defer
+            async></script>
+@endif
+

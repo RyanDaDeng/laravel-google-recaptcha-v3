@@ -234,16 +234,16 @@ It's recommended to include reCAPTCHA v3 on every page which can help you get th
 In your main homepage or layout page, put the following script at the bottom of your page:
 
 ``` html  
-  {!!  GoogleReCaptchaV3::background() !!}
+  {!!  GoogleReCaptchaV3::init() !!}
 ```
 
-Note: the above script MUST be called after GoogleReCaptchaV3::render(), otherwise the google script might run multiple times.
 
 You can also set the background reCAPTCHA as hidden or visible(bottomright):
 
 ``` php
    ...
   'background_badge_display' => true, // if false, the badge will be invisible.
+  'background_mode' => false, // if true, the script will run on every page if you put init() on the global page
    ...
 ```
   
@@ -274,6 +274,10 @@ Include GoogleReCaptchaV3::render() script after your form, params should follow
 </form>
 
 {!!  GoogleReCaptchaV3::render(['contact_us_id'=>'contact_us', 'signup_id'=>'signup']) !!}
+
+// or 
+
+{!!  GoogleReCaptchaV3::renderOne('contact_us_id','contact_us') !!} // renderOne($id,$action)
 ```
 
 

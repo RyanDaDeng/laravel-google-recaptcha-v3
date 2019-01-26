@@ -16,8 +16,10 @@ class GoogleReCaptchaV3
 {
     private $service;
     private $defaultTemplate = 'GoogleReCaptchaV3::googlerecaptchav3.template';
-    private $defaultBackgroundTemplate = 'GoogleReCaptchaV3::googlerecaptchav3.background';
+
     public static $hasAction = false;
+
+    public static $collection = [];
 
     public function __construct(GoogleReCaptchaV3Service $service)
     {
@@ -30,7 +32,6 @@ class GoogleReCaptchaV3
      */
     public function prepareViewData($mappers)
     {
-        self::$hasAction = true;
         $prepareData = [];
         foreach ($mappers as $id => $action) {
             $prepareData[$action][] = $id;
@@ -49,7 +50,19 @@ class GoogleReCaptchaV3
     /**
      * @return array
      */
-    public function prepareBackgroundData()
+    public function prepareData()
+    {
+        if (self::$hasAction) {
+            return $this->prepareViewData(self::$collection);
+        } else {
+            return $this->prepareBackgroundViewData();
+        }
+    }
+
+    /**
+     * @return array
+     */
+    public function prepareBackgroundViewData()
     {
         return [
             'publicKey' => $this->getConfig()->getSiteKey(),
@@ -60,35 +73,40 @@ class GoogleReCaptchaV3
     /**
      * @return \Illuminate\Contracts\View\View|mixed
      */
-    public function background()
+    public function init()
     {
-        if (self::$hasAction) {
+        if (!$this->getConfig()->isServiceEnabled()) {
             return;
         }
+        $default = [
+            'hasAction' => self::$hasAction,
+            'backgroundMode' => $this->getConfig()->shouldEnableBackgroundMode()
+        ];
 
-        return app('view')->make($this->getBackgroundView(), $this->prepareBackgroundData());
+        return app('view')->make($this->getView(), array_merge($this->prepareData(), $default));
+    }
+
+    /**
+     * @param $id
+     * @param $action
+     */
+    public function renderOne($id, $action)
+    {
+        self::$hasAction = true;
+        self::$collection[$id] = $action;
     }
 
     /**
      * @param $mappers
-     * @return \Illuminate\Contracts\View\View|null
      */
-    public function render($mappers = [])
+    public function render($mappers)
     {
-        if (! $this->getConfig()->isServiceEnabled()) {
-            return;
+        self::$hasAction = true;
+        foreach ($mappers as $id => $action) {
+            self::$collection[$id] = $action;
         }
-
-        return app('view')->make($this->getView(), $this->prepareViewData($mappers));
     }
 
-    /**
-     * @return mixed|string
-     */
-    protected function getBackgroundView()
-    {
-        return $this->defaultBackgroundTemplate;
-    }
 
     /**
      * @return mixed|string
