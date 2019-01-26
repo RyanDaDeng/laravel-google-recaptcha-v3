@@ -23,11 +23,6 @@ If you only need to use Vue component, feel free to copy it.
 
 A star would be a nice encouragement. ^.^
 
-Future improvement (Will be done in 1-2 days, everything will still be compatible with all test cases):
-1. Minor advanced code decouple and performance improvement
-2. Add Comments
-
-
 # Table of Contents
 1. [Installation](#installation)
 2. [Configurations](#settings)
