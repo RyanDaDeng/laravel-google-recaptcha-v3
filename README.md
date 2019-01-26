@@ -134,9 +134,9 @@ Specify your Score threshold and action in 'setting', e.g.
 ``` php
       'setting' =  [
           [
-            'action' => 'contact_us', // Google reCAPTCHA required paramater
-            'threshold' => 0.2, // score threshold
-            'is_enabled' => false // if this is true, the system will do score comparsion against your threshold for the action
+                'action' => 'contact_us', // Google reCAPTCHA required paramater
+                'threshold' => 0.2, // score threshold
+                'score_comparision' => false // if this is true, the system will do score comparsion against your threshold for the action
             ],
             [
                 'action' => 'signup',
