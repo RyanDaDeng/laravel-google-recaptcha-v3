@@ -57,4 +57,34 @@ class ViewTest extends TestCase
         $this->assertEquals(false, $data['inline']);
         $this->assertEquals('en', $data['language']);
     }
+
+
+    public function testView3()
+    {
+        // Create a stub for the SomeClass class.
+        $configStub = $this->createMock(ReCaptchaConfigV3::class);
+
+        // Configure the stub.
+        $configStub->method('isServiceEnabled')
+            ->willReturn(true);
+
+        $configStub->method('getSiteKey')
+            ->willReturn('test1');
+
+        $configStub->method('isInline')
+            ->willReturn(false);
+
+        $configStub->method('getLanguage')
+            ->willReturn('en');
+
+        $clientStub = $this->createMock(GuzzleRequestClient::class);
+
+        $_service = new GoogleReCaptchaV3Service($configStub, $clientStub);
+        $service = new GoogleReCaptchaV3($_service);
+
+        $service->prepareViewData(['contact_us_id' => 'contact_us']);
+        $background = $service->background();
+        $this->assertEquals('', $background);
+
+    }
 }

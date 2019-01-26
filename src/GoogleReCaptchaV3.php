@@ -17,7 +17,6 @@ class GoogleReCaptchaV3
     private $service;
     private $defaultTemplate = 'GoogleReCaptchaV3::googlerecaptchav3.template';
     private $defaultBackgroundTemplate = 'GoogleReCaptchaV3::googlerecaptchav3.background';
-
     public static $hasAction = false;
 
     public function __construct(GoogleReCaptchaV3Service $service)
@@ -26,21 +25,12 @@ class GoogleReCaptchaV3
     }
 
     /**
-     * @param $value
-     * @return bool
-     */
-    public static function setHasAction($value)
-    {
-        self::$hasAction = $value;
-        return self::$hasAction;
-    }
-
-    /**
      * @param $mappers
      * @return array
      */
     public function prepareViewData($mappers)
     {
+        self::$hasAction = true;
         $prepareData = [];
         foreach ($mappers as $id => $action) {
             $prepareData[$action][] = $id;
@@ -72,6 +62,10 @@ class GoogleReCaptchaV3
      */
     public function background()
     {
+        if(self::$hasAction){
+            return;
+        }
+
         return app('view')
             ->make(
                 $this->getBackgroundView(),

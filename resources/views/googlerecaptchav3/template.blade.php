@@ -1,4 +1,3 @@
-{{\TimeHunter\LaravelGoogleReCaptchaV3\GoogleReCaptchaV3::setHasAction(true)}}
 <script>
 
     function onloadCallback() {
