@@ -53,7 +53,7 @@ class GoogleReCaptchaV3
     {
         return [
             'publicKey' => $this->getConfig()->getSiteKey(),
-            'display' => $this->getConfig()->getBackgroundBadgeDisplay()
+            'display' => $this->getConfig()->getBackgroundBadgeDisplay(),
         ];
     }
 
@@ -79,7 +79,7 @@ class GoogleReCaptchaV3
      */
     public function render($mappers = [])
     {
-        if (!$this->getConfig()->isServiceEnabled()) {
+        if (! $this->getConfig()->isServiceEnabled()) {
             return;
         }
 
