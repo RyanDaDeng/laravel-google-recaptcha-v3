@@ -32,7 +32,7 @@ Future improvement (Will be done in 1-2 days, everything will still be compatibl
 1. [Installation](#installation)
 2. [Configurations](#settings)
 3. [Facade Usage](#facade-usage)
-4. [Badge Display](#badge-display)
+4. [Blade Usage](#blade-basic-usage)
 5. [Vue Usage](#vue-usage)
 6. [Validation](#validation-class)
 7. [Advanced Usage](#advanced-usage)
