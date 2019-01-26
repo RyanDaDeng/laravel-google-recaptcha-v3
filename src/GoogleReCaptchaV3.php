@@ -66,11 +66,7 @@ class GoogleReCaptchaV3
             return;
         }
 
-        return app('view')
-            ->make(
-                $this->getBackgroundView(),
-                $this->prepareBackgroundData()
-            );
+        return app('view')->make($this->getBackgroundView(), $this->prepareBackgroundData());
     }
 
     /**
@@ -83,11 +79,7 @@ class GoogleReCaptchaV3
             return;
         }
 
-        return app('view')
-            ->make(
-                $this->getView(),
-                $this->prepareViewData($mappers)
-            );
+        return app('view')->make($this->getView(), $this->prepareViewData($mappers));
     }
 
     /**
