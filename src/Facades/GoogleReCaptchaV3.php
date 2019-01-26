@@ -10,7 +10,8 @@ use TimeHunter\LaravelGoogleReCaptchaV3\Core\GoogleReCaptchaV3Response;
  * @method static \TimeHunter\LaravelGoogleReCaptchaV3\GoogleReCaptchaV3 setAction($value)
  * @method static \TimeHunter\LaravelGoogleReCaptchaV3\GoogleReCaptchaV3 setScore($value)
  * @method static render($mappers)
- * @method static renderOne($id,$action)
+ * @method static renderOne($id, $action)
+ * @method static renderField($id, $action, $class = '', $style = '')
  * @see \TimeHunter\LaravelGoogleReCaptchaV3\GoogleReCaptchaV3
  */
 class GoogleReCaptchaV3 extends Facade
