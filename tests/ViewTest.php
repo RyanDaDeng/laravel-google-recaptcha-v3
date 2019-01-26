@@ -58,7 +58,6 @@ class ViewTest extends TestCase
         $this->assertEquals('en', $data['language']);
     }
 
-
     public function testView3()
     {
         // Create a stub for the SomeClass class.
@@ -85,7 +84,6 @@ class ViewTest extends TestCase
         $service->prepareViewData(['contact_us_id' => 'contact_us']);
         $background = $service->background();
         $this->assertEquals('', $background);
-
     }
 
 
