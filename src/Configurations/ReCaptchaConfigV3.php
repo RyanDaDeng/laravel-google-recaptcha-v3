@@ -19,7 +19,7 @@ class ReCaptchaConfigV3 implements ReCaptchaConfigV3Interface
      */
     public function isServiceEnabled()
     {
-        return config('googlerecaptchav3.site_key');
+        return config('googlerecaptchav3.is_service_enabled');
     }
 
     /**
