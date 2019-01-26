@@ -404,6 +404,12 @@ There are two ways you can bind site key to the component.
 
 ````
 
+Please remember to refresh token every time you submit the form if needed:
+
+````vue
+ this.$refs.captcha.execute(); 
+````
+
 ###  or Add site key directly into GoogleReCaptchaV3 component
 
 Alternatively, I believe most of cases your site key will never be changed, so you could just modify the original published component to have sitekey hard-coded in.
