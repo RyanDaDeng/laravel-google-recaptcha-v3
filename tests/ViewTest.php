@@ -46,8 +46,8 @@ class ViewTest extends TestCase
         $service->renderOne('contact_us_id77', 'contact_us');
         $service->render(['contact_us_id88'=> 'contact_us']);
         $data = $service::$collection;
-        $this->assertEquals('contact_us',$data['contact_us_id77']);
-        $this->assertEquals('contact_us',$data['contact_us_id88']);
+        $this->assertEquals('contact_us', $data['contact_us_id77']);
+        $this->assertEquals('contact_us', $data['contact_us_id88']);
     }
 
     public function testView2()
@@ -79,6 +79,7 @@ class ViewTest extends TestCase
         $this->assertEquals(false, $data['inline']);
         $this->assertEquals('en', $data['language']);
     }
+
     public function testView4()
     {
         // Create a stub for the SomeClass class.
