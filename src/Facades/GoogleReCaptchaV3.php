@@ -11,6 +11,7 @@ use TimeHunter\LaravelGoogleReCaptchaV3\Core\GoogleReCaptchaV3Response;
  * @method static \TimeHunter\LaravelGoogleReCaptchaV3\GoogleReCaptchaV3 setScore($value)
  * @method static render($mappers)
  * @method static renderOne($id, $action)
+ * @method static init()
  * @method static renderField($id, $action, $class = '', $style = '')
  * @see \TimeHunter\LaravelGoogleReCaptchaV3\GoogleReCaptchaV3
  */
