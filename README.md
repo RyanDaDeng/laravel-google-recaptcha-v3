@@ -13,7 +13,7 @@
 [![Build][ico-build]][link-build]
 [![StyleCI][ico-styleci]][link-styleci]
 
-### Update: Vue component is production ready. Please upgrade package version : ~2.2.5
+### Update: Vue component is production ready. Please upgrade package version : ~2.2.6
 
 I guarantee that bugs, issues, features and changes will be responded in 48 hours.
 
@@ -92,7 +92,7 @@ This package requires the following dependencies:
 Via Composer
 
 ``` sh
-        $ composer require timehunter/laravel-google-recaptcha-v3 "~2.2.5" -vvv
+        $ composer require timehunter/laravel-google-recaptcha-v3 "~2.2.6" -vvv
 ```
 
 If your Laravel framework version <= 5.4, please register the service provider under your config file: /config/app.php, otherwise please skip it.
