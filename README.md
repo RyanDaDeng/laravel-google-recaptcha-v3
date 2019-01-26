@@ -241,7 +241,7 @@ It's recommended to include reCAPTCHA v3 on every page which can help you get th
   'background_mode' => false, // if true, the script will run on every page (ensure that GoogleReCaptchaV3::init() is placed on layout or homepage)
    ...
 ```
-If the page has not detected any Action or duplicate google script, the background will be enabled. 
+If the page has not detected any Action or duplicate google script, the background mode will be enabled. 
 
 #### Form & Action
 
