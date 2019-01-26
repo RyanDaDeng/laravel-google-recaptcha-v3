@@ -225,7 +225,7 @@ If you manually assign a value to setScore($score), the code will fully skip you
 
 #### Add Google API script
 
-Include the API script in your layout or global page.
+Include the API script at the bottom of your layout or global page.
 
 ``` html  
   {!!  GoogleReCaptchaV3::init() !!}
