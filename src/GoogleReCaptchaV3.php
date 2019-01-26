@@ -32,6 +32,7 @@ class GoogleReCaptchaV3
     public static function setHasAction($value)
     {
         self::$hasAction = $value;
+
         return self::$hasAction;
     }
 
@@ -63,7 +64,7 @@ class GoogleReCaptchaV3
     {
         return [
             'publicKey' => $this->getConfig()->getSiteKey(),
-            'display' => $this->getConfig()->getBackgroundBadgeDisplay()
+            'display' => $this->getConfig()->getBackgroundBadgeDisplay(),
         ];
     }
 
@@ -85,7 +86,7 @@ class GoogleReCaptchaV3
      */
     public function render($mappers = [])
     {
-        if (!$this->getConfig()->isServiceEnabled()) {
+        if (! $this->getConfig()->isServiceEnabled()) {
             return;
         }
 
@@ -95,7 +96,6 @@ class GoogleReCaptchaV3
                 $this->prepareViewData($mappers)
             );
     }
-
 
     /**
      * @return mixed|string
