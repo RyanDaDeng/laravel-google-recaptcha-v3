@@ -45,7 +45,9 @@ class ViewTest extends TestCase
 
         $service->renderOne('contact_us_id', 'contact_us');
         $service->render(['contact_us_id1'=> 'contact_us']);
-        $this->assertEquals(null, $service::$collection);
+        $data = $service::$collection;
+        $this->assertEquals('contact_us',$data['contact_us_id']);
+        $this->assertEquals('contact_us',$data['contact_us_id1']);
     }
 
 
