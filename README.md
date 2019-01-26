@@ -223,23 +223,22 @@ If you manually assign a value to setScore($score), the code will fully skip you
 
 ### Display reCAPTCHA v3 
 
-#### Blade for Background (optional)
+#### Add Google API script
 
-It's recommended to include reCAPTCHA v3 on every page which can help you get the most context about interactions for analytics.
-
-In your main homepage or layout page, put the following script:
+Include the API script in your layout or global page.
 
 ``` html  
   {!!  GoogleReCaptchaV3::init() !!}
 ```
 
+#### Blade for Background (optional)
 
-You can also set the background reCAPTCHA as hidden or visible(bottomright):
+It's recommended to include reCAPTCHA v3 on every page which can help you get the most context about interactions for analytics.
 
 ``` php
    ...
-  'background_badge_display' => true, // if false, the badge will be invisible.
-  'background_mode' => false, // if true, the script will run on every page if you put init() on the global page
+  'background_badge_display' => true, // if false, the badge will be invisible, if true the badge shows at bottom right.
+  'background_mode' => false, // if true, the script will run on every page (ensure that GoogleReCaptchaV3::init() is placed on layout or homepage)
    ...
 ```
   
