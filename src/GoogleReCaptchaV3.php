@@ -16,10 +16,23 @@ class GoogleReCaptchaV3
 {
     private $service;
     private $defaultTemplate = 'GoogleReCaptchaV3::googlerecaptchav3.template';
+    private $defaultBackgroundTemplate = 'GoogleReCaptchaV3::googlerecaptchav3.background';
+
+    public static $hasAction = false;
 
     public function __construct(GoogleReCaptchaV3Service $service)
     {
         $this->service = $service;
+    }
+
+    /**
+     * @param $value
+     * @return bool
+     */
+    public static function setHasAction($value)
+    {
+        self::$hasAction = $value;
+        return self::$hasAction;
     }
 
     /**
@@ -44,17 +57,52 @@ class GoogleReCaptchaV3
     }
 
     /**
+     * @return array
+     */
+    public function prepareBackgroundData()
+    {
+        return [
+            'publicKey' => $this->getConfig()->getSiteKey(),
+            'display' => $this->getConfig()->getBackgroundBadgeDisplay()
+        ];
+    }
+
+    /**
+     * @return \Illuminate\Contracts\View\View|mixed
+     */
+    public function background()
+    {
+        return app('view')
+            ->make(
+                $this->getBackgroundView(),
+                $this->prepareBackgroundData()
+            );
+    }
+
+    /**
      * @param $mappers
      * @return \Illuminate\Contracts\View\View|null
      */
-    public function render($mappers)
+    public function render($mappers = [])
     {
-        if (! $this->getConfig()->isServiceEnabled()) {
+        if (!$this->getConfig()->isServiceEnabled()) {
             return;
         }
-        $data = $this->prepareViewData($mappers);
 
-        return app('view')->make($this->getView(), $data);
+        return app('view')
+            ->make(
+                $this->getView(),
+                $this->prepareViewData($mappers)
+            );
+    }
+
+
+    /**
+     * @return mixed|string
+     */
+    protected function getBackgroundView()
+    {
+        return $this->defaultBackgroundTemplate;
     }
 
     /**

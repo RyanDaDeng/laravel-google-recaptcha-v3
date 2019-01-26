@@ -101,4 +101,12 @@ class ReCaptchaConfigV3 implements ReCaptchaConfigV3Interface
     {
         return config('googlerecaptchav3.skip_ips');
     }
+
+    /**
+     * @return \Illuminate\Config\Repository|mixed
+     */
+    public function getBackgroundBadgeDisplay()
+    {
+        return config('googlerecaptchav3.background_badge_display');
+    }
 }

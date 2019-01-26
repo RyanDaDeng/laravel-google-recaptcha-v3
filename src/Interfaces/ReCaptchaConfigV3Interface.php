@@ -69,4 +69,9 @@ interface ReCaptchaConfigV3Interface
      * @return array
      */
     public function getSkipIps();
+
+    /**
+     * @return bool
+     */
+    public function getBackgroundBadgeDisplay();
 }

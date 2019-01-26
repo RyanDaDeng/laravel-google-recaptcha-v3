@@ -74,6 +74,7 @@ Please check Google site: https://developers.google.com/recaptcha/docs/faq
 - Support custom implementation on request method interface 
 - Fully supported Vue component
 - IP skip list supported
+- Support script to be placed in the background of pages for analytics
 
 ## Requirement
 
@@ -92,7 +93,7 @@ This package requires the following dependencies:
 Via Composer
 
 ``` sh
-        $ composer require timehunter/laravel-google-recaptcha-v3 "~2.2.0" -vvv
+        $ composer require timehunter/laravel-google-recaptcha-v3 "~2.2.5" -vvv
 ```
 
 If your Laravel framework version <= 5.4, please register the service provider under your config file: /config/app.php, otherwise please skip it.
@@ -129,7 +130,7 @@ After installation, you should see a googlerecaptchav3.php in your app/config fo
 ## Configurations <a name="settings" />
 ### Setting up your Google reCAPTCHA details in config file
 
-Please register all details in config for site_key and secret_key.
+Please register all details in config for host_name, site_key, secret_key and site_verify_url.
 
 Specify your Score threshold and action in 'setting', e.g.
 ``` php
@@ -138,12 +139,21 @@ Specify your Score threshold and action in 'setting', e.g.
             'action' => 'contact_us', // Google reCAPTCHA required paramater
             'threshold' => 0.2, // score threshold
             'is_enabled' => false // if this is true, the system will do score comparsion against your threshold for the action
-            ]
+            ],
+            [
+                'action' => 'signup',
+                'threshold' => 0.2,
+                'score_comparision' => true
+            ],
         ]
 ```        
 Note: if you want to enable Score Comparision, you also need to enable is_score_enabled to be true.
 ``` php
-'is_score_enabled' = true
+    'setting' =  [
+        ...
+        'is_score_enabled' = true
+        ...
+     ]
 ```   
 
 For score comparision, all actions should be registered in googlerecaptchav3 config file under 'setting' section. 
@@ -216,66 +226,40 @@ If you manually assign a value to setScore($score), the code will fully skip you
 
 
 ## Blade Usage <a name="blade-basic-usage" />
+
 ### Display reCAPTCHA v3 
 
-#### Blade
+#### Blade for Background (optional)
+
+It's recommended to include reCAPTCHA v3 on every page which can help you get the most context about interactions for analytics.
+
+In your main homepage or layout page, put the following script at the bottom of your page:
+
+``` html  
+  {!!  GoogleReCaptchaV3::background() !!}
+```
+
+Note: the above script MUST be called after GoogleReCaptchaV3::render(), otherwise the google script might run multiple times.
+
+You can also set the background reCAPTCHA as hidden or visible(bottomright):
+
+``` php
+   ...
+  'background_badge_display' => true,
+   ...
+```
+  
+#### Blade for Form & Action
+
 Include div with an ID inside your form, e.g.
 
 ``` html  
  <div id="contact_us_id"></div>
 ```
 
-Include Template script in your bottom/header of your page, params should follow 'ID'=>'Action', e.g.
+Include GoogleReCaptchaV3::render() script after your form, params should follow 'ID'=>'Action', e.g.
 
-``` PHP  
- {!!  GoogleReCaptchaV3::render(
-            [
-                'contact_us_id'=>'contact_us',  // the div id=contact_us_id maps to action name contact_us
-                'signin_id'=>'registration',  // the div id=signin_id maps to action name registration
-                'register_id'=>'registration'   // the div id=register_id maps to action name registration
-            ]) !!}
-```
-
-#### Example Usage
-
-Register your action in config, also enable score and set up your own site key and secret key:
-
-
-``` php
-    'setting' => [
-        [
-            'action' => 'contact_us',
-            'threshold' => 2,
-            'score_comparision' => true
-        ],
-        [
-            'action' => 'signup',
-            'threshold' => 0.2,
-            'score_comparision' => true
-        ],
-    ]
-```
-
-Register two routes in web.php
-``` php
-Route::get('/index', 'ReCaptchaController@index');
-Route::post('/verify', 'ReCaptchaController@verify');
-```
-
-Create two functions in controller:
-``` php
-    public function verify(Request $request)
-    {
-        dd(GoogleReCaptchaV3::verifyResponse($request->input('g-recaptcha-response'))->getMessage());
-    }
-    public function index(Request $request)
-    {
-        return view('index');    
-   }
-```
-
-Create your form in index.blade.php:
-``` html
+``` html  
 {{--if laravel version <=5.6, please use {{ csrf_field() }}--}}
 
 <form method="POST" action="/verify">
@@ -294,11 +278,8 @@ Create your form in index.blade.php:
 {!!  GoogleReCaptchaV3::render(['contact_us_id'=>'contact_us', 'signup_id'=>'signup']) !!}
 ```
 
-The backend request will receive a value for 'g-recaptcha-response'.
 
-Go to /index and click submit button on contact us form and you should see an error message that 'Score does not meet the treshhold' because the threshold >2. You can play around the controller to see all outcomes. Importantly, you need to wait the script to be loaded before clicking the submit button.
-
-## Badge Display <a name="badge-display" />
+### Badge Display for Form & Action
 
 If your settings were not reflected, please run php artisan config:cache to clear cache.
 
@@ -338,7 +319,7 @@ Custom
 2. Do Styling/CSS on its div element
 
 
-## Vue Usage (Pacakge version >= 2.2.0) <a name="vue-usage" />
+## Vue Usage (Package version >= 2.2.0) <a name="vue-usage" />
 
 The package provides a lightweight vue component. You need to publish the vue component before playing around it.
 

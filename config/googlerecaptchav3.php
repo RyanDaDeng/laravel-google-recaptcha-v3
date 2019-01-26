@@ -68,6 +68,18 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Background Badge Style
+    |--------------------------------------------------------------------------
+    | Type: boolean
+    | Support:
+    |  -  true: the background badge will be displayed at the bottom right of page
+    |  -  false: the background badge will be invisible
+    |
+    */
+    'background_badge_display' => true,
+
+    /*
+    |--------------------------------------------------------------------------
     | Score Comparision
     |--------------------------------------------------------------------------
     | Type: bool
