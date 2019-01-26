@@ -247,7 +247,7 @@ If the page has not detected any Action or duplicate google script, the backgrou
 
 There are three methods to populate the reCAPTCHA within the form. 
 
-- render() and renderOne() can be placed in anywhere.
+- render() and renderOne() can be placed in anywhere but before init()
 - renderField() needs always to be placed within your form.
 
 Method one - render(): 
