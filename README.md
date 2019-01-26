@@ -13,8 +13,8 @@
 [![Build][ico-build]][link-build]
 [![StyleCI][ico-styleci]][link-styleci]
 
-### Update: Vue component is production ready. Please upgrade package version : ~2.2.6
-### Update: if you are using version lower than 2.2.8, please upgrade and publish config file again. There is a few major improvments on Blade usage, please read instruction.
+### Update: Vue component is production ready. Please upgrade package version : ~2.2.10
+### Update: if you are using version lower than 2.2.10, please upgrade and publish config file again. There are a few major improvments on Blade usage, please read instruction.
 
 I guarantee that bugs, issues, features and changes will be responded in 48 hours.
 
@@ -87,7 +87,7 @@ This package requires the following dependencies:
 Via Composer
 
 ``` sh
-        $ composer require timehunter/laravel-google-recaptcha-v3 "~2.2.6" -vvv
+        $ composer require timehunter/laravel-google-recaptcha-v3 "~2.2.10" -vvv
 ```
 
 If your Laravel framework version <= 5.4, please register the service provider under your config file: /config/app.php, otherwise please skip it.
@@ -225,15 +225,15 @@ If you manually assign a value to setScore($score), the code will fully skip you
 
 #### Add Google API script
 
-Include the API script in your layout or global page.
+Include the API script at the bottom of your layout page
 
 ``` html  
   {!!  GoogleReCaptchaV3::init() !!}
 ```
 
-#### Blade for Background (optional)
+#### Running script on every page (optional)
 
-It's recommended to include reCAPTCHA v3 on every page which can help you get the most context about interactions for analytics.
+It's recommended to include reCAPTCHA v3 on every page which can help you get the most context about interactions for analytics. You just need to enable the config:
 
 ``` php
    ...
@@ -241,12 +241,13 @@ It's recommended to include reCAPTCHA v3 on every page which can help you get th
   'background_mode' => false, // if true, the script will run on every page (ensure that GoogleReCaptchaV3::init() is placed on layout or homepage)
    ...
 ```
-  
-#### Blade for Form & Action
+If the page has not detected any Action or duplicate google script, the background mode will be enabled. 
+
+#### Form & Action
 
 There are three methods to populate the reCAPTCHA within the form. 
 
-- render() and renderOne() can be placed in anywhere.
+- render() and renderOne() can be placed in anywhere but before init()
 - renderField() needs always to be placed within your form.
 
 Method one - render(): 
