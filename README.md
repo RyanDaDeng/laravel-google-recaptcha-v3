@@ -245,7 +245,7 @@ You can also set the background reCAPTCHA as hidden or visible(bottomright):
 
 ``` php
    ...
-  'background_badge_display' => true,
+  'background_badge_display' => true, // if false, the badge will be invisible.
    ...
 ```
   
