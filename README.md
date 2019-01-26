@@ -67,13 +67,12 @@ Please check Google site: https://developers.google.com/recaptcha/docs/faq
 - High Test coverage, safe and easy to use
 - Score Comparision
 - Support invisible, corner and inline badge style
-- Support multiple reCAPTCHA on the same page for different forms
+- Support reCAPTCHA to run on every page
 - Support multiple actions to be placed on the same page
 - Support custom implementation on config interface
 - Support custom implementation on request method interface 
 - Fully supported Vue component
 - IP skip list supported
-- Support script to be placed in the background of pages for analytics
 
 ## Requirement
 
@@ -403,6 +402,12 @@ There are two ways you can bind site key to the component.
 </script>
 
 
+````
+
+Please remember to refresh token every time you submit the form if needed:
+
+````vue
+ this.$refs.captcha.execute(); 
 ````
 
 ###  or Add site key directly into GoogleReCaptchaV3 component
