@@ -14,6 +14,7 @@
 [![StyleCI][ico-styleci]][link-styleci]
 
 ### Update: Vue component is production ready. Please upgrade package version : ~2.2.6
+### Update: if you are using version lower than 2.2.8, please upgrade and publish config file again. There is a few major improvments on Blade usage, please read instruction.
 
 I guarantee that bugs, issues, features and changes will be responded in 48 hours.
 
