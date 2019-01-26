@@ -62,7 +62,7 @@ class GoogleReCaptchaV3
      */
     public function background()
     {
-        if(self::$hasAction){
+        if (self::$hasAction) {
             return;
         }
 
@@ -89,7 +89,6 @@ class GoogleReCaptchaV3
                 $this->prepareViewData($mappers)
             );
     }
-
 
     /**
      * @return mixed|string
