@@ -23,11 +23,6 @@ If you only need to use Vue component, feel free to copy it.
 
 A star would be a nice encouragement. ^.^
 
-Future improvement (Will be done in 1-2 days, everything will still be compatible with all test cases):
-1. Minor advanced code decouple and performance improvement
-2. Add Comments
-
-
 # Table of Contents
 1. [Installation](#installation)
 2. [Configurations](#settings)
@@ -134,9 +129,9 @@ Specify your Score threshold and action in 'setting', e.g.
 ``` php
       'setting' =  [
           [
-            'action' => 'contact_us', // Google reCAPTCHA required paramater
-            'threshold' => 0.2, // score threshold
-            'is_enabled' => false // if this is true, the system will do score comparsion against your threshold for the action
+                'action' => 'contact_us', // Google reCAPTCHA required paramater
+                'threshold' => 0.2, // score threshold
+                'score_comparision' => false // if this is true, the system will do score comparsion against your threshold for the action
             ],
             [
                 'action' => 'signup',
@@ -231,7 +226,7 @@ If you manually assign a value to setScore($score), the code will fully skip you
 
 It's recommended to include reCAPTCHA v3 on every page which can help you get the most context about interactions for analytics.
 
-In your main homepage or layout page, put the following script at the bottom of your page:
+In your main homepage or layout page, put the following script:
 
 ``` html  
   {!!  GoogleReCaptchaV3::init() !!}
