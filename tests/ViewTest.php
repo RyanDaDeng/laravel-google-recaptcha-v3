@@ -24,7 +24,7 @@ class ViewTest extends TestCase
         $_service = new GoogleReCaptchaV3Service($configStub, $clientStub);
         $service = new GoogleReCaptchaV3($_service);
 
-        $service->renderOne('contact_us_id', 'contact_us');
+        $service->renderOne('contact_us_id66', 'contact_us');
         $data = $service->init();
         $this->assertEquals(null, $data);
     }
@@ -43,11 +43,11 @@ class ViewTest extends TestCase
         $_service = new GoogleReCaptchaV3Service($configStub, $clientStub);
         $service = new GoogleReCaptchaV3($_service);
 
-        $service->renderOne('contact_us_id', 'contact_us');
-        $service->render(['contact_us_id1'=> 'contact_us']);
+        $service->renderOne('contact_us_id77', 'contact_us');
+        $service->render(['contact_us_id88'=> 'contact_us']);
         $data = $service::$collection;
-        $this->assertEquals('contact_us',$data['contact_us_id']);
-        $this->assertEquals('contact_us',$data['contact_us_id1']);
+        $this->assertEquals('contact_us',$data['contact_us_id77']);
+        $this->assertEquals('contact_us',$data['contact_us_id88']);
     }
 
     public function testView2()
@@ -80,33 +80,5 @@ class ViewTest extends TestCase
         $this->assertEquals('en', $data['language']);
     }
 
-    public function testView4()
-    {
-        // Create a stub for the SomeClass class.
-        $configStub = $this->createMock(ReCaptchaConfigV3::class);
 
-        // Configure the stub.
-        $configStub->method('isServiceEnabled')
-            ->willReturn(true);
-
-        $configStub->method('getSiteKey')
-            ->willReturn('test1');
-
-        $configStub->method('isInline')
-            ->willReturn(false);
-
-        $configStub->method('getLanguage')
-            ->willReturn('en');
-
-        $configStub->method('getBackgroundBadgeDisplay')
-            ->willReturn(false);
-
-        $clientStub = $this->createMock(GuzzleRequestClient::class);
-
-        $_service = new GoogleReCaptchaV3Service($configStub, $clientStub);
-        $service = new GoogleReCaptchaV3($_service);
-        $data = $service->prepareData();
-        $this->assertEquals(false, $data['display']);
-        $this->assertEquals('test1', $data['publicKey']);
-    }
 }
