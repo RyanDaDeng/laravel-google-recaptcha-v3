@@ -231,9 +231,9 @@ Include the API script at the bottom of your layout page
   {!!  GoogleReCaptchaV3::init() !!}
 ```
 
-#### Blade for Background (optional)
+#### Running script on every page (optional)
 
-It's recommended to include reCAPTCHA v3 on every page which can help you get the most context about interactions for analytics.
+It's recommended to include reCAPTCHA v3 on every page which can help you get the most context about interactions for analytics. You just need to enable the config:
 
 ``` php
    ...
@@ -241,8 +241,9 @@ It's recommended to include reCAPTCHA v3 on every page which can help you get th
   'background_mode' => false, // if true, the script will run on every page (ensure that GoogleReCaptchaV3::init() is placed on layout or homepage)
    ...
 ```
-  
-#### Blade for Form & Action
+If the page has not detected any Action or duplicate google script, the background will be enabled. 
+
+#### Form & Action
 
 There are three methods to populate the reCAPTCHA within the form. 
 
