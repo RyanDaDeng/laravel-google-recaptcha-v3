@@ -48,7 +48,6 @@ class ViewTest extends TestCase
         $this->assertEquals(null, $service::$collection);
     }
 
-
     public function testView2()
     {
         // Create a stub for the SomeClass class.
