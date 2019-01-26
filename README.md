@@ -244,37 +244,74 @@ It's recommended to include reCAPTCHA v3 on every page which can help you get th
   
 #### Blade for Form & Action
 
-Include div with an ID inside your form, e.g.
+There are three methods to populate the reCAPTCHA within the form. 
 
-``` html  
- <div id="contact_us_id"></div>
+- render() and renderOne() can be placed in anywhere.
+- renderField() needs always to be placed within your form.
+
+Method one - render(): 
+
+```
+[
+    $id=>$action , $id=>$action ...
+]
+
+{!!  GoogleReCaptchaV3::render(['contact_us_id'=>'contact_us', 'signup_id'=>'signup']) !!}
 ```
 
-Include GoogleReCaptchaV3::render() script after your form, params should follow 'ID'=>'Action', e.g.
-
 ``` html  
-{{--if laravel version <=5.6, please use {{ csrf_field() }}--}}
-
 <form method="POST" action="/verify">
-    @csrf
-    <div id="contact_us_id"></div>
+    <div id="contact_us_id"></div> // add div with id
     <input type="submit" value="submit">
 </form>
 
 
 <form method="POST" action="/verify">
-    @csrf
     <div id="signup_id"></div>
     <input type="submit" value="submit">
 </form>
 
 {!!  GoogleReCaptchaV3::render(['contact_us_id'=>'contact_us', 'signup_id'=>'signup']) !!}
 
-// or 
-
-{!!  GoogleReCaptchaV3::renderOne('contact_us_id','contact_us') !!} // renderOne($id,$action)
 ```
 
+Method two - renderOne(): 
+
+```
+GoogleReCaptchaV3::renderOne($id,$action);
+
+{!!  GoogleReCaptchaV3::renderOne('contact_us_id','contact_us') !!}
+```
+
+``` html  
+<form method="POST" action="/verify">
+    <div id="contact_us_id"></div> // add div with id
+    <input type="submit" value="submit">
+</form>
+
+{!!  GoogleReCaptchaV3::renderOne('contact_us_id','contact_us') !!}
+
+```
+
+
+Method three - renderField(): 
+
+```
+GoogleReCaptchaV3::renderField($id,$action,$class,$style)
+
+{!! GoogleReCaptchaV3::renderField('contact_us_id','contact_us_action') !!}
+```
+
+
+``` html  
+
+<form method="POST" action="/verify">
+   {!!  GoogleReCaptchaV3::renderField('contact_us_id','contact_us_action') !!}
+    <input type="submit" value="submit">
+</form>
+
+
+```
 
 ### Badge Display for Form & Action
 
