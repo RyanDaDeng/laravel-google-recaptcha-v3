@@ -76,7 +76,7 @@ class GoogleReCaptchaV3
      */
     public function init()
     {
-        if (!$this->getConfig()->isServiceEnabled()) {
+        if (! $this->getConfig()->isServiceEnabled()) {
             return;
         }
         $default = [
@@ -97,7 +97,6 @@ class GoogleReCaptchaV3
         self::$collection[$id] = $action;
     }
 
-
     /**
      * @param $id
      * @param $action
@@ -105,13 +104,13 @@ class GoogleReCaptchaV3
      * @param string $style
      * @return \Illuminate\Contracts\View\View|mixed
      */
-    public function renderField($id, $action, $class,$style = '')
+    public function renderField($id, $action, $class, $style = '')
     {
         self::$hasAction = true;
         self::$collection[$id] = $action;
+
         return app('view')->make($this->getFieldView(), ['id' => $id, 'class'=>$class, 'style' => $style]);
     }
-
 
     /**
      * @param $mappers
@@ -131,7 +130,6 @@ class GoogleReCaptchaV3
     {
         return $this->defaultTemplate;
     }
-
 
     /**
      * @return mixed|string
