@@ -75,7 +75,6 @@ interface ReCaptchaConfigV3Interface
      */
     public function getBackgroundBadgeDisplay();
 
-
     /**
      * @return bool
      */

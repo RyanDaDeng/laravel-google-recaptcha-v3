@@ -75,12 +75,12 @@ class GoogleReCaptchaV3
      */
     public function init()
     {
-        if (!$this->getConfig()->isServiceEnabled()) {
+        if (! $this->getConfig()->isServiceEnabled()) {
             return;
         }
         $default = [
             'hasAction' => self::$hasAction,
-            'backgroundMode' => $this->getConfig()->shouldEnableBackgroundMode()
+            'backgroundMode' => $this->getConfig()->shouldEnableBackgroundMode(),
         ];
 
         return app('view')->make($this->getView(), array_merge($this->prepareData(), $default));
@@ -106,7 +106,6 @@ class GoogleReCaptchaV3
             self::$collection[$id] = $action;
         }
     }
-
 
     /**
      * @return mixed|string
