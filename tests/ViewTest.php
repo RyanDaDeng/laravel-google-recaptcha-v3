@@ -50,7 +50,6 @@ class ViewTest extends TestCase
         $this->assertEquals('contact_us',$data['contact_us_id1']);
     }
 
-
     public function testView2()
     {
         // Create a stub for the SomeClass class.
