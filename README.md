@@ -231,13 +231,11 @@ If you manually assign a value to setScore($score), the code will fully skip you
 
 It's recommended to include reCAPTCHA v3 on every page which can help you get the most context about interactions for analytics.
 
-In your main homepage or layout page, put the following script at the bottom of your page:
+In your main homepage or layout page, put the following script:
 
 ``` html  
   {!!  GoogleReCaptchaV3::background() !!}
 ```
-
-Note: the above script MUST be called after GoogleReCaptchaV3::render(), otherwise the google script might run multiple times.
 
 You can also set the background reCAPTCHA as hidden or visible(bottomright):
 
