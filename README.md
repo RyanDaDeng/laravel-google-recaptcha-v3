@@ -13,6 +13,8 @@
 [![Build][ico-build]][link-build]
 [![StyleCI][ico-styleci]][link-styleci]
 
+A star would be a nice encouragement. ^.^
+
 ### Update: Vue component is production ready. Please upgrade package version : ~2.2.11
 ### Update: if you are using version lower than 2.2.11, please upgrade and publish config file again (remove your current one). There are a few major improvments on Blade usage, please read instructions.
 
@@ -22,7 +24,6 @@ If you want to use v2, please go to: https://github.com/RyanDaDeng/laravel-googl
 
 If you only need to use Vue component, feel free to copy it.
 
-A star would be a nice encouragement. ^.^
 
 # Table of Contents
 1. [Installation](#installation)
