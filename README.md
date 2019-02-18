@@ -18,7 +18,7 @@ A star would be a nice encouragement. ^.^
 ### Update: Vue component is production ready. Please upgrade package version : ~2.2.11
 ### Update: if you are using version lower than 2.2.11, please upgrade and publish config file again (remove your current one). There are a few major improvments on Blade usage, please read instructions.
 
-I guarantee that bugs, issues, features and changes will be responded in 48 hours.(I am in overseas for my vacation right now until next Month, the reply might take longer than usual, I will try my best if I can.)
+I guarantee that bugs, issues, features and changes will be responded in 48 hours.
 
 If you want to use v2, please go to: https://github.com/RyanDaDeng/laravel-google-recaptcha-v2
 
