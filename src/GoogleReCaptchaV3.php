@@ -43,6 +43,7 @@ class GoogleReCaptchaV3
             'mappers' => $prepareData,
             'inline' => $this->getConfig()->isInline(),
             'language' => $this->getConfig()->getLanguage(),
+            'apiJsUrl' => $this->getConfig()->getApiJsUrl(),
         ];
 
         return $data;

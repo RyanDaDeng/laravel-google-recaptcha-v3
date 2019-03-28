@@ -25,6 +25,14 @@ class ReCaptchaConfigV3 implements ReCaptchaConfigV3Interface
     /**
      * @return string
      */
+    public function getApiJsUrl()
+    {
+        return config('googlerecaptchav3.api_js_url');
+    }
+
+    /**
+     * @return string
+     */
     public function getSiteVerifyUrl()
     {
         return config('googlerecaptchav3.site_verify_url');

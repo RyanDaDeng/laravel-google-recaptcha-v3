@@ -9,7 +9,7 @@
     <script>
         if (!document.getElementById('gReCaptchaScript')) {
             let reCaptchaScript = document.createElement('script');
-            reCaptchaScript.setAttribute('src', 'https://www.google.com/recaptcha/api.js?render={{$publicKey}}');
+            reCaptchaScript.setAttribute('src', '{{$apiJsUrl}}?render={{$publicKey}}');
             reCaptchaScript.async = true;
             reCaptchaScript.defer = true;
             document.head.appendChild(reCaptchaScript);
@@ -40,7 +40,7 @@
             @endforeach
         }
     </script>
-    <script id='gReCaptchaScript' src="https://www.google.com/recaptcha/api.js?render=explicit&onload=onloadCallback"
+    <script id='gReCaptchaScript' src="{{$apiJsUrl}}?render=explicit&onload=onloadCallback"
             defer
             async></script>
 @endif
