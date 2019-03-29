@@ -100,16 +100,16 @@ class GoogleReCaptchaV3
     /**
      * @param $id
      * @param $action
-     * @param $class
+     * @param string $class
      * @param string $style
      * @return \Illuminate\Contracts\View\View|mixed
      */
-    public function renderField($id, $action, $class, $style = '')
+    public function renderField($id, $action, $class = '', $style = '')
     {
         self::$hasAction = true;
         self::$collection[$id] = $action;
 
-        return app('view')->make($this->getFieldView(), ['id' => $id, 'class'=>$class, 'style' => $style]);
+        return app('view')->make($this->getFieldView(), ['id' => $id, 'class'=> $class, 'style' => $style]);
     }
 
     /**
