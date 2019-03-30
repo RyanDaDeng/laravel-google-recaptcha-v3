@@ -79,4 +79,9 @@ interface ReCaptchaConfigV3Interface
      * @return bool
      */
     public function shouldEnableBackgroundMode();
+    
+    /**
+     * @return string
+     */
+    public function getApiJsUrl();
 }
