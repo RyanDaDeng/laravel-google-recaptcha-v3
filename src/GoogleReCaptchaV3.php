@@ -69,6 +69,7 @@ class GoogleReCaptchaV3
         return [
             'publicKey' => $this->getConfig()->getSiteKey(),
             'display' => $this->getConfig()->getBackgroundBadgeDisplay(),
+            'apiJsUrl' => $this->getConfig()->getApiJsUrl(),
         ];
     }
 
@@ -83,6 +84,7 @@ class GoogleReCaptchaV3
         $default = [
             'hasAction' => self::$hasAction,
             'backgroundMode' => $this->getConfig()->shouldEnableBackgroundMode(),
+            'apiJsUrl' => $this->getConfig()->getApiJsUrl(),
         ];
 
         return app('view')->make($this->getView(), array_merge($this->prepareData(), $default));
