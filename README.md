@@ -15,7 +15,7 @@
 
 A star would be a nice encouragement. ^.^
 
-### (2019-04-28 Refresh Recaptcha Response in Ajax call is supported, you can refresh the recaptcha response after ajax response is returned (check on Blade Usage). Version: ~2.2.16)
+### (2019-04-28 Refresh Recaptcha Response in Ajax call is supported, you can refresh the recaptcha response after ajax response is returned (check on Ajax Usage). Version: ~2.2.16)
 ### Update: Vue component is production ready. Please upgrade package version : ~2.2.11
 ### Update: if you are using version lower than 2.2.11, please upgrade and publish config file again (remove your current one). There are a few major improvments on Blade usage, please read instructions.
 
