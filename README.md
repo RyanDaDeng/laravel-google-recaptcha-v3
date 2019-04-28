@@ -31,10 +31,11 @@ If you only need to use Vue component, feel free to copy it.
 2. [Configurations](#settings)
 3. [Facade Usage](#facade-usage)
 4. [Blade Usage](#blade-basic-usage)
-5. [Vue Usage](#vue-usage)
-6. [Validation](#validation-class)
-7. [Advanced Usage](#advanced-usage)
-8. [Contributors](#contributors)
+5. [Ajax Usage](#ajax-usage)
+6. [Vue Usage](#vue-usage)
+7. [Validation](#validation-class)
+8. [Advanced Usage](#advanced-usage)
+9. [Contributors](#contributors)
 
 # DEMO
 
@@ -316,7 +317,7 @@ GoogleReCaptchaV3::renderField($id,$action,$class,$style)
 
 ```
 
-### Ajax Refresh Response
+### Ajax Refresh Response <a name="ajax-usage" />
 
 The package provides two handy Javascript functions for you to get recaptcha response and refresh recaptcha as needed.
 
@@ -326,7 +327,7 @@ getReCaptchaV3Response - this function helps you to get recaptcha response by id
 
 For example:
 
-````
+````html
             $("#test").click(function (e) {
                 e.preventDefault();
                 $.ajax({
