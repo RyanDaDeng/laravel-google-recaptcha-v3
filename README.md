@@ -15,6 +15,7 @@
 
 A star would be a nice encouragement. ^.^
 
+### (2019-04-28 Refresh Recaptcha Response in Ajax call is supported, you can refresh the recaptcha response after ajax response is returned (check on Blade Usage). Version: ~2.2.16)
 ### Update: Vue component is production ready. Please upgrade package version : ~2.2.11
 ### Update: if you are using version lower than 2.2.11, please upgrade and publish config file again (remove your current one). There are a few major improvments on Blade usage, please read instructions.
 
@@ -88,7 +89,7 @@ This package requires the following dependencies:
 Via Composer
 
 ``` sh
-        $ composer require timehunter/laravel-google-recaptcha-v3 "~2.2.14" -vvv
+        $ composer require timehunter/laravel-google-recaptcha-v3 "~2.2.16" -vvv
 ```
 
 If your Laravel framework version <= 5.4, please register the service provider under your config file: /config/app.php, otherwise please skip it.
@@ -315,6 +316,34 @@ GoogleReCaptchaV3::renderField($id,$action,$class,$style)
 
 ```
 
+### Ajax Refresh Response
+
+The package provides two handy Javascript functions for you to get recaptcha response and refresh recaptcha as needed.
+
+refreshReCaptchaV3(fieldId,actionName) - this function will reset the response whenever your ajax response is returned.
+
+getReCaptchaV3Response - this function helps you to get recaptcha response by id
+
+For example:
+
+````
+            $("#test").click(function (e) {
+                e.preventDefault();
+                $.ajax({
+                    type: 'POST',
+                    url: '/verify',
+                    data: {
+                        'g-recaptcha-response':getReCaptchaV3Response('contact_id')
+                    },
+                    success: function (data) {
+                        refreshReCaptchaV3('contact_id','contact');
+                    },
+                    error: function(err){
+                        refreshReCaptchaV3('contact_id','contact');
+                    }
+                });
+            });
+````
 ### Badge Display for Form & Action
 
 If your settings were not reflected, please run php artisan config:cache to clear cache.
