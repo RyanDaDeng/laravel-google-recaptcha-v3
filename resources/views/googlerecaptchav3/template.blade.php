@@ -51,3 +51,18 @@
             async></script>
 @endif
 
+<script>
+    function refreshReCaptchaV3(fieldId,action){
+        grecaptcha.reset(window['client'+fieldId]);
+        grecaptcha.ready(function () {
+            grecaptcha.execute(window['client'+fieldId], {
+                action: action
+            });
+        });
+    }
+
+    function getReCaptchaV3Response(fieldId){
+        return grecaptcha.getResponse(window['client'+fieldId])
+    }
+</script>
+
