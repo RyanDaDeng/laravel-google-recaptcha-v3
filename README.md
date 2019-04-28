@@ -317,34 +317,6 @@ GoogleReCaptchaV3::renderField($id,$action,$class,$style)
 
 ```
 
-### Ajax Refresh Response <a name="ajax-usage" />
-
-The package provides two handy Javascript functions for you to get recaptcha response and refresh recaptcha as needed.
-
-refreshReCaptchaV3(fieldId,actionName) - this function will reset the response whenever your ajax response is returned.
-
-getReCaptchaV3Response - this function helps you to get recaptcha response by id
-
-For example:
-
-````html
-            $("#test").click(function (e) {
-                e.preventDefault();
-                $.ajax({
-                    type: 'POST',
-                    url: '/verify',
-                    data: {
-                        'g-recaptcha-response':getReCaptchaV3Response('contact_id')
-                    },
-                    success: function (data) {
-                        refreshReCaptchaV3('contact_id','contact');
-                    },
-                    error: function(err){
-                        refreshReCaptchaV3('contact_id','contact');
-                    }
-                });
-            });
-````
 ### Badge Display for Form & Action
 
 If your settings were not reflected, please run php artisan config:cache to clear cache.
@@ -384,7 +356,34 @@ Custom
 1. Set inline as true
 2. Do Styling/CSS on its div element
 
+### Ajax Usage - Refresh reCAPTCHA Response <a name="ajax-usage" />
 
+The package provides two handy Javascript functions for you to get recaptcha response and refresh recaptcha as needed.
+
+- refreshReCaptchaV3(fieldId,actionName) - this function will reset the response whenever your ajax response is returned.
+
+- getReCaptchaV3Response - this function helps you to get recaptcha response by id
+
+For example:
+
+````html
+            $("#test").click(function (e) {
+                e.preventDefault();
+                $.ajax({
+                    type: 'POST',
+                    url: '/verify',
+                    data: {
+                        'g-recaptcha-response':getReCaptchaV3Response('contact_id')
+                    },
+                    success: function (data) {
+                        refreshReCaptchaV3('contact_id','contact');
+                    },
+                    error: function(err){
+                        refreshReCaptchaV3('contact_id','contact');
+                    }
+                });
+            });
+````
 ## Vue Usage (Package version >= 2.2.0) <a name="vue-usage" />
 
 The package provides a lightweight vue component. You need to publish the vue component before playing around it.
