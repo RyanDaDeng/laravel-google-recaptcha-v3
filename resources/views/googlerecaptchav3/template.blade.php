@@ -20,11 +20,17 @@
 
 @if($hasAction)
     <script>
+        @foreach($mappers as $action=>$fields)
+                @foreach($fields as $field)
+                    var client{{$field}};
+                 @endforeach
+        @endforeach
+
         function onloadCallback() {
                     @foreach($mappers as $action=>$fields)
                     @foreach($fields as $field)
                     if (document.getElementById('{{$field}}')) {
-                        let client{{$field}} = grecaptcha.render('{{$field}}', {
+                            client{{$field}} = grecaptcha.render('{{$field}}', {
                             'sitekey': '{{$publicKey}}',
                             @if($inline===true) 'badge': 'inline', @endif
                             'size': 'invisible',
