@@ -367,6 +367,7 @@ The package provides two handy Javascript functions for you to get recaptcha res
 For example:
 
 ````html
+       <script>
             $("#test").click(function (e) {
                 e.preventDefault();
                 $.ajax({
@@ -383,6 +384,7 @@ For example:
                     }
                 });
             });
+      </script>
 ````
 ## Vue Usage (Package version >= 2.2.0) <a name="vue-usage" />
 
