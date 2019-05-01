@@ -79,7 +79,7 @@ return [
     'background_badge_display' => true,
     /*
     |--------------------------------------------------------------------------
-    | Background Badge Style
+    | Background Mode
     |--------------------------------------------------------------------------
     | Type: boolean
     | Support:
