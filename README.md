@@ -143,14 +143,16 @@ Specify your Score threshold and action in 'setting', e.g.
                 'score_comparision' => true
             ],
         ]
+        
+        
 ```        
 Note: if you want to enable Score Comparision, you also need to enable is_score_enabled to be true.
 ``` php
-    'setting' =  [
+    
         ...
         'is_score_enabled' = true
         ...
-     ]
+     
 ```   
 
 For score comparision, all actions should be registered in googlerecaptchav3 config file under 'setting' section. 
