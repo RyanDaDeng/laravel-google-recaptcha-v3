@@ -144,7 +144,7 @@ Specify your Score threshold and action in 'setting', e.g.
             ],
         ]
         
-        
+         
 ```        
 Note: if you want to enable Score Comparision, you also need to enable is_score_enabled to be true.
 ``` php
