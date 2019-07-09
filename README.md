@@ -15,7 +15,7 @@
 
 A star would be a nice encouragement. ^.^
 
-### Update: Multi lang is supported ~2.2.17 (2019-07-09)
+### Update: Multi lang is supported ~2.2.19 (2019-07-09)
 ### (2019-04-28 Refresh Recaptcha Response in Ajax call is supported, you can refresh the recaptcha response after ajax response is returned (check on Ajax Usage). Version: ~2.2.16)
 ### Update: Vue component is production ready. Please upgrade package version : ~2.2.11
 ### Update: if you are using version lower than 2.2.11, please upgrade and publish config file again (remove your current one). There are a few major improvments on Blade usage, please read instructions.
@@ -91,7 +91,7 @@ This package requires the following dependencies:
 Via Composer
 
 ``` sh
-        $ composer require timehunter/laravel-google-recaptcha-v3 "~2.2.18" -vvv
+        $ composer require timehunter/laravel-google-recaptcha-v3 "~2.2.19" -vvv
 ```
 
 If your Laravel framework version <= 5.4, please register the service provider under your config file: /config/app.php, otherwise please skip it.
