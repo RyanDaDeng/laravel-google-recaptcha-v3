@@ -122,7 +122,7 @@ class GoogleReCaptchaV3ServiceProvider extends ServiceProvider
 
         // Publishing the lang file.
         $this->publishes([
-            __DIR__.'/../../resources/lang' => resource_path('lang/vendor/LaravelGoogleReCaptchaV3'),
+            __DIR__.'/../../resources/lang' => resource_path('lang/vendor/GoogleReCaptchaV3'),
         ], 'googlerecaptchav3.lang');
     }
 
