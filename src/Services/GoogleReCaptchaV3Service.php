@@ -8,6 +8,7 @@
 
 namespace TimeHunter\LaravelGoogleReCaptchaV3\Services;
 
+use Illuminate\Support\Facades\Lang;
 use TimeHunter\LaravelGoogleReCaptchaV3\Core\GoogleReCaptchaV3Response;
 use TimeHunter\LaravelGoogleReCaptchaV3\Interfaces\RequestClientInterface;
 use TimeHunter\LaravelGoogleReCaptchaV3\Interfaces\ReCaptchaConfigV3Interface;
@@ -51,7 +52,7 @@ class GoogleReCaptchaV3Service
         }
 
         if (empty($response)) {
-            $res = new GoogleReCaptchaV3Response([], $ip, trans(GoogleReCaptchaV3Response::ERROR_MISSING_INPUT));
+            $res = new GoogleReCaptchaV3Response([], $ip, Lang::get(GoogleReCaptchaV3Response::ERROR_MISSING_INPUT));
             $res->setSuccess(false);
 
             return $res;
@@ -68,7 +69,7 @@ class GoogleReCaptchaV3Service
         );
 
         if (is_null($verifiedResponse) || empty($verifiedResponse)) {
-            return new GoogleReCaptchaV3Response([], $ip, trans(GoogleReCaptchaV3Response::ERROR_UNABLE_TO_VERIFY));
+            return new GoogleReCaptchaV3Response([], $ip, Lang::get(GoogleReCaptchaV3Response::ERROR_UNABLE_TO_VERIFY));
         }
 
         $decodedResponse = json_decode($verifiedResponse, true);
@@ -79,14 +80,14 @@ class GoogleReCaptchaV3Service
         }
 
         if (! empty($this->config->getHostName()) && strcasecmp($this->config->getHostName(), $rawResponse->getHostname()) !== 0) {
-            $rawResponse->setMessage(trans(GoogleReCaptchaV3Response::ERROR_HOSTNAME));
+            $rawResponse->setMessage(Lang::get(GoogleReCaptchaV3Response::ERROR_HOSTNAME));
             $rawResponse->setSuccess(false);
 
             return $rawResponse;
         }
 
         if (isset($this->action) && strcasecmp($this->action, $rawResponse->getAction()) !== 0) {
-            $rawResponse->setMessage(trans(GoogleReCaptchaV3Response::ERROR_ACTION));
+            $rawResponse->setMessage(Lang::get(GoogleReCaptchaV3Response::ERROR_ACTION));
             $rawResponse->setSuccess(false);
 
             return $rawResponse;
@@ -94,7 +95,7 @@ class GoogleReCaptchaV3Service
 
         if (isset($this->score) && $this->score > $rawResponse->getScore()) {
             $rawResponse->setSuccess(false);
-            $rawResponse->setMessage(trans(GoogleReCaptchaV3Response::ERROR_SCORE_THRESHOLD));
+            $rawResponse->setMessage(Lang::get(GoogleReCaptchaV3Response::ERROR_SCORE_THRESHOLD));
 
             return $rawResponse;
         } else {
@@ -107,7 +108,7 @@ class GoogleReCaptchaV3Service
 
                 if ($count > 0) {
                     $rawResponse->setSuccess(false);
-                    $rawResponse->setMessage(trans(GoogleReCaptchaV3Response::ERROR_SCORE_THRESHOLD));
+                    $rawResponse->setMessage(Lang::get(GoogleReCaptchaV3Response::ERROR_SCORE_THRESHOLD));
 
                     return $rawResponse;
                 }
@@ -115,7 +116,7 @@ class GoogleReCaptchaV3Service
         }
 
         $rawResponse->setSuccess(true);
-        $rawResponse->setMessage(trans(GoogleReCaptchaV3Response::SUCCESS));
+        $rawResponse->setMessage(Lang::get(GoogleReCaptchaV3Response::SUCCESS));
 
         return $rawResponse;
     }

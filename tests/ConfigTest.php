@@ -2,6 +2,7 @@
 
 namespace TimeHunter\Tests;
 
+use Illuminate\Support\Facades\Lang;
 use PHPUnit\Framework\TestCase;
 use TimeHunter\LaravelGoogleReCaptchaV3\GoogleReCaptchaV3;
 use TimeHunter\LaravelGoogleReCaptchaV3\Core\GuzzleRequestClient;
@@ -11,6 +12,32 @@ use TimeHunter\LaravelGoogleReCaptchaV3\Services\GoogleReCaptchaV3Service;
 
 class ConfigTest extends TestCase
 {
+    public function setUp()/* The :void return type declaration that should be here would cause a BC issue */
+    {
+        parent::setUp();
+        Lang::shouldReceive('get')
+            ->with(GoogleReCaptchaV3Response::ERROR_MISSING_INPUT)
+            ->andReturn(GoogleReCaptchaV3Response::ERROR_MISSING_INPUT);
+        Lang::shouldReceive('get')
+            ->with(GoogleReCaptchaV3Response::ERROR_UNABLE_TO_VERIFY)
+            ->andReturn(GoogleReCaptchaV3Response::ERROR_UNABLE_TO_VERIFY);
+        Lang::shouldReceive('get')
+            ->with(GoogleReCaptchaV3Response::ERROR_HOSTNAME)
+            ->andReturn(GoogleReCaptchaV3Response::ERROR_HOSTNAME);
+        Lang::shouldReceive('get')
+            ->with(GoogleReCaptchaV3Response::ERROR_ACTION)
+            ->andReturn(GoogleReCaptchaV3Response::ERROR_ACTION);
+        Lang::shouldReceive('get')
+            ->with(GoogleReCaptchaV3Response::ERROR_SCORE_THRESHOLD)
+            ->andReturn(GoogleReCaptchaV3Response::ERROR_SCORE_THRESHOLD);
+        Lang::shouldReceive('get')
+            ->with(GoogleReCaptchaV3Response::ERROR_SCORE_THRESHOLD)
+            ->andReturn(GoogleReCaptchaV3Response::ERROR_SCORE_THRESHOLD);
+        Lang::shouldReceive('get')
+            ->with(GoogleReCaptchaV3Response::SUCCESS)
+            ->andReturn(GoogleReCaptchaV3Response::SUCCESS);
+    }
+
     public function testServiceDisabled()
     {
         // Create a stub for the SomeClass class.

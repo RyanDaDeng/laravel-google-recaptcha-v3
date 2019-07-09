@@ -25,6 +25,7 @@ class GoogleReCaptchaV3ServiceProvider extends ServiceProvider
     {
         $this->loadViewsFrom(__DIR__.'/../../resources/views', 'GoogleReCaptchaV3');
         $this->loadTranslationsFrom(__DIR__ . '/../../resources/lang', 'GoogleReCaptchaV3');
+
         if ($this->app->runningInConsole()) {
             $this->bootForConsole();
         }
@@ -43,6 +44,7 @@ class GoogleReCaptchaV3ServiceProvider extends ServiceProvider
 
         $laravel = app();
         $version = $laravel::VERSION;
+
 
         if (version_compare($version, '5.7.*') === 1 || version_compare($version, '5.6.*') === 1 || version_compare($version, '5.5.*') === 1) {
             if (! $this->app->has(ReCaptchaConfigV3Interface::class)) {
@@ -118,6 +120,11 @@ class GoogleReCaptchaV3ServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../../vuejs/GoogleReCaptchaV3.vue' => resource_path('js/components/googlerecaptchav3/GoogleReCaptchaV3.vue'),
         ], 'googlerecaptchav3.vuejs');
+
+        // Publishing the lang file.
+        $this->publishes([
+            __DIR__.'/../../resources/lang' => resource_path('lang/vendor/LaravelGoogleReCaptchaV3'),
+        ],'googlerecaptchav3.lang');
     }
 
     /**
@@ -129,7 +136,7 @@ class GoogleReCaptchaV3ServiceProvider extends ServiceProvider
     {
         // define a list of provider names
         return [
-            'GoogleReCaptchaV3',
+            'GoogleReCaptchaV3'
         ];
     }
 }
