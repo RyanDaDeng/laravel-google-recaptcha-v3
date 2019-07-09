@@ -2,8 +2,8 @@
 
 namespace TimeHunter\Tests;
 
-use Illuminate\Support\Facades\Lang;
 use PHPUnit\Framework\TestCase;
+use Illuminate\Support\Facades\Lang;
 use TimeHunter\LaravelGoogleReCaptchaV3\GoogleReCaptchaV3;
 use TimeHunter\LaravelGoogleReCaptchaV3\Core\GuzzleRequestClient;
 use TimeHunter\LaravelGoogleReCaptchaV3\Core\GoogleReCaptchaV3Response;
