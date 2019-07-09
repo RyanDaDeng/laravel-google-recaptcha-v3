@@ -7,5 +7,5 @@ return [
     'ERROR_ACTION' => 'Action does not match.',
     'ERROR_SCORE_THRESHOLD' => 'Score does not meet threshold.',
     'ERROR_TIMEOUT' => 'Timeout',
-    'SUCCESS' => 'Successfully passed.'
+    'SUCCESS' => 'Successfully passed.',
 ];
