@@ -24,7 +24,7 @@ class GoogleReCaptchaV3ServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->loadViewsFrom(__DIR__.'/../../resources/views', 'GoogleReCaptchaV3');
-
+        $this->loadTranslationsFrom(__DIR__ . '/../../resources/lang', 'GoogleReCaptchaV3');
         if ($this->app->runningInConsole()) {
             $this->bootForConsole();
         }

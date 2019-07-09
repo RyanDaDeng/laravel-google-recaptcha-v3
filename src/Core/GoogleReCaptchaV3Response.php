@@ -12,12 +12,13 @@ use Carbon\Carbon;
 
 class GoogleReCaptchaV3Response
 {
-    const MISSING_INPUT_ERROR = 'Missing input response.';
-    const ERROR_UNABLE_TO_VERIFY = 'Unable to verify.';
-    const ERROR_HOSTNAME = 'Hostname does not match.';
-    const ERROR_ACTION = 'Action does not match.';
-    const ERROR_SCORE_THRESHOLD = 'Score does not meet threshold.';
-    const ERROR_TIMEOUT = 'Timeout';
+    const ERROR_MISSING_INPUT = 'GoogleReCaptchaV3::messages.ERROR_MISSING_INPUT';
+    const ERROR_UNABLE_TO_VERIFY = 'GoogleReCaptchaV3::messages.ERROR_UNABLE_TO_VERIFY';
+    const ERROR_HOSTNAME = 'GoogleReCaptchaV3::messages.ERROR_HOSTNAME';
+    const ERROR_ACTION = 'GoogleReCaptchaV3::messages.ERROR_ACTION';
+    const ERROR_SCORE_THRESHOLD = 'GoogleReCaptchaV3::messages.ERROR_SCORE_THRESHOLD';
+    const ERROR_TIMEOUT = 'GoogleReCaptchaV3::messages.ERROR_TIMEOUT';
+    const SUCCESS = 'GoogleReCaptchaV3::messages.SUCCESS';
 
     protected $success;
     protected $score;
