@@ -7,7 +7,6 @@
 
 # Laravel Package for Google reCAPTCHA V3
 [![Software License][ico-license]](LICENSE.md)
-[ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Total Downloads][ico-downloads]][link-downloads]
 [![Coverage Status][ico-coverage]][link-coverage]
@@ -559,7 +558,7 @@ If you discover any security related issues, please email ryandadeng@gmail.com i
 ## License
 
 MIT. Please see the [license file](license.md) for more information.
-
+[ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
 [ico-version]: https://img.shields.io/packagist/v/timehunter/laravel-google-recaptcha-v3.svg?style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/timehunter/laravel-google-recaptcha-v3.svg?style=flat-square
 [ico-coverage]: https://coveralls.io/repos/github/RyanDaDeng/laravel-google-recaptcha-v3/badge.svg?branch=master&service=github
