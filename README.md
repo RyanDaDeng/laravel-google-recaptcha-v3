@@ -6,7 +6,8 @@
   <meta name='keywords' content='recaptcha v3,laravel recaptcha v3,laravel google recaptcha v3,google recaptcha v3,laravel recaptcha,laravel recaptcha v3'>
 
 # Laravel Package for Google reCAPTCHA V3
-
+[![Software License][ico-license]](LICENSE.md)
+[ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Total Downloads][ico-downloads]][link-downloads]
 [![Coverage Status][ico-coverage]][link-coverage]
