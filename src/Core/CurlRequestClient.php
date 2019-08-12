@@ -8,8 +8,8 @@
 
 namespace TimeHunter\LaravelGoogleReCaptchaV3\Core;
 
-use TimeHunter\LaravelGoogleReCaptchaV3\Interfaces\RequestClientInterface;
 use Illuminate\Support\Facades\Lang;
+use TimeHunter\LaravelGoogleReCaptchaV3\Interfaces\RequestClientInterface;
 
 class CurlRequestClient implements RequestClientInterface
 {
