@@ -9,10 +9,10 @@
 namespace TimeHunter\LaravelGoogleReCaptchaV3\Core;
 
 use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Lang;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\ConnectException;
 use TimeHunter\LaravelGoogleReCaptchaV3\Interfaces\RequestClientInterface;
-use Illuminate\Support\Facades\Lang;
 
 class GuzzleRequestClient implements RequestClientInterface
 {
