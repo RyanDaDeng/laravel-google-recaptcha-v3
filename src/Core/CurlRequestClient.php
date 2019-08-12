@@ -9,6 +9,7 @@
 namespace TimeHunter\LaravelGoogleReCaptchaV3\Core;
 
 use TimeHunter\LaravelGoogleReCaptchaV3\Interfaces\RequestClientInterface;
+use Illuminate\Support\Facades\Lang;
 
 class CurlRequestClient implements RequestClientInterface
 {
@@ -25,7 +26,7 @@ class CurlRequestClient implements RequestClientInterface
         $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 
         if (false === $response) {
-            return '{"success": false, "error-codes": ["Curl Error Code: '.GoogleReCaptchaV3Response::ERROR_TIMEOUT.'"]}';
+            return '{"success": false, "error-codes": ["Curl Error Code: '.Lang::get(GoogleReCaptchaV3Response::ERROR_TIMEOUT).'"]}';
         }
 
         if ($httpCode !== 200) {
