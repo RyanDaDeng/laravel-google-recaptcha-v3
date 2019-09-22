@@ -43,7 +43,7 @@ return [
     | Google reCAPTCHA credentials, https://www.google.com/recaptcha/admin
     |
     */
-    'secret_key' => '',
+    'secret_key' => env('RECAPTCHA_V3_SECRET_KEY',''),
     /*
     |--------------------------------------------------------------------------
     | Site Key
@@ -52,7 +52,7 @@ return [
     | Google reCAPTCHA credentials, https://www.google.com/recaptcha/admin
     |
     */
-    'site_key' => '',
+    'site_key' => env('RECAPTCHA_V3_SITE_KEY',''),
 
     /*
     |--------------------------------------------------------------------------
@@ -60,7 +60,7 @@ return [
     |--------------------------------------------------------------------------
     | Type: boolean
     | Support:
-    |  -  true: the badge will be shown inline with the form, also you can customise your style
+    |  -  true: the badge will be shown inline within the form, also you can customise your style
     |  -  false: the badge will be shown in the bottom right side
     |
     */
@@ -105,7 +105,7 @@ return [
     | Define your score threshold, define your action
     | action: Google reCAPTCHA required parameter
     | threshold: score threshold
-    | score_comparision: true/false, if this is true, the system will do score comparsion against your threshold for the action
+    | score_comparision: true/false, if this is true, the system will do score comparision against your threshold for the action
     */
     'setting' => [
         [

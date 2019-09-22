@@ -136,6 +136,13 @@ A lang folder will be created under /resources/lang/vendor/GoogleReCaptchaV3/*
 
 Please register all details in config for host_name, site_key, secret_key and site_verify_url.
 
+Register credentials in .env:
+
+````
+RECAPTCHA_V3_SECRET_KEY=
+RECAPTCHA_V3_SITE_KEY=
+````
+
 Specify your Score threshold and action in 'setting', e.g.
 ``` php
       'setting' =  [
