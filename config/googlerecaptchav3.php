@@ -43,7 +43,7 @@ return [
     | Google reCAPTCHA credentials, https://www.google.com/recaptcha/admin
     |
     */
-    'secret_key' => env('RECAPTCHA_V3_SECRET_KEY',''),
+    'secret_key' => env('RECAPTCHA_V3_SECRET_KEY', ''),
     /*
     |--------------------------------------------------------------------------
     | Site Key
@@ -52,7 +52,7 @@ return [
     | Google reCAPTCHA credentials, https://www.google.com/recaptcha/admin
     |
     */
-    'site_key' => env('RECAPTCHA_V3_SITE_KEY',''),
+    'site_key' => env('RECAPTCHA_V3_SITE_KEY', ''),
 
     /*
     |--------------------------------------------------------------------------
