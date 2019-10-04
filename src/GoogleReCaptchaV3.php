@@ -16,7 +16,7 @@ class GoogleReCaptchaV3
 {
     private $service;
     private $defaultTemplate = 'GoogleReCaptchaV3::googlerecaptchav3.template';
-    private $defaultFieldTemplate = 'GoogleReCaptchaV3::googlerecaptchav3.field';
+    private    $defaultFieldTemplate = 'GoogleReCaptchaV3::googlerecaptchav3.field';
     public static $hasAction = false;
 
     public static $collection = [];
