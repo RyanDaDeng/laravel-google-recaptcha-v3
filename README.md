@@ -450,7 +450,7 @@ There are two ways you can bind site key to the component.
                 <google-re-captcha-v3
                   v-model="form.gRecaptchaResponse"
                   ref="captcha"
-                  :site-key="this.siteKey"
+                  :site-key="mySiteKeyVariable"
                   id="contact_us_id"
                   inline
                   action="contact_us"
@@ -473,7 +473,7 @@ There are two ways you can bind site key to the component.
                 form: {
                     gRecaptchaResponse: null
                 },
-                siteKey: 'Your Site Key String',
+                mySiteKeyVariable: 'Your Site Key String',
             }
         },
         methods: {
