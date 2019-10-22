@@ -25,7 +25,6 @@ If you want to use v2, please go to: https://github.com/RyanDaDeng/laravel-googl
 
 If you only need to use Vue component, feel free to copy it.
 
-*Demo code:* https://github.com/RyanDaDeng/laravel-google-recaptcha-v3/wiki/Simple-Demo
 
 # Table of Contents
 1. [Installation](#installation)
@@ -37,6 +36,9 @@ If you only need to use Vue component, feel free to copy it.
 7. [Validation](#validation-class)
 8. [Advanced Usage](#advanced-usage)
 9. [Contributors](#contributors)
+
+*Demo code:* https://github.com/RyanDaDeng/laravel-google-recaptcha-v3/wiki/Simple-Demo
+
 
 # DEMO
 
