@@ -4,7 +4,7 @@
   Author: ryandeng
   -->
   <meta name='keywords' content='recaptcha v3,laravel recaptcha v3,laravel google recaptcha v3,google recaptcha v3,laravel recaptcha,laravel recaptcha v3'>
-  
+
 # Laravel Package for Google reCAPTCHA V3
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Total Downloads][ico-downloads]][link-downloads]
@@ -72,7 +72,7 @@ Please check Google site: https://developers.google.com/recaptcha/docs/faq
 - Support reCAPTCHA to run on every page
 - Support multiple actions to be placed on the same page
 - Support custom implementation on config interface
-- Support custom implementation on request method interface 
+- Support custom implementation on request method interface
 - Fully supported Vue component
 - IP skip list supported
 
@@ -80,7 +80,7 @@ Please check Google site: https://developers.google.com/recaptcha/docs/faq
 
 This package requires the following dependencies:
 
-- Laravel 5.x 
+- Laravel 5.x
 
 - If you want to use Validation Class your Laravel version needs to be >= 5.5
 
@@ -116,12 +116,12 @@ And also
 
 
 If your Laravel framework version is >= 5.5, just run the following command to publish config.
-```sh 
+```sh
 $ php artisan vendor:publish --provider="TimeHunter\LaravelGoogleReCaptchaV3\Providers\GoogleReCaptchaV3ServiceProvider" --tag=googlerecaptchav3.config
 ```
 
 For vue component:
-```sh 
+```sh
 $ php artisan vendor:publish --provider="TimeHunter\LaravelGoogleReCaptchaV3\Providers\GoogleReCaptchaV3ServiceProvider" --tag=googlerecaptchav3.vuejs
 ```
 
@@ -129,7 +129,7 @@ After installation, you should see a googlerecaptchav3.php in your app/config fo
 
 
 For multi lang:
-```sh 
+```sh
 $ php artisan vendor:publish --provider="TimeHunter\LaravelGoogleReCaptchaV3\Providers\GoogleReCaptchaV3ServiceProvider" --tag=googlerecaptchav3.lang
 ```
 A lang folder will be created under /resources/lang/vendor/GoogleReCaptchaV3/*
@@ -160,19 +160,19 @@ Specify your Score threshold and action in 'setting', e.g.
                 'score_comparision' => true
             ],
         ]
-        
-         
-```        
+
+
+```
 Note: if you want to enable Score Comparision, you also need to enable is_score_enabled to be true.
 ``` php
-    
+
         ...
         'is_score_enabled' = true
         ...
-     
-```   
 
-For score comparision, all actions should be registered in googlerecaptchav3 config file under 'setting' section. 
+```
+
+For score comparision, all actions should be registered in googlerecaptchav3 config file under 'setting' section.
 
 For more details please check comments in config file.
 
@@ -199,10 +199,10 @@ Example Usage
    GoogleReCaptchaV3::verifyResponse($value)->toArray();
 ```
 
- 
+
 ``` php
    GoogleReCaptchaV3::verifyResponse(
-                         $request->input('g-recaptcha-response'), 
+                         $request->input('g-recaptcha-response'),
                          $request->getClientIp()
                          )
                       ->getMessage()
@@ -212,14 +212,14 @@ Example Usage
 ``` php
    GoogleReCaptchaV3::setAction($action)->verifyResponse($value)->isSuccess();
  ```
- 
+
 If you manually assign a value to setScore($score), the code will fully skip your config file and force to check the score.
- 
+
 ``` php
    GoogleReCaptchaV3::setScore($score)
                     ->setAction($action)
                     ->verifyResponse(
-                        $request->input('g-recaptcha-response'), 
+                        $request->input('g-recaptcha-response'),
                         $request->getClientIp()
                         )
                     ->getMessage()
@@ -227,9 +227,9 @@ If you manually assign a value to setScore($score), the code will fully skip you
 
 
 ## Validation Class (Only support Laravel >= 5.5) <a name="validation-class" />
-   
+
    You can use provided Validation object to verify your reCAPTCHA.
-      
+
 ``` php
    use TimeHunter\LaravelGoogleReCaptchaV3\Validations\GoogleReCaptchaV3ValidationRule;
    $rule = [
@@ -238,18 +238,18 @@ If you manually assign a value to setScore($score), the code will fully skip you
 ```
 
    -  $actionName: if its NULL, the package won't verify action with google response.
-  
+
 
 
 ## Blade Usage <a name="blade-basic-usage" />
 
-### Display reCAPTCHA v3 
+### Display reCAPTCHA v3
 
 #### Add Google API script
 
 Include the API script at the bottom of your layout page
 
-``` html  
+``` html
   {!!  GoogleReCaptchaV3::init() !!}
 ```
 
@@ -263,16 +263,16 @@ It's recommended to include reCAPTCHA v3 on every page which can help you get th
   'background_mode' => false, // if true, the script will run on every page (ensure that GoogleReCaptchaV3::init() is placed on layout or homepage)
    ...
 ```
-If the page has not detected any Action or duplicate google script, the background mode will be enabled. 
+If the page has not detected any Action or duplicate google script, the background mode will be enabled.
 
 #### Form & Action
 
-There are three methods to populate the reCAPTCHA within the form. 
+There are three methods to populate the reCAPTCHA within the form.
 
 - render() and renderOne() can be placed in anywhere but before init()
 - renderField() needs always to be placed within your form.
 
-Method one - render(): 
+Method one - render():
 
 ```
 [
@@ -282,7 +282,7 @@ Method one - render():
 {!!  GoogleReCaptchaV3::render(['contact_us_id'=>'contact_us', 'signup_id'=>'signup']) !!}
 ```
 
-``` html  
+``` html
 <form method="POST" action="/verify">
     <div id="contact_us_id"></div> // add div with id
     <input type="submit" value="submit">
@@ -298,7 +298,7 @@ Method one - render():
 
 ```
 
-Method two - renderOne(): 
+Method two - renderOne():
 
 ```
 GoogleReCaptchaV3::renderOne($id,$action);
@@ -306,7 +306,7 @@ GoogleReCaptchaV3::renderOne($id,$action);
 {!!  GoogleReCaptchaV3::renderOne('contact_us_id','contact_us') !!}
 ```
 
-``` html  
+``` html
 <form method="POST" action="/verify">
     <div id="contact_us_id"></div> // add div with id
     <input type="submit" value="submit">
@@ -317,7 +317,7 @@ GoogleReCaptchaV3::renderOne($id,$action);
 ```
 
 
-Method three - renderField(): 
+Method three - renderField():
 
 ```
 GoogleReCaptchaV3::renderField($id,$action,$class,$style)
@@ -326,7 +326,7 @@ GoogleReCaptchaV3::renderField($id,$action,$class,$style)
 ```
 
 
-``` html  
+``` html
 
 <form method="POST" action="/verify">
    {!!  GoogleReCaptchaV3::renderField('contact_us_id','contact_us_action') !!}
@@ -342,7 +342,7 @@ If your settings were not reflected, please run php artisan config:cache to clea
 
 Inline
 
-1. Go to config file, and set 
+1. Go to config file, and set
 ``` PHP
     [
         ...
@@ -410,7 +410,7 @@ For example:
 The package provides a lightweight vue component. You need to publish the vue component before playing around it.
 
 ### Step 1 Publish vue component:
-```sh 
+```sh
 $ php artisan vendor:publish --provider="TimeHunter\LaravelGoogleReCaptchaV3\Providers\GoogleReCaptchaV3ServiceProvider" --tag=googlerecaptchav3.vuejs
 ```
 
@@ -426,15 +426,16 @@ The Blade way is no longer useful if you use Vue. We need to manage to assign si
 Supported: siteKey, id, inline and action, check the original file to see the details.
 
 ````vue
-                <google-re-captcha-v3
-                        ref="captcha" v-model="gRecaptchaResponse"
-                        :siteKey="'Your Site Key Here'"
-                        :id="'contact_us_id'"
-                        :inline="true"
-                        :action="'contact_us'">
-                </google-re-captcha-v3>
-        
-```` 
+<google-re-captcha-v3
+  v-model="gRecaptchaResponse"
+  ref="captcha"
+  site-key="Your Site Key String Here"
+  id="contact_us_id"
+  inline
+  action="contact_us"
+></google-re-captcha-v3>
+
+````
 
 
 There are two ways you can bind site key to the component.
@@ -447,12 +448,13 @@ There are two ways you can bind site key to the component.
         <form @submit.prevent="submit">
             <div>
                 <google-re-captcha-v3
-                        ref="captcha" v-model="form.gRecaptchaResponse"
-                        :siteKey="this.siteKey"
-                        :id="'contact_us_id'"
-                        :inline="true"
-                        :action="'contact_us'">
-                </google-re-captcha-v3>
+                  v-model="form.gRecaptchaResponse"
+                  ref="captcha"
+                  :site-key="mySiteKeyVariable"
+                  id="contact_us_id"
+                  inline
+                  action="contact_us"
+                ></google-re-captcha-v3>
             </div>
             <button type="submit">Submit</button>
         </form>
@@ -461,7 +463,7 @@ There are two ways you can bind site key to the component.
 <script>
     import GoogleReCaptchaV3 from '../../components/googlerecaptchav3/GoogleReCaptchaV3';
     // location might be diff to your case, ensure that your component location is right
-    
+
     export default {
         components: {
             GoogleReCaptchaV3
@@ -471,7 +473,7 @@ There are two ways you can bind site key to the component.
                 form: {
                     gRecaptchaResponse: null
                 },
-                siteKey: 'Your Site Key',
+                mySiteKeyVariable: 'Your Site Key String',
             }
         },
         methods: {
@@ -495,7 +497,7 @@ There are two ways you can bind site key to the component.
 Please remember to refresh token every time you submit the form if needed:
 
 ````vue
- this.$refs.captcha.execute(); 
+ this.$refs.captcha.execute();
 ````
 
 ###  or Add site key directly into GoogleReCaptchaV3 component
@@ -518,7 +520,7 @@ For instance, open published file and find code below:
 ## Advanced Usage <a name="advanced-usage" />
 
 ### Custom implementation on Config
-    
+
 For some users, they might store the config details in their own storage e.g database. You can create your own class and implement:
 
 ```
@@ -536,7 +538,7 @@ Remember to register it in your own service provider
 
 ### Custom implementation on Request method
 
-The package has two default options to verify: Guzzle and Curl, if you want to use your own request method, You can create your own class and implement 
+The package has two default options to verify: Guzzle and Curl, if you want to use your own request method, You can create your own class and implement
 ```
 TimeHunter\LaravelGoogleReCaptchaV3\Interfaces\RequestClientInterface
 ```
