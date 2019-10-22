@@ -4,10 +4,7 @@
   Author: ryandeng
   -->
   <meta name='keywords' content='recaptcha v3,laravel recaptcha v3,laravel google recaptcha v3,google recaptcha v3,laravel recaptcha,laravel recaptcha v3'>
-
-
-# Warning: Laravel 6.x is not supported, you might encounter some problems. We are on top of it and soon release a new version #
-
+  
 # Laravel Package for Google reCAPTCHA V3
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Total Downloads][ico-downloads]][link-downloads]
@@ -92,7 +89,7 @@ This package requires the following dependencies:
 Via Composer
 
 ``` sh
-        $ composer require timehunter/laravel-google-recaptcha-v3 "~2.2.19" -vvv
+        $ composer require timehunter/laravel-google-recaptcha-v3 "~2.2.23" -vvv
 ```
 
 If your Laravel framework version <= 5.4, please register the service provider under your config file: /config/app.php, otherwise please skip it.
