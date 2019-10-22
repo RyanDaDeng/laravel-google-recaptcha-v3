@@ -5,6 +5,9 @@
   -->
   <meta name='keywords' content='recaptcha v3,laravel recaptcha v3,laravel google recaptcha v3,google recaptcha v3,laravel recaptcha,laravel recaptcha v3'>
 
+
+#Warning: Laravel 6.x is not supported, you might encounter some problems. We are on top of it and soon release a new version#
+
 # Laravel Package for Google reCAPTCHA V3
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Total Downloads][ico-downloads]][link-downloads]
