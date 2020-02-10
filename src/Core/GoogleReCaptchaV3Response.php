@@ -42,9 +42,9 @@ class GoogleReCaptchaV3Response
     }
 
     /**
-     * @param bool $value
+     * @param $value
      */
-    public function setSuccess(bool $value)
+    public function setSuccess($value)
     {
         $this->success = $value;
     }
