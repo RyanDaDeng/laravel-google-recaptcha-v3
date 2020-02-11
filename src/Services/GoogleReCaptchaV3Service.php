@@ -10,8 +10,8 @@ namespace TimeHunter\LaravelGoogleReCaptchaV3\Services;
 
 use Illuminate\Support\Facades\Lang;
 use TimeHunter\LaravelGoogleReCaptchaV3\Core\GoogleReCaptchaV3Response;
-use TimeHunter\LaravelGoogleReCaptchaV3\Interfaces\RequestClientInterface;
 use TimeHunter\LaravelGoogleReCaptchaV3\Interfaces\ReCaptchaConfigV3Interface;
+use TimeHunter\LaravelGoogleReCaptchaV3\Interfaces\RequestClientInterface;
 
 class GoogleReCaptchaV3Service
 {

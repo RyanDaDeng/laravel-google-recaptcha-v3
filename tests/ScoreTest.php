@@ -3,10 +3,10 @@
 namespace TimeHunter\Tests;
 
 use PHPUnit\Framework\TestCase;
-use TimeHunter\LaravelGoogleReCaptchaV3\GoogleReCaptchaV3;
-use TimeHunter\LaravelGoogleReCaptchaV3\Core\GuzzleRequestClient;
-use TimeHunter\LaravelGoogleReCaptchaV3\Core\GoogleReCaptchaV3Response;
 use TimeHunter\LaravelGoogleReCaptchaV3\Configurations\ReCaptchaConfigV3;
+use TimeHunter\LaravelGoogleReCaptchaV3\Core\GoogleReCaptchaV3Response;
+use TimeHunter\LaravelGoogleReCaptchaV3\Core\GuzzleRequestClient;
+use TimeHunter\LaravelGoogleReCaptchaV3\GoogleReCaptchaV3;
 use TimeHunter\LaravelGoogleReCaptchaV3\Services\GoogleReCaptchaV3Service;
 
 class ScoreTest extends TestCase
