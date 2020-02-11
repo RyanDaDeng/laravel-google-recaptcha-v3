@@ -3,13 +3,13 @@
 namespace TimeHunter\LaravelGoogleReCaptchaV3\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use TimeHunter\LaravelGoogleReCaptchaV3\GoogleReCaptchaV3;
+use TimeHunter\LaravelGoogleReCaptchaV3\Configurations\ReCaptchaConfigV3;
 use TimeHunter\LaravelGoogleReCaptchaV3\Core\CurlRequestClient;
 use TimeHunter\LaravelGoogleReCaptchaV3\Core\GuzzleRequestClient;
-use TimeHunter\LaravelGoogleReCaptchaV3\Configurations\ReCaptchaConfigV3;
+use TimeHunter\LaravelGoogleReCaptchaV3\GoogleReCaptchaV3;
+use TimeHunter\LaravelGoogleReCaptchaV3\Interfaces\ReCaptchaConfigV3Interface;
 use TimeHunter\LaravelGoogleReCaptchaV3\Interfaces\RequestClientInterface;
 use TimeHunter\LaravelGoogleReCaptchaV3\Services\GoogleReCaptchaV3Service;
-use TimeHunter\LaravelGoogleReCaptchaV3\Interfaces\ReCaptchaConfigV3Interface;
 
 class GoogleReCaptchaV3ServiceProvider extends ServiceProvider
 {
