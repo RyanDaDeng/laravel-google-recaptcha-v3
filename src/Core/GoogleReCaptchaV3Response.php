@@ -52,7 +52,7 @@ class GoogleReCaptchaV3Response
     /**
      * @param string $value
      */
-    public function setMessage(string $value)
+    public function setMessage($value)
     {
         $this->message = $value;
     }
