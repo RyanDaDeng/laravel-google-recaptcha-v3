@@ -87,6 +87,7 @@ class GoogleReCaptchaV3
             'backgroundMode' => $this->getConfig()->shouldEnableBackgroundMode(),
             'apiJsUrl' => $this->getConfig()->getApiJsUrl(),
         ];
+
         return app('view')->make($this->getView(), array_merge($this->prepareData(), $default, $params));
     }
 
