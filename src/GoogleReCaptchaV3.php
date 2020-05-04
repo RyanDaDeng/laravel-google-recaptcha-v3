@@ -73,9 +73,11 @@ class GoogleReCaptchaV3
     }
 
     /**
+     * @param array $params
      * @return \Illuminate\Contracts\View\View|mixed
+     * @throws \Illuminate\Contracts\Container\BindingResolutionException
      */
-    public function init()
+    public function init(array $params = [])
     {
         if (! $this->getConfig()->isServiceEnabled()) {
             return;
@@ -86,7 +88,7 @@ class GoogleReCaptchaV3
             'apiJsUrl' => $this->getConfig()->getApiJsUrl(),
         ];
 
-        return app('view')->make($this->getView(), array_merge($this->prepareData(), $default));
+        return app('view')->make($this->getView(), array_merge($this->prepareData(), $default, $params));
     }
 
     /**

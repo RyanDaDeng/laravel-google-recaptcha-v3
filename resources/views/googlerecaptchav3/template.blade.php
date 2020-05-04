@@ -1,12 +1,16 @@
+<?php
+    $nonce = !empty($nonce) ? "nonce='{$nonce}'" : '';
+?>
+
 @if(! $hasAction && $backgroundMode )
     @if($display === false)
-        <style>
+        <style {!! $nonce !!}>
             .grecaptcha-badge {
                 display: none;
             }
         </style>
     @endif
-    <script>
+    <script {!! $nonce !!}>
         if (!document.getElementById('gReCaptchaScript')) {
             let reCaptchaScript = document.createElement('script');
             reCaptchaScript.setAttribute('src', '{{$apiJsUrl}}?render={{$publicKey}}');
@@ -19,7 +23,7 @@
 
 
 @if($hasAction)
-    <script>
+    <script {!! $nonce !!}>
         @foreach($mappers as $action=>$fields)
                 @foreach($fields as $field)
                     var client{{$field}};
@@ -34,7 +38,8 @@
                             'sitekey': '{{$publicKey}}',
                             @if($inline===true) 'badge': 'inline', @endif
                             'size': 'invisible',
-                            'hl': '{{$language}}'
+                            'hl': '{{$language}}',
+                            'callback': function() {}
                         });
                         grecaptcha.ready(function () {
                             grecaptcha.execute(client{{$field}}, {
@@ -48,10 +53,10 @@
     </script>
     <script id='gReCaptchaScript' src="{{$apiJsUrl}}?render=explicit&onload=onloadCallback"
             defer
-            async></script>
+            async {!! $nonce !!}></script>
 @endif
 
-<script>
+<script {!! $nonce !!}>
     function refreshReCaptchaV3(fieldId,action){
         grecaptcha.reset(window['client'+fieldId]);
         grecaptcha.ready(function () {
