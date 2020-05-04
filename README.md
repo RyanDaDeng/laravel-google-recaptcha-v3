@@ -13,6 +13,8 @@
 [![StyleCI][ico-styleci]][link-styleci]
 
 A star would be a nice encouragement. ^.^
+
+### 2020-05-04: supported content security policy by [@lxlang] (https://github.com/lxlang)
 ### 2020-03-14: Supported Russian lang by * [@demiurge-ash](https://github.com/demiurge-ash)
 ### 2019-07-09: Multi lang is supported ~2.2.19 
 ### 2019-04-28: Refresh Recaptcha Response in Ajax call is supported, you can refresh the recaptcha response after ajax response is returned (check on Ajax Usage). Version: ~2.2.16)
