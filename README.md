@@ -571,6 +571,7 @@ Thank you for the following contributors, You guys are the BEST!
 * [@Fluxlicious](https://github.com/Fluxlicious)
 * [@vinsonyung](https://github.com/vinsonyung)
 * [@demiurge-ash](https://github.com/demiurge-ash)
+* [@lxlang](https://github.com/lxlang)
 
 ## Security
 
