@@ -252,6 +252,15 @@ Include the API script at the bottom of your layout page
 ``` html
   {!!  GoogleReCaptchaV3::init() !!}
 ```
+##### Consent Security Policy - Nonce
+
+To add a nonce for content security, pass a params array with your pages nonce. 
+
+``` html
+  {!!  GoogleReCaptchaV3::init([
+    'nonce' => nonce(),
+  ]) !!}
+```
 
 #### Running script on every page (optional)
 
