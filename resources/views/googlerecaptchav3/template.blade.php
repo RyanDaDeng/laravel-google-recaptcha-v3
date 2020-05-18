@@ -13,7 +13,7 @@
     <script {!! $nonce !!}>
         if (!document.getElementById('gReCaptchaScript')) {
             let reCaptchaScript = document.createElement('script');
-            reCaptchaScript.setAttribute('src', '{{$apiJsUrl}}?render={{$publicKey}}');
+            reCaptchaScript.setAttribute('src', '{{$apiJsUrl}}?render={{$publicKey}}&hl={{$language}}');
             reCaptchaScript.async = true;
             reCaptchaScript.defer = true;
             document.head.appendChild(reCaptchaScript);

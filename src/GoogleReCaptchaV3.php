@@ -68,6 +68,7 @@ class GoogleReCaptchaV3
         return [
             'publicKey' => $this->getConfig()->getSiteKey(),
             'display' => $this->getConfig()->getBackgroundBadgeDisplay(),
+            'language' => $this->getConfig()->getLanguage(),
             'apiJsUrl' => $this->getConfig()->getApiJsUrl(),
         ];
     }
