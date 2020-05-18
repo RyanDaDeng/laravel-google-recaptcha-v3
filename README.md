@@ -81,7 +81,7 @@ Please check Google site: https://developers.google.com/recaptcha/docs/faq
 
 This package requires the following dependencies:
 
-- Laravel 5.x
+- Laravel >= 5.x
 
 - If you want to use Validation Class your Laravel version needs to be >= 5.5
 
