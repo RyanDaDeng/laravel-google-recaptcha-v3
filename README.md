@@ -571,6 +571,7 @@ Thank you for the following contributors, You guys are the BEST!
 * [@vinsonyung](https://github.com/vinsonyung)
 * [@demiurge-ash](https://github.com/demiurge-ash)
 * [@lxlang](https://github.com/lxlang)
+* [@Indianos](https://github.com/Indianos)
 
 ## Security
 
