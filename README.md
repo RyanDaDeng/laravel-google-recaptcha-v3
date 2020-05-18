@@ -14,15 +14,14 @@
 
 A star would be a nice encouragement. ^.^
 
-### 2020-05-04: Supported content security policy by [@lxlang](https://github.com/lxlang)
-### 2020-03-14: Supported Russian lang by * [@demiurge-ash](https://github.com/demiurge-ash)
-### 2019-07-09: Multi lang is supported ~2.2.19 
-### 2019-04-28: Refresh Recaptcha Response in Ajax call is supported, you can refresh the recaptcha response after ajax response is returned (check on Ajax Usage). Version: ~2.2.16)
-### Update: Vue component is production ready. Please upgrade package version : ~2.2.11
-### Update: if you are using version lower than 2.2.11, please upgrade and publish config file again (remove your current one). There are a few major improvments on Blade usage, please read instructions.
+## Latest features:
 
-I guarantee that bugs, issues, features and changes will be responded in 48 hours.
-
+ - Refresh Ajax supported
+ - Content security policy supported
+ - Multi lang supported
+ - Vue component supported
+ - Background mode supported
+ 
 If you want to use v2, please go to: https://github.com/RyanDaDeng/laravel-google-recaptcha-v2
 
 If you only need to use Vue component, feel free to copy it.
