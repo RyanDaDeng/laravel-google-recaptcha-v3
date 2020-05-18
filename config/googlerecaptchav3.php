@@ -141,6 +141,7 @@ return [
     |--------------------------------------------------------------------------
     | Type: string
     | Google reCAPTCHA API JS URL
+    | use:
     */
     'api_js_url' => 'https://www.google.com/recaptcha/api.js',
     /*
@@ -149,6 +150,8 @@ return [
     |--------------------------------------------------------------------------
     | Type: string
     | Google reCAPTCHA API
+    | please use "www.recaptcha.net" in your code in circumstances when "www.google.com" is not accessible. e.g China
+    | e.g. https://www.recaptcha.net/recaptcha/api.js
     */
     'site_verify_url' => 'https://www.google.com/recaptcha/api/siteverify',
 
