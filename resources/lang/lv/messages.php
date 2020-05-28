@@ -8,4 +8,5 @@ return [
     'ERROR_SCORE_THRESHOLD' => 'Vērtējums neatbilst minimālajam slieksnim.',
     'ERROR_TIMEOUT' => 'Noildze',
     'SUCCESS' => 'Veiksmīgi apstiprināts.',
+    'TIMEOUT_OR_DUPLICATE'=> 'Noildze'
 ];

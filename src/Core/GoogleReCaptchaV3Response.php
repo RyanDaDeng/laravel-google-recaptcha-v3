@@ -17,8 +17,9 @@ class GoogleReCaptchaV3Response
     const ERROR_HOSTNAME = 'GoogleReCaptchaV3::messages.ERROR_HOSTNAME';
     const ERROR_ACTION = 'GoogleReCaptchaV3::messages.ERROR_ACTION';
     const ERROR_SCORE_THRESHOLD = 'GoogleReCaptchaV3::messages.ERROR_SCORE_THRESHOLD';
-    const ERROR_TIMEOUT = 'GoogleReCaptchaV3::messages.ERROR_TIMEOUT';
+    const ERROR_TIMEOUT = 'GoogleReCaptchaV3::messages.ERROR_CONNECTION_TIMEOUT';
     const SUCCESS = 'GoogleReCaptchaV3::messages.SUCCESS';
+    const TIMEOUT_OR_DUPLICATE = 'GoogleReCaptchaV3::messages.TIMEOUT_OR_DUPLICATE';
 
     protected $success;
     protected $score;

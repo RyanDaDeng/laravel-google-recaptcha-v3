@@ -8,4 +8,5 @@ return [
     'ERROR_SCORE_THRESHOLD' => 'Оценка не соответствует пороговому значению.',
     'ERROR_TIMEOUT' => 'Тайм-аут',
     'SUCCESS' => 'Проверка успешно пройдена.',
+    'TIMEOUT_OR_DUPLICATE' => 'Тайм-аут'
 ];

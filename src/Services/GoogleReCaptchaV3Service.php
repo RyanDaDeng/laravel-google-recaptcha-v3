@@ -44,7 +44,7 @@ class GoogleReCaptchaV3Service
      */
     public function verifyResponse($response, $ip = null)
     {
-        if (! $this->config->isServiceEnabled() || ($ip && $this->ifInSkippedIps($ip)) === true) {
+        if (!$this->config->isServiceEnabled() || ($ip && $this->ifInSkippedIps($ip)) === true) {
             $res = new GoogleReCaptchaV3Response([], $ip);
             $res->setSuccess(true);
 
@@ -75,11 +75,16 @@ class GoogleReCaptchaV3Service
         $decodedResponse = json_decode($verifiedResponse, true);
         $rawResponse = new GoogleReCaptchaV3Response($decodedResponse, $ip);
 
+        if ($rawResponse->getMessage() === 'timeout-or-duplicate') {
+            $rawResponse->setMessage(Lang::get(GoogleReCaptchaV3Response::TIMEOUT_OR_DUPLICATE));
+            return $rawResponse;
+        }
+
         if ($rawResponse->isSuccess() === false) {
             return $rawResponse;
         }
 
-        if (! empty($this->config->getHostName()) && strcasecmp($this->config->getHostName(), $rawResponse->getHostname()) !== 0) {
+        if (!empty($this->config->getHostName()) && strcasecmp($this->config->getHostName(), $rawResponse->getHostname()) !== 0) {
             $rawResponse->setMessage(Lang::get(GoogleReCaptchaV3Response::ERROR_HOSTNAME));
             $rawResponse->setSuccess(false);
 

@@ -8,4 +8,5 @@ return [
     'ERROR_SCORE_THRESHOLD' => 'Score does not meet threshold.',
     'ERROR_TIMEOUT' => 'Timeout',
     'SUCCESS' => 'Successfully passed.',
+    'TIMEOUT_OR_DUPLICATE'=> 'The action is timeout.'
 ];
