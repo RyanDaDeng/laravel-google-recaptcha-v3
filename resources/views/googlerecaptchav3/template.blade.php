@@ -6,7 +6,7 @@
     @if($display === false)
         <style {!! $nonce !!}>
             .grecaptcha-badge {
-                display: none;
+                visibility: hidden;
             }
         </style>
     @endif
