@@ -58,10 +58,11 @@
 
 <script {!! $nonce !!}>
     function refreshReCaptchaV3(fieldId,action){
-        grecaptcha.reset(window['client'+fieldId]);
-        grecaptcha.ready(function () {
-            grecaptcha.execute(window['client'+fieldId], {
-                action: action
+        return new Promise(function (resolve, reject) {
+            grecaptcha.ready(function () {
+                grecaptcha.execute(window['client'+fieldId], {
+                    action: action
+                }).then(resolve);
             });
         });
     }
