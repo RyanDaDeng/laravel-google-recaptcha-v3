@@ -572,6 +572,7 @@ Thank you for the following contributors, You guys are the BEST!
 * [@demiurge-ash](https://github.com/demiurge-ash)
 * [@lxlang](https://github.com/lxlang)
 * [@Indianos](https://github.com/Indianos)
+* [@ericp-mrel](https://github.com/ericp-mrel)
 
 ## Security
 
