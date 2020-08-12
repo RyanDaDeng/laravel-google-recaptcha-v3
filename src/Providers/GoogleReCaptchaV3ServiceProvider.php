@@ -117,12 +117,12 @@ class GoogleReCaptchaV3ServiceProvider extends ServiceProvider
 
         // Publishing the vue component file.
         $this->publishes([
-            __DIR__.'/../../vuejs/GoogleReCaptchaV3.vue' => resource_path('js/components/googlerecaptchav3/GoogleReCaptchaV3.vue'),
+            __DIR__.'/../../vuejs/GoogleReCaptchaV3.vue' => base_path('resources/js/components/googlerecaptchav3/GoogleReCaptchaV3.vue'),
         ], 'googlerecaptchav3.vuejs');
 
         // Publishing the lang file.
         $this->publishes([
-            __DIR__.'/../../resources/lang' => resource_path('lang/vendor/GoogleReCaptchaV3'),
+            __DIR__.'/../../resources/lang' => base_path('resources/lang/vendor/GoogleReCaptchaV3'),
         ], 'googlerecaptchav3.lang');
     }
 
