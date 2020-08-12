@@ -6,7 +6,7 @@
     @if($display === false)
         <style {!! $nonce !!}>
             .grecaptcha-badge {
-                display: none;
+                visibility: hidden;
             }
         </style>
     @endif
@@ -51,17 +51,18 @@
             @endforeach
         }
     </script>
-    <script id='gReCaptchaScript' src="{{$apiJsUrl}}?render=explicit&onload=onloadCallback"
+    <script id='gReCaptchaScript' src="{{$apiJsUrl}}?render={{$inline ? 'explicit' : $publicKey}}&onload=onloadCallback"
             defer
             async {!! $nonce !!}></script>
 @endif
 
 <script {!! $nonce !!}>
     function refreshReCaptchaV3(fieldId,action){
-        grecaptcha.reset(window['client'+fieldId]);
-        grecaptcha.ready(function () {
-            grecaptcha.execute(window['client'+fieldId], {
-                action: action
+        return new Promise(function (resolve, reject) {
+            grecaptcha.ready(function () {
+                grecaptcha.execute(window['client'+fieldId], {
+                    action: action
+                }).then(resolve);
             });
         });
     }
