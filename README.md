@@ -91,6 +91,9 @@ This package requires the following dependencies:
 
 ## Installation <a name="installation" />
 
+*Demo code:* https://github.com/RyanDaDeng/laravel-google-recaptcha-v3/wiki/Simple-Demo
+
+
 Via Composer
 
 ``` sh
