@@ -39,7 +39,7 @@
                             @if($inline===true) 'badge': 'inline', @endif
                             'size': 'invisible',
                             'hl': '{{$language}}',
-                            'callback': function() {}
+                            //'callback': function() {}
                         });
                         grecaptcha.ready(function () {
                             grecaptcha.execute(client{{$field}}, {
