@@ -576,8 +576,8 @@ Thank you for the following contributors, You guys are the BEST!
 * [@lxlang](https://github.com/lxlang)
 * [@Indianos](https://github.com/Indianos)
 * [@ericp-mrel](https://github.com/ericp-mrel)
-* [@QuentinBontemps] (https://github.com/QuentinBontemps)
-* [@alr2413] (https://github.com/alr2413)
+* [@QuentinBontemps](https://github.com/QuentinBontemps)
+* [@alr2413](https://github.com/alr2413)
 
 
 ## Security
