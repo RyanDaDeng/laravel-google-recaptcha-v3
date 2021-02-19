@@ -97,7 +97,7 @@ This package requires the following dependencies:
 Via Composer
 
 ``` sh
-        $ composer require timehunter/laravel-google-recaptcha-v3 "~2.4.2" -vvv
+        $ composer require timehunter/laravel-google-recaptcha-v3 "~2.4.3" -vvv
 ```
 
 If your Laravel framework version <= 5.4, please register the service provider under your config file: /config/app.php, otherwise please skip it.
