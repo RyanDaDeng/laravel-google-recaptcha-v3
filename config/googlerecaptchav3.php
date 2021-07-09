@@ -105,7 +105,8 @@ return [
     | Define your score threshold, define your action
     | action: Google reCAPTCHA required parameter
     | threshold: score threshold
-    | score_comparison: true/false, if this is true, the system will do score comparison against your threshold for the action
+    | score_comparison: true/false, if this is true, the system will do score comparison against your threshold for
+    | the action
     */
     'setting' => [
         [
