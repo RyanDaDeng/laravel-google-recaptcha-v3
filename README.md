@@ -600,6 +600,6 @@ MIT. Please see the [license file](license.md) for more information.
 [link-downloads]: https://packagist.org/packages/timehunter/laravel-google-recaptcha-v3
 [link-author]: https://github.com/ryandadeng
 [link-coverage]: https://coveralls.io/github/RyanDaDeng/laravel-google-recaptcha-v3?branch=master
-[link-build]: https://travis-ci.org/RyanDaDeng/laravel-google-recaptcha-v3
+[link-build]: https://app.travis-ci.com/github/RyanDaDeng/laravel-google-recaptcha-v3
 [link-styleci]: https://github.styleci.io/repos/146857583
 [link-unstable]: https://packagist.org/packages/timehunter/laravel-google-recaptcha-v3
