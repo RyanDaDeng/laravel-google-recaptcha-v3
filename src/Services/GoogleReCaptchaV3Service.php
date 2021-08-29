@@ -44,7 +44,7 @@ class GoogleReCaptchaV3Service
      */
     public function verifyResponse($response, $ip = null)
     {
-        if (! $this->config->isServiceEnabled() || ($ip && $this->ifInSkippedIps($ip)) === true) {
+        if (!$this->config->isServiceEnabled() || ($ip && $this->ifInSkippedIps($ip)) === true) {
             $res = new GoogleReCaptchaV3Response([], $ip);
             $res->setSuccess(true);
 
@@ -85,7 +85,7 @@ class GoogleReCaptchaV3Service
             return $rawResponse;
         }
 
-        if (! empty($this->config->getHostName()) && strcasecmp($this->config->getHostName(), $rawResponse->getHostname()) !== 0) {
+        if (!empty($this->config->getHostName()) && strcasecmp($this->config->getHostName(), $rawResponse->getHostname()) !== 0) {
             $rawResponse->setMessage(Lang::get(GoogleReCaptchaV3Response::ERROR_HOSTNAME));
             $rawResponse->setSuccess(false);
 
@@ -108,11 +108,17 @@ class GoogleReCaptchaV3Service
             if ($this->getConfig()->isScoreEnabled()) {
                 $count = collect($this->getConfig()->getSetting())
                     ->where('action', '=', $rawResponse->getAction())
+                    ->where('score_comparison', '=', true)
+                    ->where('threshold', '>', $rawResponse->getScore())
+                    ->count();
+
+                $oldCount = collect($this->getConfig()->getSetting())
+                    ->where('action', '=', $rawResponse->getAction())
                     ->where('score_comparision', '=', true)
                     ->where('threshold', '>', $rawResponse->getScore())
                     ->count();
 
-                if ($count > 0) {
+                if ($count > 0 || $oldCount > 0) {
                     $rawResponse->setSuccess(false);
                     $rawResponse->setMessage(Lang::get(GoogleReCaptchaV3Response::ERROR_SCORE_THRESHOLD));
 

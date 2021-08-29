@@ -28,7 +28,7 @@ class ScoreTest extends TestCase
                 [
                     'action' => 'contact_us',
                     'threshold' => 1,
-                    'score_comparision' => true,
+                    'score_comparison' => true,
                 ],
             ]);
 
@@ -63,7 +63,7 @@ class ScoreTest extends TestCase
                 [
                     'action' => 'contact_us',
                     'threshold' => 1,
-                    'score_comparision' => true,
+                    'score_comparison' => true,
                 ],
             ]);
 
@@ -97,7 +97,7 @@ class ScoreTest extends TestCase
                 [
                     'action' => 'contact_us',
                     'threshold' => 1,
-                    'score_comparision' => false,
+                    'score_comparison' => false,
                 ],
             ]);
 
@@ -131,7 +131,7 @@ class ScoreTest extends TestCase
                 [
                     'action' => 'contact_us',
                     'threshold' => 0.9,
-                    'score_comparision' => true,
+                    'score_comparison' => true,
                 ],
             ]);
 
@@ -165,7 +165,7 @@ class ScoreTest extends TestCase
                 [
                     'action' => 'contact_us',
                     'threshold' => 0.91,
-                    'score_comparision' => true,
+                    'score_comparison' => true,
                 ],
             ]);
 
@@ -200,7 +200,7 @@ class ScoreTest extends TestCase
                 [
                     'action' => 'contact_us_test',
                     'threshold' => 0.91,
-                    'score_comparision' => true,
+                    'score_comparison' => true,
                 ],
             ]);
 
@@ -234,7 +234,7 @@ class ScoreTest extends TestCase
                 [
                     'action' => 'contact_us_test',
                     'threshold' => 0.91,
-                    'score_comparision' => true,
+                    'score_comparison' => true,
                 ],
             ]);
 
@@ -268,7 +268,7 @@ class ScoreTest extends TestCase
                 [
                     'action' => 'contact_us',
                     'threshold' => 0.91,
-                    'score_comparision' => true,
+                    'score_comparison' => true,
                 ],
             ]);
 
@@ -302,7 +302,7 @@ class ScoreTest extends TestCase
                 [
                     'action' => 'contact_us',
                     'threshold' => 0.91,
-                    'score_comparision' => true,
+                    'score_comparison' => true,
                 ],
             ]);
 
@@ -336,7 +336,7 @@ class ScoreTest extends TestCase
                 [
                     'action' => 'contact_us',
                     'threshold' => 0.6,
-                    'score_comparision' => true,
+                    'score_comparison' => true,
                 ],
             ]);
 

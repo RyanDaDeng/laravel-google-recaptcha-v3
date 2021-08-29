@@ -21,7 +21,7 @@ class RequestTest extends TestCase
 
         $response = new GoogleReCaptchaV3Response(json_decode($response, 1), null, '');
         $this->assertEquals(false, $response->isSuccess());
-        $this->assertEquals(2, count($response->getErrorCodes()));
+        $this->assertEquals(1, count($response->getErrorCodes()));
     }
 
     public function testCurlRequest2()
@@ -50,7 +50,7 @@ class RequestTest extends TestCase
 
         $response = new GoogleReCaptchaV3Response(json_decode($response, 1), null, '');
         $this->assertEquals(false, $response->toArray()['success']);
-        $this->assertEquals(2, count($response->getErrorCodes()));
+        $this->assertEquals(1, count($response->getErrorCodes()));
     }
 
     public function testGuzzleRequest2()

@@ -97,7 +97,7 @@ This package requires the following dependencies:
 Via Composer
 
 ``` sh
-        $ composer require timehunter/laravel-google-recaptcha-v3 "~2.4.4" -vvv
+        $ composer require timehunter/laravel-google-recaptcha-v3 "~2.5" -vvv
 ```
 
 If your Laravel framework version <= 5.4, please register the service provider under your config file: /config/app.php, otherwise please skip it.
@@ -156,12 +156,12 @@ Specify your Score threshold and action in 'setting', e.g.
           [
                 'action' => 'contact_us', // Google reCAPTCHA required paramater
                 'threshold' => 0.2, // score threshold
-                'score_comparision' => false // if this is true, the system will do score comparsion against your threshold for the action
+                'score_comparison' => false // if this is true, the system will do score comparsion against your threshold for the action
             ],
             [
                 'action' => 'signup',
                 'threshold' => 0.2,
-                'score_comparision' => true
+                'score_comparison' => true
             ],
         ]
 
