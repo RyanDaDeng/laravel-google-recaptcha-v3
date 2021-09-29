@@ -39,7 +39,7 @@ class GoogleReCaptchaV3Service
 
     /**
      * @param $response
-     * @param null $ip
+     * @param  null  $ip
      * @return GoogleReCaptchaV3Response
      */
     public function verifyResponse($response, $ip = null)
@@ -142,7 +142,7 @@ class GoogleReCaptchaV3Service
     }
 
     /**
-     * @param string|null $value
+     * @param  string|null  $value
      * @return $this
      */
     public function setAction($value = null)
@@ -153,7 +153,7 @@ class GoogleReCaptchaV3Service
     }
 
     /**
-     * @param string|null $value
+     * @param  string|null  $value
      * @return $this
      */
     public function setScore($value = null)
