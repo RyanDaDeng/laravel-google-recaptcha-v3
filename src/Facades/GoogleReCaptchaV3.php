@@ -13,6 +13,7 @@ use TimeHunter\LaravelGoogleReCaptchaV3\Core\GoogleReCaptchaV3Response;
  * @method static renderOne($id, $action)
  * @method static init()
  * @method static renderField($id, $action, $class = '', $style = '')
+ *
  * @see \TimeHunter\LaravelGoogleReCaptchaV3\GoogleReCaptchaV3
  */
 class GoogleReCaptchaV3 extends Facade

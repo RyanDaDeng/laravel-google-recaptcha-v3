@@ -51,7 +51,7 @@ class GoogleReCaptchaV3Response
     }
 
     /**
-     * @param string $value
+     * @param  string  $value
      */
     public function setMessage($value)
     {

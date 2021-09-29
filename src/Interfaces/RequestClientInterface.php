@@ -13,7 +13,7 @@ interface RequestClientInterface
     /**
      * @param $url
      * @param $body
-     * @param array $options
+     * @param  array  $options
      * @return mixed
      */
     public function post($url, $body, $options = []);

@@ -74,8 +74,9 @@ class GoogleReCaptchaV3
     }
 
     /**
-     * @param array $params
+     * @param  array  $params
      * @return \Illuminate\Contracts\View\View|mixed
+     *
      * @throws \Illuminate\Contracts\Container\BindingResolutionException
      */
     public function init(array $params = [])
@@ -105,8 +106,8 @@ class GoogleReCaptchaV3
     /**
      * @param $id
      * @param $action
-     * @param string $class
-     * @param string $style
+     * @param  string  $class
+     * @param  string  $style
      * @return \Illuminate\Contracts\View\View|mixed
      */
     public function renderField($id, $action, $class = '', $style = '')
@@ -146,7 +147,7 @@ class GoogleReCaptchaV3
 
     /**
      * @param $response
-     * @param null $ip
+     * @param  null  $ip
      * @return GoogleReCaptchaV3Response
      */
     public function verifyResponse($response, $ip = null)
@@ -163,7 +164,7 @@ class GoogleReCaptchaV3
     }
 
     /**
-     * @param string|null $value
+     * @param  string|null  $value
      * @return $this
      */
     public function setAction($value = null)
@@ -174,7 +175,7 @@ class GoogleReCaptchaV3
     }
 
     /**
-     * @param string|null $value
+     * @param  string|null  $value
      * @return $this
      */
     public function setScore($value = null)
