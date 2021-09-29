@@ -38,8 +38,7 @@
                             'sitekey': '{{$publicKey}}',
                             @if($inline===true) 'badge': 'inline', @endif
                             'size': 'invisible',
-                            'hl': '{{$language}}',
-                            //'callback': function() {}
+                            'hl': '{{$language}}'
                         });
                         grecaptcha.ready(function () {
                             grecaptcha.execute(client{{$field}}, {
