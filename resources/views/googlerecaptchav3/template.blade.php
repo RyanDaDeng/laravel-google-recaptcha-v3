@@ -50,7 +50,8 @@
             @endforeach
         }
     </script>
-    <script id='gReCaptchaScript' src="{{$apiJsUrl}}?render={{$inline ? 'explicit' : $publicKey}}&onload=onloadCallback"
+    <script id='gReCaptchaScript'
+            src="{{$apiJsUrl}}?render={{$inline ? 'explicit' : $publicKey}}&hl={{$language}}&onload=onloadCallback"
             defer
             async {!! $nonce !!}></script>
 @endif
