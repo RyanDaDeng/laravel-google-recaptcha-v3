@@ -68,7 +68,7 @@ Please check Google site: https://developers.google.com/recaptcha/docs/faq
 ## Features
 
 - High Test coverage, safe and easy to use
-- Score Comparision
+- Score Comparison
 - Support invisible, corner and inline badge style
 - Support reCAPTCHA to run on every page
 - Support multiple actions to be placed on the same page
@@ -97,7 +97,7 @@ This package requires the following dependencies:
 Via Composer
 
 ``` sh
-        $ composer require timehunter/laravel-google-recaptcha-v3 "~2.5" -vvv
+$ composer require timehunter/laravel-google-recaptcha-v3 "~2.5"
 ```
 
 If your Laravel framework version <= 5.4, please register the service provider under your config file: /config/app.php, otherwise please skip it.
@@ -167,7 +167,7 @@ Specify your Score threshold and action in 'setting', e.g.
 
 
 ```
-Note: if you want to enable Score Comparision, you also need to enable is_score_enabled to be true.
+Note: if you want to enable Score Comparison, you also need to enable is_score_enabled to be true.
 ``` php
 
         ...
@@ -176,7 +176,7 @@ Note: if you want to enable Score Comparision, you also need to enable is_score_
 
 ```
 
-For score comparision, all actions should be registered in googlerecaptchav3 config file under 'setting' section.
+For score comparison, all actions should be registered in googlerecaptchav3 config file under 'setting' section.
 
 For more details please check comments in config file.
 
