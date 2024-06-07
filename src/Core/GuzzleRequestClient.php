@@ -18,7 +18,7 @@ class GuzzleRequestClient implements RequestClientInterface
 {
     public function post($url, $body, $options = [])
     {
-        $client = new Client();
+        $client = new Client($options);
         try {
             $response = $client->post($url, [
                 'form_params' => $body,
